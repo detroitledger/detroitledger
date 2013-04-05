@@ -1,0 +1,422 @@
+body {
+	width: 900px;
+	padding-left: 10px;
+	/*border: 1px solid black;*/
+}
+h2 {
+	font-size: 18px;
+}
+a {
+	color: black;
+	font-family: arial, sans-serif;
+}
+a.wepay-widget-button.extra_donation {
+	padding: 20px 30px;
+	font-size: 24px;
+	border-radius: 5px;
+}
+p {
+	font-family: Helvetica, sans-serif;
+	font-size: 28px;
+}
+li {
+	margin-right: 30px;
+	margin-bottom: 15px;
+}
+ul {
+	font-size: 22px;
+}
+.bold {
+	font-weight: bold;
+}
+.carbon_copy {
+	color: grey;
+	font-family: arial, sans-serif;
+	font-size: 22px;
+	width: 850px;
+	margin-left: 15px;
+}
+#cheap_occasional {
+	margin-top: 0;
+	margin-left: 130px;
+}
+#cheap_monthly {
+	margin-top: 0;
+	margin-left: 140px;
+}
+#cheap_premium {
+	margin-top: 0;
+	margin-left: 160px;
+}
+#clarifying_note {
+	font-size: 16px;
+}
+.clear {
+	clear: both;
+}
+.clear_left {
+	clear: left;
+}
+.clear_right {
+	clear: right;
+}
+#coming_soon {
+	margin-top: -23px;
+	margin-left: -40px;
+}
+#contact_bar {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	/*left: 700px;*/
+	height: 30px;
+}
+#contact_arrow {
+	position: fixed;
+	top: 40px;
+	right: 20px;
+	background-color: white;
+	opacity: 1;
+	padding-right: 60px;
+	padding-left: 15px;
+}
+.contact_info {
+	float: right;
+	padding: 5px 30px 5px 10px;
+	font-size: 22px;
+	background-color: white;
+	opacity: 1;
+}
+#contact_prompt {
+	width: 230px;
+	position: fixed;
+	top: 99px;
+	right: 20px;
+	font-family: "Comic Sans MS";
+	font-size: 13px;
+	background-color: white;
+	opacity: 1;
+	padding: 10px;
+	/*border: 1px solid #AF2C6B;
+		border-radius: 5px;*/
+}
+#dedicated {
+	width: 500px;
+	float: left;
+	margin-left: 10px;
+}
+#dedicated_title {
+	margin-left: 60px;
+	margin-bottom: 10px;
+	font-family: Helvetica, sans-serif;
+	font-size: 20px;
+}
+#deposit {
+	width: 700px;
+}
+#donor_header {
+	font-size: 66px;
+	text-align: center;
+	margin-top: 80px;
+}
+#donation_like {
+	margin-left: 300px;
+}
+.discount {
+	font-size: 9px;
+	float: left;
+	margin-bottom: 0;
+}
+#example {
+	width: 700px;
+	margin: 70px 0;
+}
+#explanation {
+	width: 900px;
+	margin-left: 15px;
+}
+#extra_donation_buttons {
+	width: 630px;
+	margin: 40px auto;
+}
+#extra_donations_raised .wepay-donations-progress-widget-wrapper .wepay-donations-progress-widget {
+	width: 500px;
+	margin: 0 auto;
+}
+#extra_donation_specific {
+	width: 100px;
+	margin: 0 auto;
+}
+#extra_donation_specific input {
+	width: 100px !important;
+}
+#wepay_widget_anchor_512c400702498 {
+	width: 100px;
+}
+#fundraising_contact_bar {
+	position: fixed;
+	top: 0;
+	width: 900px;
+	background-color: white;
+	padding: 5px;
+}
+a#fundraising_email {
+	float: left;
+	font-size: 22px;
+}
+p#fundraising_phone {
+	float: right;
+	font-size: 22px;
+	margin: 0;
+}
+#fundraising_link {
+	position: fixed;
+	top: 0;
+	left: 5px;
+	background-color: white;
+}
+#fundraising_link p {
+	margin: 5px 5px 0 0;
+}
+#google_translate_element {
+	margin-top: 10px;
+}
+.green {
+	color: green;
+}
+#guest_passes {
+	width: 850px;
+	border: 4px outset #AF2C6B;
+	border-radius: 20px;
+	padding: 20px 40px;
+	margin: 30px auto 80px;
+}
+hr {
+	margin: 3px 0 3px 0;
+}
+.italics {
+	font-style: italic;
+}
+#join_arrow {
+	position: fixed;
+	top: 10px;
+	right: 385px;
+	background-color: white;
+	opacity: 1;
+}
+#join_prompt {
+	width: 616px;
+	position: fixed;
+	top: 10px;
+	right: 340px;
+	font-family: "Comic Sans MS", sans-serif;
+	font-size: 13px;
+	background-color: white;
+	opacity: 1;
+	padding: 0 5px 0px 0px;
+	border: 2px solid #AF2C6B; /*#FEF73A*/
+	border-radius: 5px;
+}
+.list1 {
+	float: left;
+	width: 400px;
+	margin-top: 0px;
+	font-family: arial, sans-serif;
+}
+.list2 {
+	width: 400px;
+	margin-left: 425px;
+	font-family: arial, sans-serif;
+}
+#monthly {
+	float: left;
+	margin-left: 97px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-family: arial, sans-serif;
+	font-size: 22px;
+}
+#nametag {
+	margin-top: 170px;
+	/*border: 1px solid black;*/
+}
+#occasional {
+	float: left;
+	margin-left: 75px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-family: arial, sans-serif;
+	font-size: 22px;
+}
+#organizers {
+	margin-bottom: 150px;
+}
+#organizers p {
+	float: left;
+	font-size: 26px;
+	font-family: times, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+	padding: 10px 25px;
+	/*border: 1px solid black;*/
+}
+#organizers a {
+	float: left;
+	font-size: 26px;
+	font-family: times, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+	padding: 10px 25px;
+	/*border: 1px solid black;*/
+}
+#organizers img {
+	padding: 10px 20px;
+}
+.pink {
+	color: #AF2C6B;
+}
+#pitch {
+	margin: 80px 0;
+}
+#premium {
+	float: left;
+	margin-left: 63px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-family: arial, sans-serif;
+	font-size: 22px;
+}
+#public {
+	margin-left: 520px;
+	width: 350px;
+}
+#public_title {
+	font-family: Helvetica, sans-serif;
+	font-size: 20px;
+	margin-left: 15px;
+	margin-bottom: 25px;
+}
+#real_estate {
+	margin-left: 30px;
+	font-size: 22px;
+	font-family: arial, sans-serif;
+}
+#rent {
+	font-family: arial, sans-serif;
+	font-size: 22px;
+	width: 700px;
+	margin-left: 30px;
+}
+.smaller {
+	font-family: arial, sans-serif;
+	font-size: 22px;
+	width: 850px;
+	margin-left: 15px;
+}
+#social_buttons {
+	width: 200px;
+	margin-left: 70px;
+}
+.underline {
+	text-decoration: underline;
+}
+#vote_share {
+	width: 85px;
+	float: left;
+}
+.fb-like.fb_edge_widget_with_comment.fb_iframe_widget {
+	margin-bottom: 10px;
+	margin-right: 40px;
+}
+.twitter-share-button {
+	/*margin-top: 5px;*/
+	width: 85px !important;
+}
+#vote_now_box {
+	width: 22px;
+	margin-right: 5px;
+	float: left;
+}
+#vote_now_text {
+	/*float: left;*/
+	font-family: "Comic Sans MS", sans-serif;
+	font-size: 13px;
+	color: white;
+	background-color: black;
+	font-weight: bold;
+	white-space: wrap;
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	margin: 0;
+	border-right: 1px solid black;
+}
+#vote_share_prompt {
+	font-family: "Comic Sans MS", sans-serif;
+	font-size: 12px;
+	float: left;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 5px;
+	width: 70px;
+	margin: 0;
+}
+#wepay_widget_anchor_5089813b90490 {
+	min-width: 45px;
+	padding: 10px 20px 10px;
+	margin-left: 45px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 16px;
+}
+#wepay_widget_anchor_509156a48b604 {
+	min-width: 45px;
+	padding: 10px 20px 10px;
+	margin-left: 20px;
+	font-size: 16px;
+}
+#wepay_widget_anchor_50898196bb12d {
+	min-width: 45px;
+	padding: 10px 20px 10px;
+	margin-left: 70px;
+	font-size: 16px;
+}
+#wepay_widget_anchor_50914ef89dc6d {
+	min-width: 45px;
+	padding: 10px 20px 10px;
+	margin-left: 20px;
+	font-size: 16px;
+}
+#wepay_widget_anchor_508981f28df91 {
+	min-width: 45px;
+	padding: 10px 20px 10px;
+	margin-left: 90px;
+	font-size: 16px;
+}
+#wepay_widget_anchor_509156d6bdb4f {
+	min-width: 45px;
+	padding: 10px 20px 10px;
+	margin-left: 20px;
+	font-size: 16px;
+}
+.wepay-donations-progress-widget-wrapper .wepay-donations-progress-widget {
+	margin-left: -460px;	
+}
+#white_background {
+	background-color: white;
+	width: 270px;
+	height: 190px;
+	position: fixed;
+	top: 0;
+	right: 0;
+}
+.whisper {
+	font-size: 10px;
+	color: grey;
+}
+#refund {
+	float: right;
+	width: 370px;
+}
