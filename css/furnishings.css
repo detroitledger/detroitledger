@@ -13,6 +13,13 @@ body {
 	padding-bottom:70px;
 }
 
+a,
+a:hover {
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 1px dotted #fff;
+}
+
 h1 {
 	margin:0;
 	text-align:left;
@@ -35,6 +42,11 @@ h1 {
 		.main h2 {
 			margin:0.5em 0;
 		}
+
+	h3 {
+		font-size:16px;
+		margin:1.5em 0 0 0;
+	}
 
 
 span {
