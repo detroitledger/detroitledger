@@ -1,4 +1,6 @@
 html {
+	background:#0088cc; /* dark blue */
+	border-bottom:10px solid #36a9e2; /* light blue */
 }
 
 body {
@@ -7,7 +9,6 @@ body {
 	line-height:1.5;
 	background:#0088cc; /* dark blue */
 	border-top:10px solid #36a9e2; /* light blue */
-	border-bottom:10px solid #36a9e2; /* light blue */
 	color:#fff;
 	font-weight:300;
 	padding-bottom:70px;
