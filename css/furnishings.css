@@ -4,7 +4,7 @@ html {
 }
 
 body {
-	font-family:Droid Sans, Open Sans, sans-serif;
+	font-family:Open Sans, Droid Sans, sans-serif;
 	font-size:15px;
 	line-height:1.5;
 	background:#0088cc; /* dark blue */
@@ -31,7 +31,7 @@ h1 {
 	font-weight:700;
 	color:#fff;
 	font-size:16px;
-}
+1}
 	.lower {
 		font-weight:100;
 	}
@@ -46,6 +46,16 @@ h1 {
 
 		.main h2 {
 			margin:0.5em 0;
+		}
+
+		.sidebar h2 {
+			margin-top:0;
+			line-height:1;
+			margin-bottom:20px;
+		}
+
+		.signup h2 {
+			margin-top:1em;
 		}
 
 	h3 {
@@ -63,4 +73,32 @@ span {
 	max-width:960px;
 }
 
+header {
+	background: #fff;
+	padding:60px 0;
+	margin-bottom:40px;
+	border: 1px solid #0077b2;
+	border-width:1px 0 1px 0;
+}
 
+	header h2,
+	header h3 {
+		text-align:center;
+		color: #0088cc;
+	}
+
+	header h3 {
+		color: #333;
+		font-weight: 300;
+		font-size:36px;
+		margin-top:20px;
+	}
+
+
+.building  {
+	margin-bottom:25px;
+}
+
+.sidebar {
+padding-left:40px;
+}
