@@ -94,11 +94,51 @@ header {
 		margin-top:20px;
 	}
 
+	header p {
+		text-align: center;
+	}
+
+	header a,
+	header a:hover {
+		color:#666;
+		border-bottom: 1px dotted #666;
+	}
+
+	a.wepay-widget-button {
+		font-size: 24px!important;
+		font-family:Open Sans, Droid Sans, sans-serif!important;
+		background: #df0054 !important;
+		background-image:none!important;
+		color:#fff!important;
+		box-shadow: none!important;
+	}
+
+	a.wepay-widget-button strong {
+		font-weight: 300!important;
+	}
 
 .building  {
 	margin-bottom:25px;
 }
 
 .sidebar {
-padding-left:40px;
+	padding-left:40px;
 }
+
+table {
+	width:100%;
+	margin-bottom:1em;
+}
+	th, td {
+		padding:5px 0;
+	}
+
+	th {
+		text-align: left;
+		border-bottom: 1px solid #fff;
+	}
+
+	td {
+		border-bottom: 1px dotted #fff;
+	}
+
