@@ -11,7 +11,7 @@ body {
 	border-top:10px solid #36a9e2; /* light blue */
 	color:#fff;
 	font-weight:300;
-	padding-bottom:70px;
+	padding-bottom:30px;
 }
 
 a,
@@ -145,3 +145,9 @@ table {
 		border-bottom: 1px dotted #fff;
 	}
 
+footer {
+	margin-top:40px;
+	padding-top: 40px;
+	border-top: 1px dotted #fff;
+	text-align: center;
+}
