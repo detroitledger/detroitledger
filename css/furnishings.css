@@ -111,6 +111,9 @@ header {
 		background-image:none!important;
 		color:#fff!important;
 		box-shadow: none!important;
+		text-shadow: none!important;
+		border:1px solid #df0054 !important;
+		border-radius:4px !important;
 	}
 
 	a.wepay-widget-button strong {
