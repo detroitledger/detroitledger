@@ -10,7 +10,18 @@
  ******************************************************************************/
 
 @import "../gnl_theme/sass/utils";
+@import "../gnl_theme/sass/_base";
 
 @import "normalize";
 
 @import "toolkit/border-box";
+
+body {
+  background: $blue;
+}
+
+.container {
+  max-width: 920px;
+  padding: 0 20px;
+}
+
