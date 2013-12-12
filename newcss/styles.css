@@ -497,10 +497,20 @@ h1 {
   border-bottom: 5px solid #a4b6be; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000392}}
+#network {
+  background: white url(../img/network.png) no-repeat center 50px;
+  padding-bottom: 500px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000396}}
+  #network h2 {
+    border-bottom: 0;
+    font-size: 35px;
+    text-align: center; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003103}}
 .contrast .callout {
   border-bottom: 5px solid #e5dcaa; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003107}}
 input {
   max-width: 650px;
   min-width: 650px;
@@ -512,23 +522,23 @@ input {
   color: #333333;
   border: 5px solid #60aadb; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003109}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003120}}
 h2 {
   line-height: 0.9em;
   text-indent: -4px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003115}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003126}}
 h2,
 p {
   max-width: 650px;
   margin: 0px auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003120}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003131}}
 p {
   line-height: 1.9;
   margin-top: 1em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003127}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003138}}
 a,
 a:link,
 a:visited {
