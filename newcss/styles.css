@@ -503,14 +503,13 @@ h1 {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000396}}
   #network h2 {
     border-bottom: 0;
-    font-size: 35px;
-    text-align: center; }
+    font-size: 45px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003102}}
 .contrast .callout {
   border-bottom: 5px solid #e5dcaa; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003107}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003106}}
 input {
   max-width: 650px;
   min-width: 650px;
@@ -522,23 +521,23 @@ input {
   color: #333333;
   border: 5px solid #60aadb; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003120}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003119}}
 h2 {
   line-height: 0.9em;
   text-indent: -4px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003126}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003125}}
 h2,
 p {
   max-width: 650px;
   margin: 0px auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003131}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003130}}
 p {
   line-height: 1.9;
   margin-top: 1em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003138}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003137}}
 a,
 a:link,
 a:visited {
