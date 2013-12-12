@@ -18,10 +18,98 @@
 
 body {
   background: $blue;
+  color: #fff;
 }
 
+/* Structure -----------------------------------*/
 .container {
   max-width: 920px;
   padding: 0 20px;
+  margin: 0 auto;
 }
 
+.wrap {
+  padding: 50px 0;
+}
+
+.contrast {
+  background: $lighter-tan;
+
+  h2,
+  h3,
+  p {
+    color: $body-color;
+  }
+}
+
+.white {
+  background: #fff;
+
+  h2,
+  h3,
+  p {
+    color: $body-color;
+  }
+}
+
+
+header {
+  background: $blue;
+  color: #fff;
+  padding: 10px 0;
+}
+
+
+/* Type -----------------------------------*/
+
+h1 {
+  font-size: 80px;
+  text-align: center;
+  font-weight: bold;
+  padding: 0;
+  line-height: 0.4;
+}
+
+.callout {
+  font-size: 4em;
+  font-weight: bold;
+  letter-spacing: -0.05em;
+
+  .num {
+    letter-spacing: -0.1em;
+  }
+  .dollar {
+    font-size: 50px;
+  }
+
+}
+
+input {
+  max-width: 650px;
+  min-width: 650px;
+  /* todo: add responsivity */
+
+  display: inline-block;
+  margin-bottom: 1em;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: $body-color;
+}
+
+h2,
+p {
+  max-width: 650px;
+  margin: 0px auto;
+}
+
+p {
+  line-height: 1.9;
+}
+
+a,
+a:link,
+a:visited {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px dotted #fff;
+}

@@ -55,7 +55,7 @@
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/gnl_theme\/sass\/utils\/typeface\.scss}line{font-family:\000034}}
 body {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5;
   font-family: "Sorts Mill Goudy", "Adobe Garamond", "Garamond", Palatino, serif;
   font-weight: 400; }
 
@@ -65,6 +65,57 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: "Nobile", Helvetica, sans-serif;
   font-weight: 400; }
+
+/*******************************************************************************
+ * _base.scss
+
+ * Base styles define the default look for HTML and common Drupal elements.
+ *
+ * These rules will generally be made up of element selectors for HTML elements
+ * such as headings, paragraphs and lists. Common Drupal elements such as form
+ * items, collapsible fieldsets and messages should be included in this partial.
+ *
+ * The styleguide module (http://drupal.org/project/styleguide) gives you a good
+ * overview of Drupals common elements for styling. By setting a solid baseline
+ * before adding any more specific customisations you ensure that as any new
+ * features are added they will be correctly styled without any extra work.
+ ******************************************************************************/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/gnl_theme\/sass\/_base\.scss}line{font-family:\0000316}}
+body {
+  background: #f1ecd1;
+  font-family: nobile;
+  color: #333333; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/gnl_theme\/sass\/_base\.scss}line{font-family:\0000323}}
+a:link,
+a:visited {
+  color: #0088cc;
+  text-decoration: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/gnl_theme\/sass\/_base\.scss}line{font-family:\0000329}}
+a:active,
+a:hover {
+  text-decoration: underline; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/gnl_theme\/sass\/_base\.scss}line{font-family:\0000333}}
+a.active-trail {
+  color: black;
+  text-decoration: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/gnl_theme\/sass\/_base\.scss}line{font-family:\0000338}}
+html.js .form-autocomplete {
+  background-position: 100% 7px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/gnl_theme\/sass\/_base\.scss}line{font-family:\0000342}}
+.view-id-orgs .views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/gnl_theme\/sass\/_base\.scss}line{font-family:\0000347}}
+input[type="submit"],
+select {
+  background: #f7f4e5;
+  border: 1px solid #e5dcaa;
+  padding: 2px 5px; }
 
 /*! normalize.css v1.1.0 | MIT License | git.io/normalize */
 /*! normalize.css v1.1.0 | HTML5 Display Definitions | MIT License | git.io/normalize */
@@ -377,3 +428,93 @@ table {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   *behavior: url('../behaviors/box-sizing/boxsizing.php'); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000319}}
+body {
+  background: #0088cc;
+  color: #fff; }
+
+/* Structure -----------------------------------*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000325}}
+.container {
+  max-width: 920px;
+  padding: 0 20px;
+  margin: 0 auto; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000331}}
+.wrap {
+  padding: 50px 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000335}}
+.contrast {
+  background: #f7f4e5; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000340}}
+  .contrast h2,
+  .contrast h3,
+  .contrast p {
+    color: #333333; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000345}}
+.white {
+  background: #fff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000350}}
+  .white h2,
+  .white h3,
+  .white p {
+    color: #333333; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000356}}
+header {
+  background: #0088cc;
+  color: #fff;
+  padding: 10px 0; }
+
+/* Type -----------------------------------*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000365}}
+h1 {
+  font-size: 80px;
+  text-align: center;
+  font-weight: bold;
+  padding: 0;
+  line-height: 0.4; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000373}}
+.callout {
+  font-size: 4em;
+  font-weight: bold;
+  letter-spacing: -0.05em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000378}}
+  .callout .num {
+    letter-spacing: -0.1em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000381}}
+  .callout .dollar {
+    font-size: 50px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000387}}
+input {
+  max-width: 650px;
+  min-width: 650px;
+  /* todo: add responsivity */
+  display: inline-block;
+  margin-bottom: 1em;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #333333; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003100}}
+h2,
+p {
+  max-width: 650px;
+  margin: 0px auto; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003105}}
+p {
+  line-height: 1.9; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003111}}
+a,
+a:link,
+a:visited {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px dotted #fff; }
