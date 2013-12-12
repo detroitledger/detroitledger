@@ -13,4 +13,13 @@ group :development do
   gem 'oily_png'                # Faster Compass sprite generation.
   gem 'css_parser'              # Helps `compass stats` output statistics.
 
+  gem 'guard'                   # Guard event handler.
+  gem 'guard-compass'           # Compile on sass/scss change.
+  gem 'guard-shell'             # Run shell commands.
+  gem 'guard-livereload'        # Browser reload.
+  gem 'yajl-ruby'               # Faster JSON with LiveReload in the browser.
+  gem 'rb-inotify', '~> 0.9', :require => false      # Linux
+  gem 'rb-fsevent', :require => false                # Mac OSX
+  gem 'rb-fchange', :require => false                # Windows
+
 end
