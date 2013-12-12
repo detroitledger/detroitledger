@@ -74,14 +74,23 @@ h1 {
   font-size: 4em;
   font-weight: bold;
   letter-spacing: -0.05em;
+  border-bottom: 5px solid $blue-accent;
 
   .num {
     letter-spacing: -0.1em;
   }
   .dollar {
     font-size: 50px;
+    letter-spacing: -0.05em;
   }
+}
 
+.white .callout {
+  border-bottom: 5px solid $gray;
+}
+
+.contrast .callout {
+  border-bottom: 5px solid $darker-tan;
 }
 
 input {
@@ -94,6 +103,12 @@ input {
   padding: 10px 20px;
   font-weight: bold;
   color: $body-color;
+  border: 5px solid $blue-accent;
+}
+
+h2 {
+  line-height: 0.9em;
+  text-indent: -4px;
 }
 
 h2,
@@ -104,6 +119,7 @@ p {
 
 p {
   line-height: 1.9;
+  margin-top: 1em;
 }
 
 a,

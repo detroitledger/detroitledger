@@ -482,15 +482,25 @@ h1 {
 .callout {
   font-size: 4em;
   font-weight: bold;
-  letter-spacing: -0.05em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000378}}
+  letter-spacing: -0.05em;
+  border-bottom: 5px solid #60aadb; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000379}}
   .callout .num {
     letter-spacing: -0.1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000382}}
   .callout .dollar {
-    font-size: 50px; }
+    font-size: 50px;
+    letter-spacing: -0.05em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000388}}
+.white .callout {
+  border-bottom: 5px solid #a4b6be; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000392}}
+.contrast .callout {
+  border-bottom: 5px solid #e5dcaa; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\0000396}}
 input {
   max-width: 650px;
   min-width: 650px;
@@ -499,19 +509,26 @@ input {
   margin-bottom: 1em;
   padding: 10px 20px;
   font-weight: bold;
-  color: #333333; }
+  color: #333333;
+  border: 5px solid #60aadb; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003109}}
+h2 {
+  line-height: 0.9em;
+  text-indent: -4px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003115}}
 h2,
 p {
   max-width: 650px;
   margin: 0px auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003105}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003120}}
 p {
-  line-height: 1.9; }
+  line-height: 1.9;
+  margin-top: 1em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003111}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003127}}
 a,
 a:link,
 a:visited {
