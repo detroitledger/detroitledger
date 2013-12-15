@@ -142,15 +142,12 @@ a:visited {
 
 /* d3 */
 
-#soup_plot {
+.d3 {
   margin: 0 auto;
   height: 300px;
   width: 500px;
   color: black;
   background-color: white;
-}
-
-.d3 {
 
   .center {
     shape-rendering: crispEdges;
@@ -173,5 +170,4 @@ a:visited {
       font-size: 10px;
     }
   }
-
 }
