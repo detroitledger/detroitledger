@@ -511,8 +511,8 @@ h1 {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003106}}
 input {
-  max-width: 650px;
-  min-width: 650px;
+  max-width: 550px;
+  min-width: 550px;
   /* todo: add responsivity */
   display: inline-block;
   margin-bottom: 1em;
@@ -522,22 +522,40 @@ input {
   border: 5px solid #60aadb; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003119}}
+input[type="submit"] {
+  max-width: 100px;
+  min-width: 100px;
+  display: inline-block;
+  margin-bottom: 1em;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #fff;
+  border: 5px solid #60aadb;
+  text-align: center;
+  background: #60aadb;
+  border-left: 0px none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003133}}
 h2 {
   line-height: 0.9em;
   text-indent: -4px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003142}}
 h2,
-p {
+p,
+ol,
+ul,
+form {
   max-width: 650px;
   margin: 0px auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003130}}
-p {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003148}}
+p,
+li {
   line-height: 1.9;
   margin-top: 1em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003137}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003155}}
 a,
 a:link,
 a:visited {
@@ -546,32 +564,32 @@ a:visited {
   border-bottom: 1px dotted #fff; }
 
 /* d3 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003145}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003163}}
 .d3 {
   margin: 0 auto;
   height: 300px;
   width: 500px;
   color: #fff;
   background-color: transparent; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003152}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003170}}
   .d3 .center {
     shape-rendering: crispEdges;
     stroke: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003156}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003174}}
   .d3 .median {
     fill: red;
     stroke: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003160}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003178}}
   .d3 .outlier {
     fill: lightgrey; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003164}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003182}}
   .d3 .axis line, .d3 .axis path {
     fill: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003168}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003186}}
   .d3 .axis .tick {
     shape-rendering: crispEdges;
     stroke: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003173}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matth\/http\/detroitledger\/sass\/styles\.scss}line{font-family:\00003191}}
   .d3 .axis text {
     fill: #fff;
     font-size: 10px;

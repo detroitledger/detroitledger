@@ -31,13 +31,13 @@ function draw_a_plot(target_id, plot_type, options) {
 
   switch (plot_type) {
     case 'org_grants':
-      json_url = 'jsons/' + options.id + '.json';
+      json_url = '/jsons/' + options.id + '.json';
       break;
     case 'all_grants':
       // TODO
       break;
     default:
-      json_url = 'jsons/allgrants.json';
+      json_url = '/jsons/allgrants.json';
       break;
   }
 

@@ -104,8 +104,8 @@ h1 {
 }
 
 input {
-  max-width: 650px;
-  min-width: 650px;
+  max-width: 550px;
+  min-width: 550px;
   /* todo: add responsivity */
 
   display: inline-block;
@@ -116,18 +116,36 @@ input {
   border: 5px solid $blue-accent;
 }
 
+input[type="submit"] {
+  max-width: 100px;
+  min-width: 100px;
+  display: inline-block;
+  margin-bottom: 1em;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #fff;
+  border: 5px solid $blue-accent;
+  text-align: center;
+  background: $blue-accent;
+  border-left:0px none;
+}
+
 h2 {
   line-height: 0.9em;
   text-indent: -4px;
 }
 
 h2,
-p {
+p,
+ol,
+ul,
+form {
   max-width: 650px;
   margin: 0px auto;
 }
 
-p {
+p,
+li {
   line-height: 1.9;
   margin-top: 1em;
 }
