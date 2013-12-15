@@ -14,10 +14,6 @@
 <body>
 
   <header class="wrap main">
-    <div class="d3" data-type="org_grants" data-options-id="21620"></div>
-    <!-- city of detroit: 22029
-         HUD: 22009 -->
-    <div class="d3" data-type="all_grants" data-options-filter-from="22009"></div>
     <div class="container">
       <h1>The Detroit Ledger</h1>
       <h2>A comprehensive dataset of grants made in Detroit</h2>
@@ -54,6 +50,17 @@
 
   <section class="wrap">
     <div class="container">
+      <h2 class="callout">So many grants!</h2>
+      <p>We've organized 1942 grants from 2009-2013 so far. The records range from <a href="http://data.detroitledger.org/node/22787">a $42 token of support given to a university department</a> to <a href="http://data.detroitledger.org/node/23244">$47 million of federal HUD funding</a>.</p>
+      <p>To give a sense of the general scale of grant amounts, the graph below shows the distribution of all grants aside from the gigantic HUD grants:</p>
+      <!-- city of detroit: 22029
+           HUD: 22009 -->
+      <div class="d3" data-type="all_grants" data-options-filter-from="22009"></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="container">
       <h2 class="callout">Top funders</h2>
         <p>These funders gave the most:</p>
         <ol>
@@ -80,6 +87,15 @@
     </div>
   </section>
 
+  <section class="wrap">
+    <div class="container">
+      <h2 class="callout">Insight</h2>
+      <p>To get an idea of the potential research and insight one can glean from the detail in our dataset, let's look at micro-funding. <a href="http://data.detroitledger.org/content/detroit-soup">Detroit Soup</a> is one of a few examples of granting organizations that deliver small (100-1000 dollar) grants. This sector is off the radar of larger grant databases. Look how SOUP's grant giving has grown since its humble beginnings:</p>
+      <div class="d3" data-type="org_grants" data-options-id="21620"></div>
+      <p>By continuing to collect data about small-scale grant givers, we hope to shed light on this growing sector.</p>
+    </div>
+  </section>
+
   <section class="wrap white" id="network">
     <div class="container">
       <h2 class="callout">The constellation of funding</h2>
@@ -90,7 +106,7 @@
     <div class="container">
       <h2 class="callout">Most connected funders</h2>
 
-      <p>Describe [TODO]</p>
+      <p>These funders gave grants to the most diverse set of organizations:</p>
       <ol>
         <li>Skillman Foundation</li>
         <li>DTE Energy Foundation</li>
@@ -104,8 +120,8 @@
 
   <section class="wrap contrast">
     <div class="container">
-      <h2 class="callout">Most unique recipients</h2>
-      <p>These organizations recieved funding from the most diverse set of sources. That means they're more connected to more funders than other nonprofits:</p>
+      <h2 class="callout">Most connected recipients</h2>
+      <p>These organizations recieved funding from the most diverse set of sources. That means they're connected to more funders than other nonprofits:</p>
       <ol>
         <li>Detroit Symphony Orchestra</li>
         <li>Wayne State University</li>
