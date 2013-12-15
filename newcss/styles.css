@@ -58,7 +58,7 @@
 
 body {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 24px;
   font-family: "Sorts Mill Goudy", "Adobe Garamond", "Garamond", Palatino, serif;
   font-weight: 400;
 }
@@ -92,7 +92,11 @@ body {
 
 a:link,
 a:visited {
+<<<<<<< HEAD
   color: #0088cc;
+=======
+  color: #1478ac;
+>>>>>>> gh-pages
   text-decoration: none;
 }
 
@@ -434,7 +438,11 @@ table {
 }
 
 body {
+<<<<<<< HEAD
   background: #0088cc;
+=======
+  background: #1478ac;
+>>>>>>> gh-pages
   color: #fff;
 }
 
@@ -454,8 +462,12 @@ body {
 }
 .contrast h2,
 .contrast h3,
+<<<<<<< HEAD
 .contrast p,
 .contrast li {
+=======
+.contrast p {
+>>>>>>> gh-pages
   color: #333333;
 }
 
@@ -469,7 +481,7 @@ body {
 }
 
 header {
-  background: #0088cc;
+  background: #1478ac;
   color: #fff;
   padding: 10px 0;
 }
