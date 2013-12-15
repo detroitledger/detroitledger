@@ -146,15 +146,16 @@ a:visited {
   margin: 0 auto;
   height: 300px;
   width: 500px;
-  color: black;
-  background-color: white;
+  color: #fff;
+  background-color: transparent;
 
   .center {
     shape-rendering: crispEdges;
-    stroke: grey;
+    stroke: #fff;
   }
   .median {
     fill: red;
+    stroke: #fff;
   }
   .outlier {
     fill: lightgrey;
@@ -162,12 +163,17 @@ a:visited {
   .axis {
     line, path {
       fill: none;
-      shape-rendering: crispEdges;
-      stroke: lightgrey;
     }
+
+    .tick {
+      shape-rendering: crispEdges;
+      stroke: #fff;
+    }
+
     text {
-      fill: grey;
+      fill: #fff;
       font-size: 10px;
+      font-weight: normal;
     }
   }
 }
