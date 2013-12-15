@@ -107,19 +107,7 @@ function draw_a_plot(target_id, plot_type, options) {
     function accessor(d) {
       return d.values.map(function(d) {
         return d.amount;
-      }).filter(function() {
-        return Math.random() < 0.75;
       });
-    }
-
-    d3.select("#resample").on("click", resample);
-    d3.select("#rescale").on("click", rescale);
-
-    function resample() {
-      d3.selectAll('.quartileplot').call(quartileplot);
-    }
-    function rescale() {
-      draw(data, dataByType);
     }
 
   });
