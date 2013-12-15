@@ -9,11 +9,17 @@
 
   <title>The Detroit Ledger &mdash; Data about Grants and Loans in Detroit</title>
 
-  <link rel="stylesheet" type="text/css" href="newcss/styles.css">
+  <script type="text/javascript" src="/newjs/d3.v3.js"></script>
+  <script type="text/javascript" src="/newjs/plugins/jsonp.js"></script>
+  <script type="text/javascript" src="/newjs/plugins/quartileplot.js"></script>
+  <script type="text/javascript" src="/newjs/charts.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/newcss/styles.css">
 </head>
 <body>
 
   <header class="wrap main">
+    <div id="soup_plot" class="d3"></div>
     <div class="container">
       <h1>The Detroit Ledger</h1>
       <h2>A comprehensive dataset of grants made in Detroit</h2>

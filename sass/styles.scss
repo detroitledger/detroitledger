@@ -139,3 +139,39 @@ a:visited {
   text-decoration: none;
   border-bottom: 1px dotted #fff;
 }
+
+/* d3 */
+
+#soup_plot {
+  margin: 0 auto;
+  height: 300px;
+  width: 500px;
+  color: black;
+  background-color: white;
+}
+
+.d3 {
+
+  .center {
+    shape-rendering: crispEdges;
+    stroke: grey;
+  }
+  .median {
+    fill: red;
+  }
+  .outlier {
+    fill: lightgrey;
+  }
+  .axis {
+    line, path {
+      fill: none;
+      shape-rendering: crispEdges;
+      stroke: lightgrey;
+    }
+    text {
+      fill: grey;
+      font-size: 10px;
+    }
+  }
+
+}
