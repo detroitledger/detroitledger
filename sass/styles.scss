@@ -203,3 +203,22 @@ a:visited {
     }
   }
 }
+
+/* ACTIONS TO TAKE */
+
+a.wepay-widget-button {
+  font-size: 24px!important;
+  font-family:Open Sans, Droid Sans, sans-serif!important;
+  background: #df0054 !important;
+  background-image:none!important;
+  color:#fff!important;
+  box-shadow: none!important;
+  text-shadow: none!important;
+  border:1px solid #df0054 !important;
+  border-radius:4px !important;
+  strong {
+    font-weight: 300!important;
+  }
+}
+
+
