@@ -6,12 +6,16 @@ var target_els = [];
 
 target_els = [].slice.call(document.querySelectorAll('.d3'));
 
-target_els.forEach(function(el, idx, arr) {
+_.each(target_els, function(el, idx, arr) {
   var options = {};
 
   el.id = 'plot_' + idx;
 
+  // @todo generalize options processing
+  // also see todo below in _.filter about type conversion
   options.id = (el.dataset.optionsId > 0) ? el.dataset.optionsId : null;
+  options.filter_from = (el.dataset.optionsFilterFrom) ? el.dataset.optionsFilterFrom.split(' ') : null;
+  options.filter_to = (el.dataset.optionsFilterTo) ? el.dataset.optionsFilterTo.split(' ') : null;
 
   draw_a_plot(el.id, el.dataset.type, options);
 });
@@ -25,6 +29,8 @@ target_els.forEach(function(el, idx, arr) {
  *   Type of plot to draw. Either 'all_grants' or 'org_grants'
  * @param options
  *   For org grants, specify organization id: {id:12345}
+ *   filter_from: remove these funders (array of ids)
+ *   filter_to: remove these recipients (array of ids)
  */
 function draw_a_plot(target_id, plot_type, options) {
   var json_url = '';
@@ -34,14 +40,37 @@ function draw_a_plot(target_id, plot_type, options) {
       json_url = '/jsons/' + options.id + '.json';
       break;
     case 'all_grants':
-      // TODO
-      break;
     default:
       json_url = '/jsons/allgrants.json';
       break;
   }
 
   d3.json(json_url, function(error, data) {
+
+    // filter based on options
+    data = _.filter(data, function(d) {
+      var match = 0;
+
+      // @todo cast filter_from elements as int, rather than casting data id to string
+      if (options.filter_from) {
+        if (_.intersection(options.filter_from, [d.from_id+""]).length > 0) {
+          match++;
+        }
+      }
+
+      if (options.filter_to) {
+        if (_.intersection(options.filter_to, [d.to_id+""]).length > 0) {
+          match++;
+        }
+      }
+
+      if (match > 0) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+
 
     var dataByType = d3.nest()
         .key(function(d){ return d.year_start; })
