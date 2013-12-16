@@ -105,7 +105,13 @@ function draw_a_plot(target_id, plot_type, options) {
 
       var yAxis = d3.svg.axis()
           .scale(y)
-          .orient("left");
+          .orient("left")
+          .tickFormat(function(d, i) {
+            if(d > 1000000) {
+              return d / 1000000 + 'M'
+            }
+            return d;
+          });
 
       window.quartileplot = d3.svg.quartileplot()
           .domain(y.domain())
