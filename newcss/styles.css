@@ -449,25 +449,6 @@ body {
   padding: 50px 0;
 }
 
-.contrast {
-  background: #f7f4e5;
-}
-.contrast h2,
-.contrast h3,
-.contrast p,
-.contrast li {
-  color: #333333;
-}
-
-.white {
-  background: #fff;
-}
-.white h2,
-.white h3,
-.white p {
-  color: #333333;
-}
-
 header {
   background: #0088cc;
   color: #fff;
@@ -568,7 +549,31 @@ a:visited {
   border-bottom: 1px dotted #fff;
 }
 
-/* d3 */
+/* Sections ------------------------------------------ */
+.contrast {
+  background: #f7f4e5;
+}
+.contrast h2,
+.contrast h3,
+.contrast p,
+.contrast li {
+  color: #333333;
+}
+.contrast a, .contrast a:link, .contrast a:active, .contrast a:visited {
+  color: #0088cc;
+  border-bottom-color: #0088cc;
+}
+
+.white {
+  background: #fff;
+}
+.white h2,
+.white h3,
+.white p {
+  color: #333333;
+}
+
+/* d3 --------------------------------------------- */
 .d3 {
   margin: 0 auto;
   height: 300px;
@@ -585,7 +590,7 @@ a:visited {
   stroke: #fff;
 }
 .d3 .outlier {
-  fill: lightgrey;
+  fill: #fff;
 }
 .d3 .axis line, .d3 .axis path {
   fill: none;

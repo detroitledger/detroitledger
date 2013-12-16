@@ -14,10 +14,6 @@
 <body>
 
   <header class="wrap main">
-    <div class="d3" data-type="org_grants" data-options-id="21620"></div>
-    <!-- city of detroit: 22029
-         HUD: 22009 -->
-    <div class="d3" data-type="all_grants" data-options-filter-from="22009"></div>
     <div class="container">
       <h1>The Detroit Ledger</h1>
       <h2>A comprehensive dataset of grants made in Detroit</h2>
@@ -32,23 +28,37 @@
           <input type="hidden" name="sort_order" value="DESC">
         </form>
         <p>
-        For the past few months, we have been collecting information about grants made in Detroit. We <a href=”archive of mailing list posts, first post?”>started this project</a> with a desire to explore the data and see what turns up. Here’s what we’ve learned.
+        For the past few months, we have been collecting information about grants made in Detroit. We <a href="http://data.detroitledger.org/content/about-detroit-ledger">started this project</a> with a desire to explore the data and see what turns up. Here’s what we’ve learned.
       </p>
     </div>
   </section>
 
   <section class="wrap contrast">
     <div class="container">
-      <h2 class="callout"><span class="num"><span class="dollar">$</span>400,000,000.</span></h2>
-      <p>We ended up with a hair shy of 2,000 grants from hundreds of organizations.</p>
+      <h2 class="callout"><span class="num"><span class="dollar">$</span>462,265,088</span></h2>
+      <p>That's how much we've recorded in grants made from 2011 through Summer 2013. We ended up with a hair shy of 2,000 grants from hundreds of organizations. You can <strong><a href="http://data.detroitledger.org">browse all the data here</a></strong> &mdash; or read on for an overview.</p>
     </div>
   </section>
 
   <section class="wrap contrast">
     <div class="container">
       <h2 class="callout">How we got here</h2>
-      <p>Much of the data is scoured from “forms 990” - tax filings for 501(c) tax exempt organizations. This leaves out some of the smaller organizations as well as the immense number of nonprofits that don’t have tax exempt status, like public charter schools.
-      There are more foundations that fly under the radar -- we started tackling some of them, like <link the outliers here></p>
+      <p>For all of the good work that organizations are doing in Detroit, much of it happens sight unseen. It’s difficult for nonprofits, residents, and scholars to see the bigger picture of the funding system they inhabit. Some funders do a great job of listing their grants online, but many don’t. Some non-profit organizations post annual reports online, but the digital divide can make this task difficult and expensive.</p>
+
+      <p>Much of the data here was scoured from “forms 990” - tax filings for 501(c) tax exempt organizations. This leaves out some of the smaller organizations as well as the immense number of nonprofits that don’t have tax exempt status, like public charter schools and smaller foundations that fly under the radar. We've made an attempt to scour public and private records to find those details.
+      You can <a href="http://data.detroitledger.org/content/our-methods">read more about our methods or reach out for more details</a>. </p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="container">
+      <h2 class="callout">So many grants!</h2>
+      <p>We've organized 1,942 grants from 2009-2013. The records range from <a href="http://data.detroitledger.org/node/22787">a $42 token of support given to a university department</a> to <a href="http://data.detroitledger.org/node/23244">$47 million of federal HUD funding</a>.</p>
+
+      <p>To give a sense of the general scale of grant amounts, the graph below shows the distribution of all grants (we've left out the gigantic HUD grants because they distort the scale):</p>
+      <!-- city of detroit: 22029
+           HUD: 22009 -->
+      <div class="d3" data-type="all_grants" data-options-filter-from="22009"></div>
     </div>
   </section>
 
@@ -80,6 +90,15 @@
     </div>
   </section>
 
+  <section class="wrap">
+    <div class="container">
+      <h2 class="callout">Insight</h2>
+      <p>To get an idea of the potential research and insight one can glean from the detail in our dataset, let's look at micro-funding. <a href="http://data.detroitledger.org/content/detroit-soup">Detroit Soup</a> is one of a few examples of granting organizations that deliver small (100-1,000 dollar) grants. This sector is off the radar of larger grant databases. Look how SOUP's grant giving has grown since its humble beginnings:</p>
+      <div class="d3" data-type="org_grants" data-options-id="21620"></div>
+      <p>By continuing to collect data about small-scale grant givers, we hope to shed light on this growing sector.</p>
+    </div>
+  </section>
+
   <section class="wrap white" id="network">
     <div class="container">
       <h2 class="callout">The constellation of funding</h2>
@@ -90,7 +109,8 @@
     <div class="container">
       <h2 class="callout">Most connected funders</h2>
 
-      <p>Describe [TODO]</p>
+      <p>In the network of philanthropy, the most connected funders are foundations that reach out to the most organizations. These are often the funders who also have the highest number of individual grants each year &mdash; but not necessarily the most money granted. The least connected funders are the foundations that funnel their funds to a small set of organizations, often the same ones year after year.</p>
+
       <ol>
         <li>Skillman Foundation</li>
         <li>DTE Energy Foundation</li>
@@ -104,8 +124,9 @@
 
   <section class="wrap contrast">
     <div class="container">
-      <h2 class="callout">Most unique recipients</h2>
-      <p>These organizations recieved funding from the most diverse set of sources. That means they're more connected to more funders than other nonprofits:</p>
+      <h2 class="callout">Most connected recipients</h2>
+
+      <p> The most connected recipients receive grants from the most unique funders.  These aren't necessarily organizations that receive the most money, but are organizations that receive support from a variety of different foundations.  <!-- Least connected recipients are organizations that have received a single grant from a single source. --></p>
       <ol>
         <li>Detroit Symphony Orchestra</li>
         <li>Wayne State University</li>
@@ -118,20 +139,10 @@
 
   <section class="wrap">
     <div class="container">
-      <h2 class="callout">How we did it &mdash; and some caveats</h2>
-      <p>Much of the data is scoured from “forms 990” - tax filings for 501(c) tax exempt organizations. This leaves out some of the smaller organizations as well as the immense number of nonprofits that don’t have tax exempt status, like public charter schools.</p>
-
-      <p>There are more foundations that fly under the radar -- we started tackling some of them, like <link the outliers here></p>
-
-      <p>Grant money is often pipelined through multiple organizations…
-      Some non-profits have very tight relationships with other organizations that might not have open books.</p>
-    </div>
-  </section>
-
-  <section class="wrap">
-    <div class="container">
       <h2 class="callout">So what's next?</h2>
-      <p>Describe what "most connected" means</p>
+      <p>You can browse all the data here.</p>
+      <p>Let's keep it growing and branch out. Want to help? Donate here.</p>
+
     </div>
   </section>
 
