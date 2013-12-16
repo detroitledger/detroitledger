@@ -32,27 +32,6 @@ body {
   padding: 50px 0;
 }
 
-.contrast {
-  background: $lighter-tan;
-
-  h2,
-  h3,
-  p,
-  li {
-    color: $body-color;
-  }
-}
-
-.white {
-  background: #fff;
-
-  h2,
-  h3,
-  p {
-    color: $body-color;
-  }
-}
-
 
 header {
   background: $blue;
@@ -159,7 +138,35 @@ a:visited {
   border-bottom: 1px dotted #fff;
 }
 
-/* d3 */
+/* Sections ------------------------------------------ */
+
+.contrast {
+  background: $lighter-tan;
+
+  h2,
+  h3,
+  p,
+  li {
+    color: $body-color;
+  }
+
+  a, a:link, a:active, a:visited {
+    color: $blue;
+    border-bottom-color: $blue;
+  }
+}
+
+.white {
+  background: #fff;
+
+  h2,
+  h3,
+  p {
+    color: $body-color;
+  }
+}
+
+/* d3 --------------------------------------------- */
 
 .d3 {
   margin: 0 auto;
