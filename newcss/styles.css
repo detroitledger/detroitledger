@@ -484,11 +484,16 @@ h1 {
 
 #network {
   background: white url(../img/network.png) no-repeat center 50px;
-  padding-bottom: 500px;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
 }
 #network h2 {
   border-bottom: 0;
   font-size: 45px;
+}
+#network img {
+  padding-top: 1200px;
 }
 
 .contrast .callout {

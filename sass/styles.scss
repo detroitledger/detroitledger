@@ -71,11 +71,17 @@ h1 {
 
 #network {
   background: #fff url(../img/network.png) no-repeat center 50px;
-  padding-bottom: 500px;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
 
   h2 {
     border-bottom: 0;
     font-size: 45px;
+  }
+
+  img {
+    padding-top: 1200px;
   }
 }
 
