@@ -487,6 +487,10 @@ h1 {
   height: 300px;
   overflow: hidden;
   cursor: pointer;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -moz-transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
 }
 #network h2 {
   border-bottom: 0;
@@ -610,7 +614,12 @@ a:visited {
   font-weight: normal;
 }
 
-/* ACTIONS TO TAKE */
+/* Animations --------------------------------------------- */
+#network:hover {
+  height: 350px;
+}
+
+/* Buttons --------------------------------------------- */
 a.wepay-widget-button {
   font-size: 24px !important;
   font-family: Open Sans, Droid Sans, sans-serif !important;
