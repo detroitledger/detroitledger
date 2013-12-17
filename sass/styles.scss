@@ -71,11 +71,17 @@ h1 {
 
 #network {
   background: #fff url(../img/network.png) no-repeat center 50px;
-  padding-bottom: 500px;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
 
   h2 {
     border-bottom: 0;
     font-size: 45px;
+  }
+
+  img {
+    padding-top: 1200px;
   }
 }
 
@@ -203,3 +209,22 @@ a:visited {
     }
   }
 }
+
+/* ACTIONS TO TAKE */
+
+a.wepay-widget-button {
+  font-size: 24px!important;
+  font-family:Open Sans, Droid Sans, sans-serif!important;
+  background: #df0054 !important;
+  background-image:none!important;
+  color:#fff!important;
+  box-shadow: none!important;
+  text-shadow: none!important;
+  border:1px solid #df0054 !important;
+  border-radius:4px !important;
+  strong {
+    font-weight: 300!important;
+  }
+}
+
+

@@ -16,6 +16,7 @@ _.each(target_els, function(el, idx, arr) {
   options.id = (el.dataset.optionsId > 0) ? el.dataset.optionsId : null;
   options.filter_from = (el.dataset.optionsFilterFrom) ? el.dataset.optionsFilterFrom.split(' ') : null;
   options.filter_to = (el.dataset.optionsFilterTo) ? el.dataset.optionsFilterTo.split(' ') : null;
+  options.scale = (el.dataset.optionsScale) ? el.dataset.optionsScale : null;
 
   draw_a_plot(el.id, el.dataset.type, options);
 });
@@ -31,6 +32,7 @@ _.each(target_els, function(el, idx, arr) {
  *   For org grants, specify organization id: {id:12345}
  *   filter_from: remove these funders (array of ids)
  *   filter_to: remove these recipients (array of ids)
+ *   scale: log or linear
  */
 function draw_a_plot(target_id, plot_type, options) {
   var json_url = '';
@@ -96,22 +98,48 @@ function draw_a_plot(target_id, plot_type, options) {
           .domain(dataByType.map(function(d){ return d.key; }))
           .rangePoints([0, width], 1);
 
-      var y = d3.scale.linear()
-          .domain([d3.min(data, function(d){ return d.amount; })-1, d3.max(data, function(d){ return d.amount; })+1])
-          .range([height, 0]);
-
       var xAxis = d3.svg.axis()
           .scale(x);
 
-      var yAxis = d3.svg.axis()
-          .scale(y)
-          .orient("left")
-          .tickFormat(function(d, i) {
-            if(d > 1000000) {
-              return d / 1000000 + 'M'
-            }
-            return d;
-          });
+      var fmt$ = d3.format("$,f");
+
+      if (options.scale == 'log') {
+        var power_of_ten = [10,100,1000,10000,100000,1000000,10000000,100000000,1000000000,10000000000];
+
+        var y = d3.scale.log()
+            .domain([d3.min(data, function(d){ return d.amount; })-1, d3.max(data, function(d){ return d.amount; })+1])
+            .range([height, 0]);
+
+        //  @todo include appx max at top of y scale
+        //var yMax = d3.max(data, function(d) { return d.amount; });
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .tickFormat(function(d, i) {
+              if (_.contains(power_of_ten, d) ) {
+                if (d >= 1000000) {
+                  return '$' + d / 1000000 + 'M'
+                }
+                return fmt$(d);
+              } else {
+                return '';
+              }
+            });
+      } else { // scale == 'linear'
+        var y = d3.scale.linear()
+            .domain([d3.min(data, function(d){ return d.amount; })-1, d3.max(data, function(d){ return d.amount; })+1])
+            .range([height, 0]);
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .tickFormat(function(d, i) {
+              if (d >= 1000000) {
+                return '$' + d / 1000000 + 'M'
+              }
+              return fmt$(d);
+            });
+      }
 
       window.quartileplot = d3.svg.quartileplot()
           .domain(y.domain())

@@ -484,11 +484,16 @@ h1 {
 
 #network {
   background: white url(../img/network.png) no-repeat center 50px;
-  padding-bottom: 500px;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
 }
 #network h2 {
   border-bottom: 0;
   font-size: 45px;
+}
+#network img {
+  padding-top: 1200px;
 }
 
 .contrast .callout {
@@ -603,4 +608,20 @@ a:visited {
   fill: #fff;
   font-size: 10px;
   font-weight: normal;
+}
+
+/* ACTIONS TO TAKE */
+a.wepay-widget-button {
+  font-size: 24px !important;
+  font-family: Open Sans, Droid Sans, sans-serif !important;
+  background: #df0054 !important;
+  background-image: none !important;
+  color: white !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  border: 1px solid #df0054 !important;
+  border-radius: 4px !important;
+}
+a.wepay-widget-button strong {
+  font-weight: 300 !important;
 }
