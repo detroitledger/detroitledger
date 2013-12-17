@@ -55,10 +55,11 @@
       <h2 class="callout">So many grants!</h2>
       <p>We've organized 1,942 grants from 2009-2013. The records range from <a href="http://data.detroitledger.org/node/22787">a $42 token of support given to a university department</a> to <a href="http://data.detroitledger.org/node/23244">$47 million of federal HUD funding</a>.</p>
 
-      <p>To give a sense of the general scale of grant amounts, the graph below shows the distribution of all grants (we've left out the gigantic HUD grants because they distort the scale):</p>
+      <p>To give a sense of the general scale of grant amounts, the graph below shows the distribution of all grants:</p>
       <!-- city of detroit: 22029
            HUD: 22009 -->
-      <div class="d3" data-type="all_grants" data-options-filter-from="22009"></div>
+      <div class="d3" data-type="all_grants" data-options-scale="log"></div>
+      <p>The red dot is the median, and white dots are outliers. The lines above and below the median red dot represent the first and third quartiles.</p>
     </div>
   </section>
 
@@ -94,7 +95,8 @@
     <div class="container">
       <h2 class="callout">Insight</h2>
       <p>To get an idea of the potential research and insight one can glean from the detail in our dataset, let's look at micro-funding. <a href="http://data.detroitledger.org/content/detroit-soup">Detroit Soup</a> is one of a few examples of granting organizations that deliver small (100-1,000 dollar) grants. This sector is off the radar of larger grant databases. Look how SOUP's grant giving has grown since its humble beginnings:</p>
-      <div class="d3" data-type="org_grants" data-options-id="21620"></div>
+      <div class="d3" data-type="org_grants" data-options-id="21620" data-options-scale="linear"></div>
+      <p>The red dot is the median, and white dots are outliers. The lines above and below the median red dot represent the first and third quartiles.</p>
       <p>By continuing to collect data about small-scale grant givers, we hope to shed light on this growing sector.</p>
     </div>
   </section>
