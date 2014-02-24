@@ -12,13 +12,15 @@
 @import "../gnl_theme/sass/utils";
 @import "../gnl_theme/sass/_base";
 
-@import "normalize";
+/* @import "normalize"; */
 
-@import "toolkit/border-box";
+/*@import "toolkit/border-box";*/
 
 body {
   background: $blue;
   color: #fff;
+  padding: 0;
+  margin: 0;
 }
 
 /* Structure -----------------------------------*/
@@ -30,6 +32,9 @@ body {
 
 .wrap {
   padding: 50px 0;
+  @media all and (max-width: 768px) {
+    padding: 20px 0;
+  }
 }
 
 
@@ -48,6 +53,11 @@ h1 {
   font-weight: bold;
   padding: 0;
   line-height: 0.4;
+
+  @media all and (max-width: 768px) {
+    font-size: 20px;
+    text-align: left;
+  }
 }
 
 .callout {
@@ -93,26 +103,31 @@ h1 {
   border-bottom: 5px solid $darker-tan;
 }
 
-input {
-  max-width: 550px;
-  min-width: 550px;
+input[type="text"] {
+  width: 100%;
+  max-width: 450px;
+  min-width: 100px;
   /* todo: add responsivity */
 
   display: inline-block;
   margin-bottom: 1em;
+  marign-right: 20px;
   padding: 10px 20px;
   font-weight: bold;
+  font-family: nobile;
+  font-size: 16px;
   color: $body-color;
   border: 5px solid $blue-accent;
 }
 
 input[type="submit"] {
-  max-width: 100px;
-  min-width: 100px;
+  width: 100px;
   display: inline-block;
   margin-bottom: 1em;
-  padding: 10px 20px;
+  padding: 10px;
   font-weight: bold;
+  font-family: nobile;
+  font-size: 16px;
   color: #fff;
   border: 5px solid $blue-accent;
   text-align: center;
@@ -123,6 +138,11 @@ input[type="submit"] {
 h2 {
   line-height: 0.9em;
   text-indent: -4px;
+  @media all and (max-width: 768px) {
+    font-size: 16px;
+    line-height: 1.2;
+    text-indent: 0;
+  }
 }
 
 h2,
