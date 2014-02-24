@@ -5,7 +5,7 @@ To run:
 =======
 ## Dev notes
 
-`bundle install` to get dependencies.
+Run `bundle install` to get dependencies.
 
 To watch the SASS, run `sass --watch sass/styles.scss:newcss/styles.css`
 
