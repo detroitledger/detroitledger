@@ -158,7 +158,7 @@ h1 {
   text-align: center;
   font-weight: bold;
   padding: 0;
-  line-height: 0.4;
+  line-height: 80px;
 }
 @media all and (max-width: 768px) {
   h1 {
