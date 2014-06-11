@@ -24,7 +24,8 @@ define([
     template: _.template(template),
 
     events: {
-      'keyup .search': 'search'
+      'keyup .search': 'search',
+      'click input': 'search'
     },
 
     initialize: function(options) {
@@ -56,6 +57,7 @@ define([
     },
 
     search: function(event) {
+      event.preventDefault();
       var val = $(event.target).val();
       window.ga('send', 'event', 'data', 'search', val);
       this.organizations.search({
