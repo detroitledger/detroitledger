@@ -1,0 +1,15 @@
+@import '_goudystm';
+@import '_nobile';
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.l-header,
+.l-header a,
+h1, h2, h3, h4, h5 {
+  font-family: "Nobile", Helvetica, sans-serif;
+  font-weight: 400;
+}

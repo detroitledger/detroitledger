@@ -1,58 +1,413 @@
-/*
-Syntax error: File to import not found or unreadable: normalize.
-              Load path: /Users/matth/http/detroitledger
-        on line 15 of sass/styles.scss
+@import url(libs/bootstrap.min.css);
+/*******************************************************************************
+ * style.scss
+ *
+ * This file shouldn't directly contain any SCSS code, instead it only serves to
+ * combine the SCSS contained in other Sass partials through @import directives.
+ *
+ * BASE............Styling for common HTML and Drupal elements.
+ * LAYOUT..........Styles for the page structure that contain components.
+ * COMPONENTS......Components, their modifiers and sub-components.
+ ******************************************************************************/
+/*******************************************************************************
+ * _utils.scss
+ *
+ * Sass offers come very useful features, these include variables functions and
+ * mixins. Extensions such as Compass and Susy can also be used to provide extra
+ * functions and mixins to be used throughout the theme. This file acts as a
+ * single place for defining these things, which can then be accessed by
+ * importing _utils.scss where required. The following should be defined in this
+ * file:
+ * - Custom Sass mixins for the theme.
+ * - Custom Sass functions for the theme.
+ * - Overriding the default variables provided by extensions such as Compass.
+ * - Defining new variables for:
+ *      - Colors.
+ *      - Font sizes and families.
+ *      - Layout and grid sizing.
+ ******************************************************************************/
+@font-face {
+  font-family: 'Sorts Mill Goudy';
+  src: url("../fonts/goudystm/GoudyStM-webfont.eot");
+  src: url("../fonts/goudystm/GoudyStM-webfont.eot?iefix") format("eot"), url("../fonts/goudystm/GoudyStM-webfont.woff") format("woff"), url("../fonts/goudystm/GoudyStM-webfont.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
 
-10:  ******************************************************************************\/
-11: 
-12: @import "../gnl_theme/sass/utils";
-13: @import "../gnl_theme/sass/_base";
-14: 
-15: @import "normalize";
-16: 
-17: @import "toolkit/border-box";
-18: 
-19: body {
-20:   background: $blue;
+@font-face {
+  font-family: 'Sorts Mill Goudy';
+  src: url("../fonts/goudystm/GoudyStM-italic-webfont.eot");
+  src: url("../fonts/goudystm/GoudyStM-italic-webfont.eot?iefix") format("eot"), url("../fonts/goudystm/GoudyStM-italic-webfont.woff") format("woff"), url("../fonts/goudystm/GoudyStM-italic-webfont.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic; }
 
-Backtrace:
-sass/styles.scss:15
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/import_node.rb:67:in `rescue in import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/import_node.rb:45:in `import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/import_node.rb:28:in `imported_file'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/import_node.rb:37:in `css_import?'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:217:in `visit_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/root_node.rb:20:in `render'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/engine.rb:315:in `_render'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/engine.rb:262:in `render'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:201:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:235:in `watch'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/plugin.rb:107:in `method_missing'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/exec.rb:463:in `watch_or_update'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/exec.rb:326:in `process_result'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/exec.rb:41:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/exec.rb:21:in `parse!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/bin/sass:9:in `<top (required)>'
-/usr/bin/sass:23:in `load'
-/usr/bin/sass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: normalize.\A               Load path: /Users/matth/http/detroitledger\A         on line 15 of sass/styles.scss\A \A 10:  ******************************************************************************/\A 11: \A 12: @import \"../gnl_theme/sass/utils\";\A 13: @import \"../gnl_theme/sass/_base\";\A 14: \A 15: @import \"normalize\";\A 16: \A 17: @import \"toolkit/border-box\";\A 18: \A 19: body {\A 20:   background: $blue;"; }
+@font-face {
+  font-family: 'Nobile';
+  src: url("../fonts/nobile/nobile.eot");
+  src: url("../fonts/nobile/nobile.eot?iefix") format("eot"), url("../fonts/nobile/nobile.woff") format("woff"), url("../fonts/nobile/nobile.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Nobile';
+  src: url("../fonts/nobile/nobile_bold.eot");
+  src: url("../fonts/nobile/nobile_bold.eot?iefix") format("eot"), url("../fonts/nobile/nobile_bold.woff") format("woff"), url("../fonts/nobile/nobile_bold.ttf") format("truetype");
+  font-weight: 700; }
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400; }
+
+.l-header,
+.l-header a,
+h1, h2, h3, h4, h5 {
+  font-family: "Nobile", Helvetica, sans-serif;
+  font-weight: 400; }
+
+/*******************************************************************************
+ * _base.scss
+
+ * Base styles define the default look for HTML and common Drupal elements.
+ *
+ * These rules will generally be made up of element selectors for HTML elements
+ * such as headings, paragraphs and lists. Common Drupal elements such as form
+ * items, collapsible fieldsets and messages should be included in this partial.
+ *
+ * The styleguide module (http://drupal.org/project/styleguide) gives you a good
+ * overview of Drupals common elements for styling. By setting a solid baseline
+ * before adding any more specific customisations you ensure that as any new
+ * features are added they will be correctly styled without any extra work.
+ ******************************************************************************/
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 50px;
+  background: #f1ecd1;
+  font-family: nobile;
+  color: #333333; }
+
+a:link,
+a:visited {
+  color: #0088cc;
+  text-decoration: none; }
+
+a:active,
+a:hover {
+  border-bottom: 1px dotted #0088cc; }
+
+a.active-trail {
+  color: black;
+  text-decoration: none; }
+
+p {
+  line-height: 1.9; }
+
+h2 {
+  margin-top: 0; }
+
+html.js .form-autocomplete {
+  background-position: 100% 7px; }
+
+.view-id-orgs .views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 0; }
+
+input[type="submit"],
+select {
+  background: #f7f4e5;
+  border: 1px solid #e5dcaa;
+  padding: 2px 5px; }
+
+/*******************************************************************************
+ * _layout.scss
+ *
+ * The layout of the major regions (usually, but not necessarily Drupal regions)
+ * that components will be placed within. Layout styles for the theme's
+ * components should not be placed here and should instead be kept with the
+ * relevant SCSS for that component.
+ ******************************************************************************/
+/*******************************************************************************
+ * _components.scss
+ *
+ * Imports more partials that contain full components (modules in SMACSS), their
+ * sub-components and modifiers.
+ *
+ * Components are discrete parts of your page that should sit within the regions
+ * of your layouts. You should try to abstract your components as much as
+ * possible to promote reuse throughout the theme. Components should be flexible
+ * enough to respond to any width and should never rely on context
+ * (e.g. .sidebar-first .component) for styling. This allows modules to be
+ * placed throughout the theme with no risk of them breaking.
+ *
+ * If you find you need to change the look of a component depending on it's
+ * context you should avoid using context based classes at all costs. Instead it
+ * is better to add another "modifier" class to the component to alter the
+ * styling. Again, this promotes reuse.
+ *
+ * Sub-components are the individual parts that make up a component. As a
+ * general rule, adding a class to target a sub-component is a much better
+ * option than using descendant selectors or element selectors. In many cases
+ * sub-components can be made more reusable by making them components in their
+ * own right, so they can then be used within other components.
+ *
+ * Almost everything that doesn't belong in base should be made a component.
+ * Here's some common examples throughout Drupal:
+ *
+ * - Blocks
+ * - Content Types - For example, you may have a generic node component that
+ *      contains sub-components for the submitted by line and links. Specific
+ *      components can then be created for each content type to style the
+ *      specifics of each. Finally, by using entity view modes you can easily
+ *      apply modifications based on the .node-[view-mode] classes.
+ * - Forms - For instance the log in form.
+ * - Views - Each views output style could be made into a component, the content
+ *       of each row should be provided my a view mode styled by it's component
+ *       CSS. Exposed filter forms, views pagers and other views elements are
+ *       also good candidates for components.
+ ******************************************************************************/
+/* Header ------------------------------------------------------------------- */
+.navbar-inverse {
+  background: #0088cc;
+  border: none;
+  border-bottom: 1px solid #006395;
+  color: #fff; }
+  .navbar-inverse .navbar-brand {
+    font-weight: bold; }
+  .navbar-inverse .navbar-brand,
+  .navbar-inverse .navbar-nav > li > a {
+    color: #fff; }
+  .navbar-inverse .navbar-nav > .active > a,
+  .navbar-inverse .navbar-nav > .active > a:hover,
+  .navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background: #0088cc; }
+
+header {
+  background: #04952e;
+  color: #fff;
+  padding: 10px 0 20px;
+  border-bottom: 1px solid #024a17;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease; }
+
+header a,
+header a:link,
+header a:visited,
+header a:active {
+  color: #fff;
+  border-bottom: 1px dotted #fff;
+  text-decoration: none;
+  line-height: 1.5em; }
+
+nav {
+  background: #0088cc;
+  color: #fff;
+  padding: 10px 0; }
+
+nav {
+  font-size: 12px;
+  line-height: 14px; }
+  nav a:link, nav a:active,
+  nav a:visited, nav a:hover {
+    color: white; }
+
+.site-branding {
+  font-weight: bold; }
+
+/* Footer ------------------------------------------------------------------- */
+footer {
+  bbackground: #ebe4bd;
+  border-top: 1px solid #e5dcaa;
+  padding: 25px 0 20px 0;
+  font-size: 12px; }
+  footer form {
+    font-weight: bold;
+    color: #b0a360; }
+
+/* Content ------------------------------------------------------------------ */
+#content {
+  padding: 30px 0;
+  background: white; }
+
+#content h1 {
+  color: #333;
+  border-top: 1px dotted #666;
+  line-height: 1.5;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+/* Home --------------------------------------------------------------------- */
+#home {
+  margin-top: -30px; }
+
+header .home {
+  text-align: center; }
+  header .home h1 {
+    font-size: 80px;
+    font-weight: bold;
+    padding: 0;
+    line-height: 1.3; }
+    @media all and (max-width: 768px) {
+      header .home h1 {
+        font-size: 20px;
+        text-align: left; } }
+  header .home h2 {
+    border-bottom: 0;
+    font-size: 24px;
+    font-weight: 300; }
+
+#home .container {
+  width: 650px; }
+  #home .container input[type="text"],
+  #home .container input[type="email"] {
+    width: 100%;
+    max-width: 450px;
+    min-width: 100px;
+    /* todo: add responsivity */
+    display: inline-block;
+    margin-bottom: 1em;
+    marign-right: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: nobile;
+    font-size: 16px;
+    color: #333333;
+    border: 5px solid #60aadb; }
+  #home .container input[type="submit"] {
+    width: 100px;
+    display: inline-block;
+    margin-bottom: 1em;
+    padding: 10px;
+    font-weight: bold;
+    font-family: nobile;
+    font-size: 16px;
+    color: #fff;
+    border: 5px solid #60aadb;
+    text-align: center;
+    background: #60aadb;
+    border-left: 0px none; }
+
+.wrap {
+  padding: 50px 0; }
+  @media all and (max-width: 768px) {
+    .wrap {
+      padding: 20px 0; } }
+
+.wrap.intro {
+  background: #0088cc;
+  color: #fff; }
+
+.wrap.contrast {
+  background: #f7f4e5; }
+
+.callout {
+  font-size: 4em;
+  font-weight: bold;
+  letter-spacing: -0.05em;
+  border-bottom: 5px solid #60aadb; }
+  .callout .num {
+    letter-spacing: -0.1em; }
+  .callout .dollar {
+    font-size: 50px;
+    letter-spacing: -0.05em; }
+
+.white .callout {
+  border-bottom: 5px solid #a4b6be; }
+
+#network {
+  background: white url(../img/network.png) no-repeat center 50px;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -moz-transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out; }
+  #network h2 {
+    border-bottom: 0;
+    font-size: 45px; }
+  #network img {
+    padding-top: 1200px; }
+
+#network:hover {
+  height: 350px; }
+
+.contrast .callout {
+  border-bottom: 5px solid #e5dcaa; }
+
+/* Search ------------------------------------------------------------------- */
+input.search {
+  width: 60%;
+  min-width: 300px;
+  font-size: 2em;
+  font-weight: bold; }
+
+.eg {
+  color: #a4b6be; }
+
+#results {
+  margin-top: 1em;
+  border-bottom: 1px solid #60aadb;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease; }
+  #results a,
+  #results a:visited {
+    color: #fff;
+    border-bottom: 1px dotted #fff;
+    background: #0088cc;
+    line-height: 1.6em; }
+
+#results .org {
+  border-top: 1px solid #60aadb;
+  padding: 15px 5px 10px 0px; }
+
+#results .org p {
+  color: #fff; }
+
+/* Pages  ------------------------------------------------------------------- */
+.page h2 {
+  margin-top: 1em; }
+
+/* Grants ------------------------------------------------------------------- */
+.grant h3 .glyphicon {
+  font-size: 12px; }
+
+header .grant h2.amount {
+  font-size: 6em; }
+
+.grant-details ul {
+  list-style: none;
+  padding: 0; }
+
+/* Orgs --------------------------------------------------------------------- */
+.homepage-org {
+  padding: 1.5em 0;
+  border-bottom: 1px solid #e5dcaa; }
+  .homepage-org .timeframe {
+    color: #333333;
+    font-size: 16px; }
+  .homepage-org a,
+  .homepage-org .received,
+  .homepage-org .granted {
+    background: #f7f4e5;
+    border: 1px solid #e5dcaa;
+    padding: 2px 5px; }
+
+.grants-received {
+  margin: 0; }
+
+.timeframe,
+.submitted {
+  margin: 0;
+  color: #999;
+  font-size: 14px; }
+
+/* Main Menu ---------------------------------------------------------------- */
+#block-system-main-menu ul.menu li.leaf {
+  padding-right: 23px; }
+  #block-system-main-menu ul.menu li.leaf :last-child {
+    padding-right: 0; }

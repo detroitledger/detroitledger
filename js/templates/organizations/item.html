@@ -1,0 +1,32 @@
+<div class="grant">
+    <div class="row">
+        <div class="col-md-12">
+            <h1><%= o.title %></h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <% if (o.amount_received) { %>
+        <div class="col-md-6">
+            Recieved
+            <h2>
+                $<%= o.amount_received %>
+            </h2>
+        </div>
+        <% } %>
+        <% if (o.amount_funded) { %>
+            <div class="col-md-6">
+                Given
+                <h2>
+                    $<%= o.amount_funded %>
+                </h2>
+            </div>
+        <% } %>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <p>Since <%= o.org_grants_datestart %>.</p>
+        </div>
+    </div>
+</div>

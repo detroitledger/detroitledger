@@ -1,0 +1,38 @@
+/*******************************************************************************
+ * _utils.scss
+ *
+ * Sass offers come very useful features, these include variables functions and
+ * mixins. Extensions such as Compass and Susy can also be used to provide extra
+ * functions and mixins to be used throughout the theme. This file acts as a
+ * single place for defining these things, which can then be accessed by
+ * importing _utils.scss where required. The following should be defined in this
+ * file:
+ * - Custom Sass mixins for the theme.
+ * - Custom Sass functions for the theme.
+ * - Overriding the default variables provided by extensions such as Compass.
+ * - Defining new variables for:
+ *      - Colors.
+ *      - Font sizes and families.
+ *      - Layout and grid sizing.
+ ******************************************************************************/
+
+@import "utils/typeface";
+
+$body-color: #333;
+$blue: #0088cc;
+$blue-accent: #60aadb;
+
+$green: #04952e;
+$green-accent: #04ae36;
+
+$gray: #a4b6be;
+
+$light-tan: #f1ecd1;
+$lighter-tan: #f7f4e5;
+$darker-tan: #e5dcaa;
+
+@mixin highlight-tan {
+  background: $lighter-tan;
+  border: 1px solid $darker-tan;
+  padding: 2px 5px;
+}
