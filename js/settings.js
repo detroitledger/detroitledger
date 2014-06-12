@@ -9,7 +9,7 @@ function() {
 
   var settings = {
     api: {
-      baseurl: 'http://gnl.detriot.org/api/1.0',
+      baseurl: 'https://data.detroitledger.org/api/1.0',
       dateFormat: 'ddd, DD MMM YYYY HH:mm:ss ZZ'
     }
   };
