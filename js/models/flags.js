@@ -19,7 +19,7 @@ function($, _, Backbone, numeral, settings) {
 
   Flags.Model = Backbone.Model.extend({
     url: function() {
-      return settings.api.baseurl + '/flags/' + this.get('target_id') + '.jsonp?callback=';
+      return settings.api.baseurl + '/flags/' + this.get('target_id') + '.jsonp?callback=?';
     },
 
     parse: function(data) {

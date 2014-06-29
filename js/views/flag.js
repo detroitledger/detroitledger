@@ -40,6 +40,10 @@ define([
       }));
     },
 
+    handle: function(resp) {
+      console.log("Ugh, failed", resp);
+    },
+
     submit: function(event) {
       console.log('Submitting', event);
       event.preventDefault();
@@ -47,6 +51,9 @@ define([
       console.log(text);
       this.flag.set('note');
       this.flag.save();
+
+      this.flag.on('error', this.handle);
+      this.flag.on('sync', this.handle);
     },
 
     show: function(event) {
