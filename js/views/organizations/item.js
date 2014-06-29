@@ -13,12 +13,20 @@ define([
 
   // Views
   'views/grants/list',
+  'views/flag',
 
   // Templates
   'text!templates/organizations/item.html',
   'text!templates/organizations/details.html'
 
-], function($, _, Backbone, Organizations, GrantListView, template, details){
+], function($, _,
+            Backbone,
+            Organizations,
+            GrantListView,
+            FlagView,
+            template,
+            details
+) {
 
   var OrganizationView = Backbone.View.extend({
 
@@ -57,6 +65,10 @@ define([
       $("#title").html(this.template({
         o: this.model.toJSON()
       }));
+
+      this.flagView = new FlagView({
+        target_id: this.model.get('id')
+      });
     }
   });
 
