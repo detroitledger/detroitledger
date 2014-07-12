@@ -54,7 +54,18 @@ html.js .form-autocomplete {
   margin-top: 0;
 }
 
-input[type="submit"],
-select {
-  @include highlight-tan;
+#content {
+  input[type="submit"],
+  select {
+    margin-bottom: 1em;
+    padding: 6px;
+    font-family: nobile;
+    color: #fff;
+    border: 5px solid $blue-accent;
+    text-align: center;
+    background: $blue-accent;
+    border-left:0px none;
+  }
 }
+
+

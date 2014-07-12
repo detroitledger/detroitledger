@@ -49,7 +49,7 @@ define([
       event.preventDefault();
       var text = $('#flag textarea').val();
       console.log(text);
-      this.flag.set('note');
+      this.flag.set('note', text);
       this.flag.save();
 
       this.flag.on('error', this.handle);
@@ -59,7 +59,7 @@ define([
     show: function(event) {
       console.log('Showing flag', event);
       event.preventDefault();
-      $('.flag').show();
+      $('#flag .panel-body').show();
     }
   });
 
