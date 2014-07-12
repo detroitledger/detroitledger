@@ -373,6 +373,19 @@ input.search {
   margin-top: 1em; }
 
 /* Grants ------------------------------------------------------------------- */
+.panel .grant {
+  margin-bottom: 1em;
+  border-bottom: 1px dotted #dddddd;
+  padding-bottom: 1em; }
+
+.panel .grant:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+  padding-bottom: 0; }
+
+.grant h3 {
+  margin-top: 0; }
+
 .grant h3 .glyphicon {
   font-size: 12px; }
 
