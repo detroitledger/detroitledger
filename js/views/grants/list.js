@@ -42,19 +42,25 @@ define([
 
     group: function(grant) {
       if(this.direction === 'received') {
-         return grant.field_funder.name;
+        return grant.field_funder.target_id;
       }
-      return grant.field_recipient.name;
+      return grant.field_recipient.target_id;
     },
 
+//group_names[grant.field_recipient.target_id] = grant.field_recipient.name;
     // Group each of the grants by granter or grantee
     prep: function() {
       var grantsJSON = this.grants.toJSON();
-      var byOrganization = _.groupBy(grantsJSON, this.group);
+      var byOrganizationID = _.groupBy(grantsJSON, this.group);
+      var group_names_by_id = [];
+      _.map(grantsJSON, function(g) {
+        this[g.field_funder.target_id] = g.field_funder.name;
+        this[g.field_recipient.target_id] = g.field_funder.name;
+      }, group_names_by_id);
 
       // Add counts etc.
       var readyData = [];
-      _.each(byOrganization, function(grants, organziation) {
+      _.each(byOrganizationID, function(grants, organziation_id) {
         var sum = _.reduce(grants, function(memo, grant) {
           return memo + grant.field_funded_amount;
         }, 0);
@@ -62,7 +68,8 @@ define([
         readyData.push({
           sum: sum,
           prettySum: numeral(sum).format('0,0[.]00'),
-          name: organziation,
+          id: organziation_id,
+          name: group_names_by_id[organziation_id],
           grants: grants
         });
       });

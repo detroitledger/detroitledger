@@ -5,7 +5,11 @@
     <% _.each(organizations, function(organization) { %>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><%- organization.name %> ($<%- organization.prettySum %>) </h3>
+            <h3 class="panel-title">
+              <a href="#/organizations/<%= organization.id %>">
+                <%- organization.name %>
+              </a> ($<%- organization.prettySum %>)
+            </h3>
           </div>
           <div class="panel-body">
             <% _.each(organization.grants, function(grant) { %>
