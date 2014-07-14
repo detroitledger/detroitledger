@@ -55,7 +55,7 @@ define([
       var group_names_by_id = [];
       _.map(grantsJSON, function(g) {
         this[g.field_funder.target_id] = g.field_funder.name;
-        this[g.field_recipient.target_id] = g.field_funder.name;
+        this[g.field_recipient.target_id] = g.field_recipient.name;
       }, group_names_by_id);
 
       // Add counts etc.
