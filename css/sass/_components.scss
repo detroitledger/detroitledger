@@ -404,5 +404,10 @@ header .grant h2.amount {
   span {
     color: $gray
   }
+
+  .error,
+  .thanks {
+    display: none;
+  }
 }
 

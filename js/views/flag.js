@@ -25,7 +25,7 @@ define([
 
     initialize: function(options) {
       console.log("Initialize flag");
-      _.bindAll(this, 'render', 'show', 'submit');
+      _.bindAll(this, 'render', 'show', 'submit', 'error', 'success');
 
       this.flag = new Flags.Model({
         target_id: options.target_id
@@ -40,8 +40,14 @@ define([
       }));
     },
 
-    handle: function(resp) {
-      console.log("Ugh, failed", resp);
+    error: function(error) {
+      console.log("Unable to save response", error);
+      this.$el.find('.error').fadeIn(400);
+    },
+
+    success: function(response) {
+      console.log("Hey, it worked!", response);
+      this.$el.find('.thanks').fadeIn(400);
     },
 
     submit: function(event) {
@@ -52,8 +58,8 @@ define([
       this.flag.set('note', text);
       this.flag.save();
 
-      this.flag.on('error', this.handle);
-      this.flag.on('sync', this.handle);
+      this.flag.on('error', this.error);
+      this.flag.on('sync', this.success);
     },
 
     show: function(event) {

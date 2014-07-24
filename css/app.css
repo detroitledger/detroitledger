@@ -450,3 +450,6 @@ header .grant h2.amount {
     border: 1px solid #0088cc; }
   #flag span {
     color: #a4b6be; }
+  #flag .error,
+  #flag .thanks {
+    display: none; }
