@@ -111,11 +111,16 @@ html.js .form-autocomplete {
 .view-id-orgs .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 0; }
 
-input[type="submit"],
-select {
-  background: #f7f4e5;
-  border: 1px solid #e5dcaa;
-  padding: 2px 5px; }
+#content input[type="submit"],
+#content select {
+  margin-bottom: 1em;
+  padding: 6px;
+  font-family: nobile;
+  color: #fff;
+  border: 5px solid #60aadb;
+  text-align: center;
+  background: #60aadb;
+  border-left: 0px none; }
 
 /*******************************************************************************
  * _layout.scss
@@ -224,6 +229,11 @@ footer {
   footer form {
     font-weight: bold;
     color: #b0a360; }
+  footer input[type="submit"],
+  footer select {
+    background: #f7f4e5;
+    border: 1px solid #e5dcaa;
+    padding: 2px 5px; }
 
 /* Content ------------------------------------------------------------------ */
 #content {
@@ -424,3 +434,22 @@ header .grant h2.amount {
   padding-right: 23px; }
   #block-system-main-menu ul.menu li.leaf :last-child {
     padding-right: 0; }
+
+/* Flags -------------------------------------------------------------------- */
+#flag {
+  margin-top: 3em; }
+  #flag .panel-body {
+    display: none;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease; }
+  #flag textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #0088cc; }
+  #flag span {
+    color: #a4b6be; }
+  #flag .error,
+  #flag .thanks {
+    display: none; }
