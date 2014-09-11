@@ -9,7 +9,8 @@ require.config({
     lodash: 'lib/lodash',
     moment: 'lib/moment.min',
     numeral: 'lib/numeral.min',
-    text: 'lib/text'
+    text: 'lib/text',
+    chartist: 'lib/chartist.min'
   },
 
   shim: {
@@ -24,6 +25,10 @@ require.config({
 
     "jquery.bootstrap": {
         deps: ["jquery"]
+    },
+
+    chartist: {
+      exports: 'chartist'
     }
   }
 });
