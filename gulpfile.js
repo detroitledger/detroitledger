@@ -46,7 +46,7 @@ gulp.task('preprocess', function() {
     .pipe($.jshint.reporter('default'));
 });
 
-gulp.task('javascript', ['preprocess'], function() {
+gulp.task('javascript', /*['preprocess'],*/ function() {
   var bundleName = util.format('bundle-%s.js', config.version),
       componentsPath = 'src/components',
       browserifyConfig = {

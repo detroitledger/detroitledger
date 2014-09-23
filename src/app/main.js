@@ -1,5 +1,8 @@
-var $ = require('jquery');
+/*jslint nomen: true */
 
-$(document).ready(function() {
-  window.alert('yo');
+var $ = require('jquery'),
+    app = require('./app');
+
+$(document).ready(function () {
+  app.initialize();
 });

@@ -1,19 +1,10 @@
-/*jslint nomen: true */
-/*globals define: true */
+var fs = require('fs'),
+    $ = require('jquery'),
+    _ = require('lodash'),
+    Backbone = require('backbone'),
+    Flags = require('../models/flags'),
+    template = fs.readFileSync('../templates/flag.html');
 
-define([
-  // Libraries
-  'jquery',
-  'lodash',
-  'backbone',
-
-  // Project files:
-  // Models
-  'models/flags',
-
-  // Templates
-  'text!templates/flag.html'
-], function($, _, Backbone, Flags, template){
 
   var PageView = Backbone.View.extend({
     el: '#flag',
@@ -69,5 +60,4 @@ define([
     }
   });
 
-  return PageView;
-});
+module.exports = PageView;
