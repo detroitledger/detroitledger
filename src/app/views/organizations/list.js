@@ -1,13 +1,13 @@
-var $ = require('jquery'),
+var $ = require('jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     Organizations = require('../../models/organizations'),
-    template = fs.readFileSync('../../templates/organizations/list.html');
+    template = require('../../templates/organizations/list.html');
 
 var OrganizationListView = Backbone.View.extend({
 
   el: '#content',
-  template: _.template(template),
+  template: template,
 
   initialize: function(options) {
     console.log("Initialize organization list view", options);

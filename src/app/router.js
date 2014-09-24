@@ -6,6 +6,8 @@ var Backbone = require('backbone'),
     GrantItemView = require('./views/grants/item'),
     PageView = require('./views/page');
 
+Backbone.$ = require('jquery-browserify');
+
 var AppRouter = Backbone.Router.extend({
   routes: {
     '': 'home',
@@ -22,7 +24,7 @@ var AppRouter = Backbone.Router.extend({
   }
 });
 
-exports.initialize = function() {
+module.exports.initialize = function() {
   var router = new AppRouter();
 
   router.on('route:home', function() {

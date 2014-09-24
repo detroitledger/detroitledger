@@ -1,17 +1,17 @@
-var $ = require('jquery'),
+var $ = require('jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     Organizations = require('../../models/organizations'),
     GrantListView = require('../grants/list'),
     FlagView = require('../flag'),
-    template = fs.readFileSync('../../templates/organizations/item.html'),
-    details = fs.readFileSync('../../templates/organizations/details.html');
+    template = require('../../templates/organizations/item.html'),
+    details = require('../../templates/organizations/details.html');
 
 var OrganizationView = Backbone.View.extend({
 
   el: '#content',
-  template: _.template(template),
-  details: _.template(details),
+  template: template,
+  details: details,
 
   initialize: function(options) {
     console.log("Initialize organization");

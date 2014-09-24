@@ -1,9 +1,9 @@
 var fs = require('fs'),
-    $ = require('jquery'),
+    $ = require('jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     Flags = require('../models/flags'),
-    template = fs.readFileSync('../templates/flag.html');
+    template = require('../templates/flag.html');
 
 
   var PageView = Backbone.View.extend({
@@ -12,7 +12,7 @@ var fs = require('fs'),
       'click .flag-toggle': 'show',
       'click .submit': 'submit'
     },
-    template: _.template(template),
+    template: template,
 
     initialize: function(options) {
       console.log("Initialize flag");

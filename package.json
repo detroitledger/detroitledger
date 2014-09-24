@@ -41,7 +41,14 @@
     "backbone": "~1.1.2",
     "lodash": "~2.4.1",
     "numeral": "~1.5.3",
-    "moment": "~2.8.3"
+    "moment": "~2.8.3",
+    "browserify": "~5.12.0",
+    "vinyl-source-stream": "~1.0.0",
+    "browserify-shim": "~3.7.0",
+    "gulp-streamify": "0.0.5",
+    "jquery-browserify": "~1.8.1",
+    "gulp-sourcemaps": "~1.2.2",
+    "jstify": "~0.4.2"
   },
   "devDependencies": {
     "bluebird": "~2.3.2",

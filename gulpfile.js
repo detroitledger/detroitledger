@@ -1,6 +1,10 @@
 var path = require('path'),
     util = require('util'),
     gulp = require('gulp'),
+    source = require('vinyl-source-stream'),
+    browserify = require('browserify'),
+    jstify = require('jstify'),
+    _ = require('lodash'),
     $ = require('gulp-load-plugins')(),
     runSequence = require('run-sequence'),
     mainBowerFiles = require('main-bower-files'),
@@ -9,7 +13,7 @@ var path = require('path'),
 
 var config = {
   version: npmPackage.version,
-  debug: Boolean($.util.env.debug),
+  debug: true,//Boolean($.util.env.debug),
   production: Boolean($.util.env.production) || (process.env.NODE_ENV === 'production')
 };
 
@@ -48,22 +52,31 @@ gulp.task('preprocess', function() {
 
 gulp.task('javascript', /*['preprocess'],*/ function() {
   var bundleName = util.format('bundle-%s.js', config.version),
-      componentsPath = 'src/components',
-      browserifyConfig = {
-        debug: config.debug,
-        shim: {
-          jquery: {
-            path: path.join(componentsPath, 'jquery/dist/jquery.js'),
-            exports: 'jQuery'
-          }
-        }
-      };
+      componentsPath = 'src/components';
 
-  return gulp.src('src/app/main.js', { read: false })
-    .pipe($.plumber())
-    .pipe($.browserify(browserifyConfig))
-    .pipe($.concat(bundleName))
-    .pipe($.if(!config.debug, $.uglify()))
+  var bundleStream = browserify(/*'./src/app/main.js', {debug: true}*/
+      {
+        entries: ['./src/app/main.js'],
+        debug: true
+      }
+    )
+    .transform('jstify', {
+      engine: 'lodash'
+    })
+    /*.transform('browserify-shim', {
+      jquery: {
+        path: path.join(componentsPath, 'jquery/dist/jquery.js'),
+        exports: 'jQuery'
+      }
+    })*/
+    .bundle();
+
+  bundleStream
+    .pipe(source(bundleName))
+    .pipe($.streamify($.sourcemaps.init({loadMaps: true})))
+    .pipe($.streamify($.concat(bundleName)))
+    .pipe($.if(!config.debug, $.streamify($.uglify())))
+    .pipe($.streamify($.sourcemaps.write()))
     .pipe(gulp.dest('dist'));
 });
 

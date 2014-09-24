@@ -1,13 +1,13 @@
-var $ = require('jquery'),
+var $ = require('jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     numeral = require('numeral'),
     Grants = require('../../models/grants'),
-    template = fs.readFileSync('../../templates/grants/list.html');
+    template = require('../../templates/grants/list.html');
 
 var GrantListView = Backbone.View.extend({
 
-  template: _.template(template),
+  template: template,
 
   /**
    * Initialize the grant list

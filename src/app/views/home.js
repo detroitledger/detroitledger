@@ -1,17 +1,17 @@
 var fs = require('fs'),
-    $ = require('jquery'),
+    $ = require('jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     SearchView = require('./search'),
     Stats = require('../models/stats'),
-    template = fs.readFileSync('../templates/home.html'),
-    title = fs.readFileSync('../templates/title.html');
+    template = require('../templates/home.html'),
+    title = require('../templates/title.html');
 
 var HomeView = Backbone.View.extend({
 
   el: '#content',
-  template: _.template(template),
-  title: _.template(title),
+  template: template,
+  title: title,
 
   events: {
     'click #network': 'showNetwork'

@@ -2,13 +2,9 @@
 
 var Router = require('./router');
 
-exports = function() {
-  var Ledger = {
-    initialize: function() {
-      Router.initialize();
-    }
-  };
-
-  return Ledger;
+module.exports = {
+  initialize: function() {
+    Router.initialize();
+  }
 };
 

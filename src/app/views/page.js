@@ -1,16 +1,16 @@
 var fs = require('fs'),
-    $ = require('jquery'),
+    $ = require('jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     Pages = require('../models/pages'),
-    template = fs.readFileSync('../templates/page.html'),
-    title = fs.readFileSync('../templates/title.html');
+    template = require('../templates/page.html'),
+    title = require('../templates/title.html');
 
 var PageView = Backbone.View.extend({
 
   el: '#content',
-  template: _.template(template),
-  title: _.template(title),
+  template: template,
+  title: title,
 
   initialize: function(options) {
     console.log("Initialize page");

@@ -1,6 +1,6 @@
 /*jslint nomen: true */
 
-var $ = require('jquery'),
+var $ = require('jquery-browserify'),
     app = require('./app');
 
 $(document).ready(function () {

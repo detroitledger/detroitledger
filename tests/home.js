@@ -4,6 +4,6 @@ describe('home page', function() {
 
     var h1 = browser.driver.findElement(by.css('h1'));
 
-    expect(h1.getText()).toEqual('Welcome to the Detroit Ledger');
+    expect(h1.getText()).toEqual('The Detroit Ledger');
   });
 });

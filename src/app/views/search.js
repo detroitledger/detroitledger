@@ -1,14 +1,14 @@
-var $ = require('jquery'),
+var $ = require('jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     Organizations = require('../models/organizations'),
     OrganizationListView = require('./organizations/list'),
-    template = fs.readFileSync('../templates/search.html');
+    template = require('../templates/search.html');
 
 var SearchView = Backbone.View.extend({
 
   el: '#search-container',
-  template: _.template(template),
+  template: template,
 
   events: {
     'keyup .search': 'search',
