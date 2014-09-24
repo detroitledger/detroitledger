@@ -5,10 +5,10 @@ var path = require('path'),
     runSequence = require('run-sequence'),
     mainBowerFiles = require('main-bower-files'),
     eventStream = require('event-stream'),
-    package = require('./package.json');
+    npmPackage = require('./package.json');
 
 var config = {
-  version: package.version,
+  version: npmPackage.version,
   debug: Boolean($.util.env.debug),
   production: Boolean($.util.env.production) || (process.env.NODE_ENV === 'production')
 };
@@ -141,7 +141,7 @@ gulp.task('watch', ['integrate', 'test-setup'], function() {
 });
 
 gulp.task('test-setup', function(cb) {
-  var cmdAndArgs = package.scripts.start.split(/\s/),
+  var cmdAndArgs = npmPackage.scripts.start.split(/\s/),
       cmdPath = path.dirname(require.resolve('phantomjs')),
       cmd = path.resolve(cmdPath, require(path.join(cmdPath, 'location')).location),
       exec = require('exec-wait'),
