@@ -6,7 +6,7 @@ var Backbone = require('backbone'),
     GrantItemView = require('./views/grants/item'),
     PageView = require('./views/page');
 
-Backbone.$ = require('jquery-browserify');
+Backbone.$ = require('jquery');
 
 var AppRouter = Backbone.Router.extend({
   routes: {

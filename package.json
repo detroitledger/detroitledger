@@ -15,6 +15,12 @@
   },
   "author": "Matt Hampel, Jessica McInchak, Benjamin Chodoroff",
   "license": "MIT",
+  "browser": {
+    "jquery": "./src/components/jquery/dist/jquery.min.js"
+  },
+  "browserify-shim": {
+    "jquery": "$"
+  },
   "dependencies": {
     "event-stream": "~3.1.7",
     "gulp": "~3.8.8",
@@ -46,7 +52,6 @@
     "vinyl-source-stream": "~1.0.0",
     "browserify-shim": "~3.7.0",
     "gulp-streamify": "0.0.5",
-    "jquery-browserify": "~1.8.1",
     "gulp-sourcemaps": "~1.2.2",
     "jstify": "~0.4.2"
   },

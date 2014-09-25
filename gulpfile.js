@@ -63,12 +63,7 @@ gulp.task('javascript', /*['preprocess'],*/ function() {
     .transform('jstify', {
       engine: 'lodash'
     })
-    /*.transform('browserify-shim', {
-      jquery: {
-        path: path.join(componentsPath, 'jquery/dist/jquery.js'),
-        exports: 'jQuery'
-      }
-    })*/
+    .transform('browserify-shim')
     .bundle();
 
   bundleStream

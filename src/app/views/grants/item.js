@@ -1,4 +1,4 @@
-var $ = require('jquery-browserify'),
+var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     Grants = require('../../models/grants'),

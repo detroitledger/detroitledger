@@ -1,5 +1,5 @@
 var fs = require('fs'),
-    $ = require('jquery-browserify'),
+    $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     Flags = require('../models/flags'),
