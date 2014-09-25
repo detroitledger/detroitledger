@@ -1,5 +1,6 @@
 var $ = require('jquery'),
     _ = require('lodash'),
+    chartist = require('chartist'),
     Backbone = require('backbone'),
     numeral = require('numeral'),
     Grants = require('../../models/grants'),
@@ -49,8 +50,16 @@ var GrantListView = Backbone.View.extend({
 
     // Add counts etc.
     var readyData = [];
+    var yearly_sums = {};
     _.each(byOrganizationID, function(grants, organziation_id) {
       var sum = _.reduce(grants, function(memo, grant) {
+        // along the way, build our yearly sums!
+        var this_year = grant.field_year.value.slice(0,4);
+        if (yearly_sums[this_year] > 0) {
+          yearly_sums[this_year] += grant.field_funded_amount;
+        } else {
+          yearly_sums[this_year] = grant.field_funded_amount;
+        }
         return memo + grant.field_funded_amount;
       }, 0);
 
@@ -67,14 +76,20 @@ var GrantListView = Backbone.View.extend({
       return organization.sum;
     }).reverse();
     console.log("Ready", readyData);
-    return readyData;
+    return {
+      organizations: readyData,
+      yearly_sums: yearly_sums
+    };
   },
 
   render: function() {
+    var prepped_data = this.prep();
     this.$el.html(this.template({
-      organizations: this.prep(),
+      organizations: prepped_data.organizations,
+      yearly_totals: prepped_data.yearly_totals,
       direction: this.direction
     }));
+    // chartist here!
   }
 });
 
