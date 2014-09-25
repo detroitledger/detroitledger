@@ -16,10 +16,16 @@
   "author": "Matt Hampel, Jessica McInchak, Benjamin Chodoroff",
   "license": "MIT",
   "browser": {
-    "jquery": "./src/components/jquery/dist/jquery.min.js"
+    "jquery": "./src/components/jquery/dist/jquery.min.js",
+    "bootstrap": "./src/components/bootstrap/dist/js/bootstrap.min.js"
   },
   "browserify-shim": {
-    "jquery": "$"
+    "jquery": "$",
+    "bootstrap": {
+      "depends": [
+        "jquery:$"
+      ]
+    }
   },
   "dependencies": {
     "event-stream": "~3.1.7",
