@@ -104,6 +104,11 @@ gulp.task('stylesheets', function() {
 });
 
 gulp.task('assets', function() {
+  // Vendor stuff
+  gulp.src('src/components/bootstrap-sass-official/assets/**')
+    .pipe(gulp.dest('dist/assets/vendor/bootstrap'));
+
+  // Our stuff
   return gulp.src('src/assets/**')
     .pipe($.cached('assets'))
     .pipe(gulp.dest('dist/assets'));

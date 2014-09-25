@@ -9,7 +9,9 @@
  * COMPONENTS......Components, their modifiers and sub-components.
  ******************************************************************************/
 
-@import "../components/bootstrap/dist/css/bootstrap.min.css";
+$icon-font-path: "../assets/vendor/bootstrap/fonts/bootstrap/";
+
+@import "../components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "utils";
 @import "base";
 @import "layout";
