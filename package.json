@@ -17,11 +17,17 @@
   "license": "MIT",
   "browser": {
     "jquery": "./src/components/jquery/dist/jquery.min.js",
-    "bootstrap": "./src/components/bootstrap/dist/js/bootstrap.min.js"
+    "bootstrap": "./src/components/bootstrap/dist/js/bootstrap.min.js",
+    "chartist": "./src/components/chartist/libdist/chartist.min.js"
   },
   "browserify-shim": {
     "jquery": "$",
     "bootstrap": {
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "chartist": {
       "depends": [
         "jquery:$"
       ]
