@@ -54,7 +54,7 @@ gulp.task('javascript', /*['preprocess'],*/ function() {
   var bundleName = util.format('bundle-%s.js', config.version),
       componentsPath = 'src/components';
 
-  var bundleStream = browserify(/*'./src/app/main.js', {debug: true}*/
+  var bundleStream = browserify(
       {
         entries: ['./src/app/main.js'],
         debug: true
