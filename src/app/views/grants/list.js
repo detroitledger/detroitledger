@@ -86,10 +86,40 @@ var GrantListView = Backbone.View.extend({
     var prepped_data = this.prep();
     this.$el.html(this.template({
       organizations: prepped_data.organizations,
-      yearly_totals: prepped_data.yearly_totals,
+      yearly_sums: prepped_data.yearly_sums,
       direction: this.direction
     }));
+
     // chartist here!
+    var data = {
+      labels: prepped_data.organizations,
+      series: prepped_data.yearly_sums
+    };
+    debugger;
+    
+    var options = {
+      labelInterpolationFnc: function(value) {
+        return value[0]
+      }
+    };
+
+    var responsiveOptions = [
+      ['screen and (min-width: 640px)', {
+        chartPadding: 30,
+        labelOffset: 100,
+        labelDirection: 'explode',
+        labelInterpolationFnc: function(value) {
+          return value;
+        }
+      }],
+      ['screen and (min-width: 1024px)', {
+        labelOffset: 80,
+        chartPadding: 20
+      }]
+    ];
+
+Chartist.Pie('.ct-chart', data, options, responsiveOptions);
+
   }
 });
 
