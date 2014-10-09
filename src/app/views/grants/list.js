@@ -1,6 +1,6 @@
 var $ = require('jquery'),
     _ = require('lodash'),
-    chartist = require('chartist'),
+    Chartist = require('chartist'),
     Backbone = require('backbone'),
     numeral = require('numeral'),
     Grants = require('../../models/grants'),
@@ -17,7 +17,15 @@ var GrantListView = Backbone.View.extend({
    *                  list. Valid values: funded, recieved
    */
   initialize: function(options) {
-    _.bindAll(this, 'prep', 'group', 'render');
+    _.bindAll(this, 'prep', 'group', 'render', 'afterRender');
+
+    var _this = this;
+
+    this.render = _.wrap(this.render, function(render) {
+      render();
+      _this.afterRender();
+      return _this;
+    })
 
     this.direction = options.direction;
 
@@ -28,6 +36,38 @@ var GrantListView = Backbone.View.extend({
       limit: options.limit
     });
     this.grants.on('reset', this.render);
+  },
+
+  preppedData: {},
+
+  afterRender: function() {
+    // chartist here!
+    var data = {
+      labels: _.keys(this.preppedData.yearly_sums), //expects array of years
+      series: _.values(this.preppedData.yearly_sums) //expects array of amounts
+    };
+    
+    var options = {
+      labelInterpolationFnc: function(value) {
+        return value[0]
+      }
+    };
+
+    var responsiveOptions = [
+      ['screen and (min-width: 640px)', {
+        chartPadding: 30,
+        labelOffset: 100,
+        labelDirection: 'explode',
+        labelInterpolationFnc: function(value) {
+          return value;
+        }
+      }],
+      ['screen and (min-width: 1024px)', {
+        labelOffset: 80,
+        chartPadding: 20
+      }]
+    ];
+    Chartist.Pie('.ct-chart', data, options, responsiveOptions);
   },
 
   group: function(grant) {
@@ -83,43 +123,14 @@ var GrantListView = Backbone.View.extend({
   },
 
   render: function() {
-    var prepped_data = this.prep();
+    this.preppedData = this.prep();
     this.$el.html(this.template({
-      organizations: prepped_data.organizations,
-      yearly_sums: prepped_data.yearly_sums,
+      organizations: this.preppedData.organizations,
+      yearly_sums: this.preppedData.yearly_sums,
       direction: this.direction
     }));
 
-    // chartist here!
-    var data = {
-      labels: prepped_data.organizations,
-      series: prepped_data.yearly_sums
-    };
-    debugger;
-    
-    var options = {
-      labelInterpolationFnc: function(value) {
-        return value[0]
-      }
-    };
-
-    var responsiveOptions = [
-      ['screen and (min-width: 640px)', {
-        chartPadding: 30,
-        labelOffset: 100,
-        labelDirection: 'explode',
-        labelInterpolationFnc: function(value) {
-          return value;
-        }
-      }],
-      ['screen and (min-width: 1024px)', {
-        labelOffset: 80,
-        chartPadding: 20
-      }]
-    ];
-
-Chartist.Pie('.ct-chart', data, options, responsiveOptions);
-
+    return this;
   }
 });
 
