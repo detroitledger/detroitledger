@@ -1,6 +1,6 @@
 ## Installation & development
 
-You'll need npm, bower, and gulp.
+You'll need npm, bower, and gulp (`npm install -g gulp; npm install -g bower`).
 
 `npm install`
 
