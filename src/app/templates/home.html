@@ -1,0 +1,148 @@
+<div id="home">
+
+
+<section class="wrap intro">
+  <div class="container">
+    <div id="search-container"></div>
+  </div>
+</section>
+
+<section class="wrap contrast">
+  <div class="container">
+    <h2 class="callout"><span class="num"><span class="dollar">$</span> <%= stats.dollars %></span></h2>
+    <p>That's how much we've recorded in grants to date. We've got <strong><%= stats.num_grants %></strong> grants from <strong><%= stats.num_orgs %></strong> organizations.</p>
+    <p>
+      We have been collecting information about grants made in Detroit. We started this project with a desire to explore the data and put it in one place, making it more available for us and others to glean insight into philanthropic impact in Detroit.
+    </p>
+  </div>
+</section>
+
+<section class="wrap contrast">
+  <div class="container">
+    <h2 class="callout">How we got here</h2>
+    <p>For all of the good work that organizations are doing in Detroit, much of it happens sight unseen. It’s difficult for nonprofits, residents, and scholars to see the bigger picture of the funding system they inhabit. Some funders do a great job of listing their grants online, but many don’t. Some non-profit organizations post annual reports online, but the digital divide can make this task difficult and expensive.</p>
+
+    <p>Much of the data here was scoured from “forms 990” - tax filings for 501(c) tax exempt organizations. This leaves out some of the smaller organizations as well as the immense number of nonprofits that don’t have tax exempt status, like public charter schools and smaller foundations that fly under the radar. We've made an attempt to scour public and private records to find those details.
+    <a href="#/our-methods">Read more about our methods</a>. </p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="container">
+    <h2 class="callout">So many grants!</h2>
+    <p>We've organized 1,942 grants from 2009-2013. The records range from <a href="#/grants/1342">a $42 token of support given to a university department</a> to <a href="#/grants/1799">$47 million of federal HUD funding</a>.</p>
+
+    <p>To give a sense of the general scale of grant amounts, the graph below shows the distribution of all grants:</p>
+    <!-- city of detroit: 22029
+         HUD: 22009 -->
+    <div class="d3" data-type="all_grants" data-options-scale="log"></div>
+    <p>The red dot is the median, and white dots are outliers. The lines above and below the median red dot represent most grants on either side of the median.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="container">
+    <h2 class="callout">Top funders</h2>
+      <p>These funders gave the most:</p>
+      <ol>
+        <li><a href="#/organizations/564">U.S. Department of Housing and Urban Development (HUD) <strong>$77.3M</strong></a></li>
+        <li><a href="#/organizations/301">Kellogg Foundation <strong>$64.3M</strong></a></li>
+        <li><a href="#/organizations/512">United Way for Southeast Michigan <strong>$62.2M</strong></a></li>
+        <li><a href="#/organizations/308">Kresge Foundation <strong>$50.9M</strong></a></li>
+        <li><a href="#/organizations/306">Knight Foundation <strong>$33M</strong></a></li>
+      </ol>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="container">
+    <h2 class="callout">Top recpients</h2>
+      <p>These organizations recieved the most:</p>
+      <ol>
+        <li><a href="#/organizations/584">City of Detroit <strong>$69M</strong></a></li>
+        <li><a href="#/organizations/263">Henry Ford Health System <strong>$20.5M</strong></a></li>
+        <li><a href="#/organizations/146">Detroit Economic Growth Association <strong>$15.5M</strong></a></li>
+        <li><a href="#/organizations/544">Wayne State University TechTown <strong>$11M</strong></a></li>
+        <li><a href="#/organizations/466">Southwest Housing Solutions Corporation <strong>$10.6M</strong></a></li>
+      </ol>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="container">
+    <h2 class="callout">Insight</h2>
+    <p>To get an idea of the potential research and insight one can glean from the detail in our dataset, let's look at micro-funding. <a href="#/organizations/175">Detroit Soup</a> is one of a few examples of granting organizations that deliver small (100-1,000 dollar) grants. This sector is off the radar of larger grant databases. Look how SOUP's grant giving has grown since its humble beginnings:</p>
+    <div class="d3" data-type="org_grants" data-options-id="21620" data-options-scale="linear"></div>
+    <p>The red dot is the median, and white dots are outliers. The lines above and below the median red dot represent most grants on either side of the median.</p>
+    <p>By continuing to collect data about small-scale grant givers, we hope to shed light on this growing sector.</p>
+  </div>
+</section>
+
+<section class="wrap white" id="network">
+  <div class="container">
+    <h2 class="callout">The constellation of funding</h2>
+    <img src="/assets/img/network_legend.png" alt="Legend for network diagram">
+  </div>
+</section>
+
+<section class="wrap contrast">
+  <div class="container">
+    <h2 class="callout">Most connected funders</h2>
+
+    <p>In the network of philanthropy, the most connected funders are foundations that reach out to the most organizations. These are often the funders who also have the highest number of individual grants each year &mdash; but not necessarily the most money granted. The least connected funders are the foundations that funnel their funds to a small set of organizations, often the same ones year after year.</p>
+
+    <ol>
+      <li><a href="#/organizations/454">Skillman Foundation</a></li>
+      <li><a href="#/organizations/191">DTE Energy Foundation</a></li>
+      <li><a href="#/organizations/111">Community Foundation for Southeast Michigan</a></li>
+      <li><a href="#/organizations/308">Kresge Foundation</a></li>
+      <li><a href="#/organizations/301">Kellogg Foundation</a></li>
+    </ol>
+
+  </div>
+</section>
+
+<section class="wrap contrast">
+  <div class="container">
+    <h2 class="callout">Most connected recipients</h2>
+
+    <p> The most connected recipients receive grants from the most unique funders.  These aren't necessarily organizations that receive the most money, but are organizations that receive support from a variety of different foundations.  <!-- Least connected recipients are organizations that have received a single grant from a single source. --></p>
+    <ol>
+      <li><a href="#/organizations/176">Detroit Symphony Orchestra</a></li>
+      <li><a href="#/organizations/539">Wayne State University</a></li>
+      <li><a href="#/organizations/468">Sphinx Organization, Inc</a></li>
+      <li><a href="#/organizations/108">College for Creative Studies</a></li>
+      <li><a href="#/organizations/512">United Way for Southeast Michigan</a></li>
+    </ol>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="container">
+    <h2 class="callout">What's next?</h2>
+    <p>We've written more <a href="#/about-detroit-ledger">about the project.</a> You can sign up to our newsletter to stay in touch:</p>
+
+    <div id="mc_embed_signup">
+      <form action="http://detroitledger.us7.list-manage.com/subscribe/post?u=5f6c82c52e266389140a08ab5&amp;id=ffe8bfd2f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div class="mc-field-group">
+          <input placeholder="Your email" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+          <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+        <div id="mce-responses" class="clear">
+          <div class="response" id="mce-error-response" style="display:none"></div>
+          <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;"><input type="text" name="b_5f6c82c52e266389140a08ab5_ffe8bfd2f0" tabindex="-1" value=""></div>
+      </form>
+    </div>
+
+    <p>And you can always reach us at <a href="mailto:hello@detroitledger.org">hello@detroitledger.org</a></p>
+<!--     <p>Let's keep it growing and branch out. Want to help?</p>
+    <p><a class="wepay-widget-button" href="https://www.wepay.com/donations/1806487170" id="wepay_widget_anchor_5183b11579564"><strong>Donate here.</strong></a></p>
+    <script type="text/javascript">// <![CDATA[
+    var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 1806487170,widget_type: "donation_campaign",anchor_id: "wepay_widget_anchor_5183b11579564",widget_options: {list_suggested_donations: true,allow_cover_fee: true,enable_recurring: true,allow_anonymous: true,button_text: "Donate"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://static.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}
+    // ]]></script>
+    <p>We accept cash as well as data donations. <a href="mailto:hello@detroitledger.org">Share your grant data and let us know!</a></p> -->
+  </div>
+</section>
+</script>

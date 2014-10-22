@@ -1,0 +1,26 @@
+{
+  "name": "detroitledger",
+  "version": "0.0.1",
+  "homepage": "https://github.com/detroitledger/detroitledger",
+  "authors": [
+    "Benjamin Chodoroff <ben@theworkdept.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.1.0",
+    "bootstrap": "~3.2.0",
+    "bootstrap-sass-official": "~3.2.0"
+  }
+}

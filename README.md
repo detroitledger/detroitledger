@@ -1,9 +1,9 @@
 ## Installation & development
 
-Install SASS:
+You'll need npm, bower, and gulp (`npm install -g gulp; npm install -g bower`). Also, you need compass.
 
-`gem install sass`
+`npm install`
 
-Watch the directory for style changes:
+`gulp build`
 
-`sass --watch css/sass/styles.scss:css/app.css`
+`gulp watch` to recompile on change
