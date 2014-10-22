@@ -5,6 +5,7 @@ var path = require('path'),
     browserify = require('browserify'),
     jstify = require('jstify'),
     _ = require('lodash'),
+    scp2 = require('scp2'),
     $ = require('gulp-load-plugins')(),
     runSequence = require('run-sequence'),
     mainBowerFiles = require('main-bower-files'),
@@ -220,6 +221,17 @@ gulp.task('test-teardown', function() {
 
 gulp.task('test', function() {
   return runSequence('test-setup', 'test-run', 'test-teardown');
+});
+
+gulp.task('deploy', ['build'], function(cb) {
+  scp2.scp('dist', {
+    'host': 'data.detroitledger.org',
+    'port': '2222',
+    'username': 'root',
+    'path': '/srv/www/frontend',
+    'agent': process.env['SSH_AUTH_SOCK'],
+    'agentForward': true
+  }, cb)
 });
 
 gulp.task('default', ['build']);

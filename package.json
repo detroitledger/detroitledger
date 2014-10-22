@@ -58,7 +58,8 @@
     "browserify-shim": "~3.7.0",
     "gulp-streamify": "0.0.5",
     "gulp-sourcemaps": "~1.2.2",
-    "jstify": "~0.4.2"
+    "jstify": "~0.4.2",
+    "scp2": "~0.1.4"
   },
   "devDependencies": {
     "bluebird": "~2.3.2",
