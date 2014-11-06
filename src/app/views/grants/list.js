@@ -67,7 +67,7 @@ var GrantListView = Backbone.View.extend({
         chartPadding: 20
       }]
     ];
-    Chartist.Pie('.ct-chart', data, options, responsiveOptions);
+    Chartist.Pie(this.$el.find('.ct-chart')[0], data, options, responsiveOptions);
   },
 
   group: function(grant) {
