@@ -9,6 +9,12 @@
                 <strong>Last updated</strong>
                 <%= grant.changed %>
             </li>
+            <% if (grant.notes) { %>
+            <li>
+                <strong>Notes</strong>
+                <%= grant.notes %>
+            </li>
+            <% } %>
         </ul>
     </div>
 
