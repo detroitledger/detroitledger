@@ -55,16 +55,16 @@ var GrantListView = Backbone.View.extend({
 
     var responsiveOptions = [
       ['screen and (min-width: 640px)', {
-        chartPadding: 30,
-        labelOffset: 100,
+        chartPadding: 20,
+        labelOffset: 35,
         labelDirection: 'explode',
         labelInterpolationFnc: function(value) {
           return value;
         }
       }],
       ['screen and (min-width: 1024px)', {
-        labelOffset: 80,
-        chartPadding: 20
+        chartPadding: 20,
+        labelOffset: 35
       }]
     ];
     Chartist.Pie(this.$el.find('.ct-chart')[0], data, options, responsiveOptions);
