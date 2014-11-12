@@ -134,11 +134,11 @@ gulp.task('integrate-test', function() {
   return runSequence('integrate', 'test-run');
 });
 
-gulp.task('watch', ['integrate', 'test-setup'], function() {
+gulp.task('watch', ['integrate'], function() {
   var browserSync = require('browser-sync');
 
   gulp.watch('src/css/**/*.scss', function() {
-    return runSequence('stylesheets', 'integrate-test');
+    return runSequence('stylesheets');
   });
 
   gulp.watch(['src/app/**/*.js', 'src/app/**/*.html'], function() {

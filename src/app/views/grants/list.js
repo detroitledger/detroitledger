@@ -44,30 +44,25 @@ var GrantListView = Backbone.View.extend({
     // chartist here!
     var data = {
       labels: _.keys(this.preppedData.yearly_sums), //expects array of years
-      series: _.values(this.preppedData.yearly_sums) //expects array of amounts
+      series: [_.values(this.preppedData.yearly_sums)] //expects an array of array of amounts
     };
     
     var options = {
-      labelInterpolationFnc: function(value) {
-        return value[0]
+      high: Math.max(_.values(data.series)),
+      low: 0,
+      axisY: {
+        labelInterpolationFnc: function(value, index) {
+          return index % 100000 === 0 ? value : null;
+        }
+      },  
+      axisX: {
+        labelInterpolationFnc: function(value, index) {
+          return index % 2 === 0 ? value : null;
+        }
       }
     };
 
-    var responsiveOptions = [
-      ['screen and (min-width: 640px)', {
-        chartPadding: 20,
-        labelOffset: 35,
-        labelDirection: 'explode',
-        labelInterpolationFnc: function(value) {
-          return value;
-        }
-      }],
-      ['screen and (min-width: 1024px)', {
-        chartPadding: 20,
-        labelOffset: 35
-      }]
-    ];
-    Chartist.Pie(this.$el.find('.ct-chart')[0], data, options, responsiveOptions);
+    new Chartist.Bar(this.$el.find('.ct-chart')[0], data, options);
   },
 
   group: function(grant) {
