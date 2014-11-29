@@ -15,6 +15,8 @@ var SearchView = Backbone.View.extend({
     'click input': 'search'
   },
 
+  foo: 'bar',
+
   initialize: function(options) {
     console.log("Initialize organization list");
     _.bindAll(this, 'render', 'search', 'error');
