@@ -52,17 +52,18 @@ var GrantListView = Backbone.View.extend({
       low: 0,
       axisY: {
         labelInterpolationFnc: function(value, index) {
-          return index % 100000 === 0 ? value : null;
+          return index % _.values(data.series).length === 0 ? "$" + numeral(value).format('0,0[.]00') : null;
         }
       },  
       axisX: {
         labelInterpolationFnc: function(value, index) {
-          return index % 2 === 0 ? value : null;
+          return index % 1 === 0 ? value : null;
         }
       }
     };
-
+    
     new Chartist.Bar(this.$el.find('.ct-chart')[0], data, options);
+
   },
 
   group: function(grant) {
