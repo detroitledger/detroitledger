@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-app.use(require('prerender-node'));
+app.use(require('prerender-node').set('protocol', 'https'));
 
 app.use(express.static(__dirname + '/dist'));
 
