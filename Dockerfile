@@ -14,4 +14,6 @@ ADD . /opt/gnl-frontend
 
 RUN cd /opt/gnl-frontend && npm install && gulp build
 
+EXPOSE 80
+
 CMD node /opt/gnl-frontend/server.js
