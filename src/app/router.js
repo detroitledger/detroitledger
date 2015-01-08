@@ -12,15 +12,15 @@ var AppRouter = Backbone.Router.extend({
   routes: {
     '': 'home',
 
-    'organizations/:id': 'showOrganization',
-    'organizations(/)': 'showOrganizations',
+    '!/organizations/:id': 'showOrganization',
+    '!/organizations(/)': 'showOrganizations',
 
-    'grants/:id': 'showGrant',
+    '!/grants/:id': 'showGrant',
 
-    ':id': 'showPage',
+    '!/:id': 'showPage',
 
     // Default
-    '*actions': 'defaultAction'
+    '!/*actions': 'defaultAction'
   }
 });
 

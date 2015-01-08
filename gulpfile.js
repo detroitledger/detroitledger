@@ -36,7 +36,7 @@ gulp.task('bump', function() {
 });
 
 gulp.task('build', function() {
-  return runSequence(['javascript', 'stylesheets', 'assets'], 'integrate', 'test');
+  return runSequence(['javascript', 'stylesheets', 'assets'], 'integrate');
 });
 
 gulp.task('serve', $.serve({
