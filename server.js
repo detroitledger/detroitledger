@@ -1,6 +1,6 @@
 var express = require('express');
 var request = require('request');
-var _ = require('underscore');
+var _ = require('lodash');
 var app = express();
 
 app.use(require('prerender-node').set('protocol', 'https'));
