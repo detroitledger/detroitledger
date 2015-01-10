@@ -30,7 +30,7 @@ app.get('/sitemap.xml', function(req, res){
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
     _.each(ids, function(id) {
-      sitemap += '<url><loc>https://detroitledger.org/#!/organizations/' + id;
+      sitemap += '<url><loc>https://www.detroitledger.org/#!/organizations/' + id;
       sitemap += '</loc></url>\n';
     });
 
