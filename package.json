@@ -61,7 +61,8 @@
     "prerender-node": "~1.1",
     "run-sequence": "~0.3.7",
     "scp2": "~0.1.4",
-    "vinyl-source-stream": "~1.0.0"
+    "vinyl-source-stream": "~1.0.0",
+    "request": "~2.51.0"
   },
   "devDependencies": {
     "bluebird": "~2.3.2",
