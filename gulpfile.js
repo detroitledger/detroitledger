@@ -62,7 +62,10 @@ gulp.task('javascript', /*['preprocess'],*/ function() {
       }
     )
     .transform('jstify', {
-      engine: 'lodash'
+      engine: 'lodash',
+      minifierOpts: {
+        collapseWhitespace: false
+      }
     })
     .transform('browserify-shim')
     .bundle();
