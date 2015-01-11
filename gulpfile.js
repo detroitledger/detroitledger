@@ -226,15 +226,4 @@ gulp.task('test', function() {
   return runSequence('test-setup', 'test-run', 'test-teardown');
 });
 
-gulp.task('deploy', ['build'], function(cb) {
-  scp2.scp('dist', {
-    'host': 'data.detroitledger.org',
-    'port': '2222',
-    'username': 'root',
-    'path': '/srv/www/frontend',
-    'agent': process.env['SSH_AUTH_SOCK'],
-    'agentForward': true
-  }, cb)
-});
-
 gulp.task('default', ['build']);
