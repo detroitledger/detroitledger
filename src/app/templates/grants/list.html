@@ -6,7 +6,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">
-              <a href="#!/organizations/<%= organization.id %>">
+              <a href="/#!/organizations/<%= organization.id %>">
                 <%- organization.name %>
               </a> ($<%- organization.prettySum %>)
             </h3>
@@ -15,18 +15,18 @@
             <% _.each(organization.grants, function(grant) { %>
                 <div class="grant">
                     <h3>
-                        <a href="#!/grants/<%= grant.id %>">$<%= grant.amount %></a>
-                        <a href="#!/grants/<%= grant.id %>"><span class="glyphicon glyphicon-link"></span></a></a>
+                        <a href="/#!/grants/<%= grant.id %>">$<%= grant.amount %></a>
+                        <a href="/#!/grants/<%= grant.id %>"><span class="glyphicon glyphicon-link"></span></a></a>
                     </h3>
 
                     <!--<% if (direction === 'received') { %>
                         From
-                        <a href="#!/organizations/<%= grant.field_funder.target_id %>">
+                        <a href="/#!/organizations/<%= grant.field_funder.target_id %>">
                             <%= grant.field_funder.name %>
                         </a>
                     <% } else { %>
                         To
-                        <a href="#!/organizations/<%= grant.field_recipient.target_id %>">
+                        <a href="/#!/organizations/<%= grant.field_recipient.target_id %>">
                             <%= grant.field_recipient.name %>
                         </a>
                     <% } %>-->
