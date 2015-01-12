@@ -42,7 +42,7 @@ var OrganizationView = Backbone.View.extend({
   render: function() {
     console.log("Rendering organization", this.model);
 
-    $('title').text('The Detroit Ledger: ' + this.model.get('title') + ' grant data');
+    $('title').text(this.model.get('title') + ' grant data' + ' - The Detroit Ledger');
 
     $("#title").html(this.template({
       o: this.model.toJSON()

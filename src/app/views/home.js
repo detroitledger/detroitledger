@@ -36,7 +36,7 @@ var HomeView = Backbone.View.extend({
       stats: this.model.toJSON()
     }));
 
-    $('title').text(this.model.get('title'));
+    $('title').text(this.model.get('title') + ' - information about grants and nonprofits in Detroit');
 
     $("#title").html(this.title({
       title: this.model.get('title'),

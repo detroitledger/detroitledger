@@ -47,7 +47,7 @@ var GrantView = Backbone.View.extend({
       grant: this.model.toJSON()
     }));
 
-    $('title').text('Grant from ' + this.model.get('field_funder').name + ' to ' + this.model.get('field_recipient').name);
+    $('title').text('Grant from ' + this.model.get('field_funder').name + ' to ' + this.model.get('field_recipient').name + ' - The Detroit Ledger');
 
     this.$el.html(this.details({
       grant: this.model.toJSON()
