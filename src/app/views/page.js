@@ -30,6 +30,9 @@ var PageView = Backbone.View.extend({
       title: this.model.get('title'),
       options: {}
     }));
+
+    $('title').text('The Detroit Ledger: ' + this.model.get('title'));
+
     this.$el.html(this.template({
       page: this.model.toJSON()
     }));

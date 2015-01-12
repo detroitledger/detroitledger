@@ -25,6 +25,8 @@ var HomeView = Backbone.View.extend({
     this.model.fetch();
     this.model.on('change', this.render);
 
+    this.model.set({'title': 'The Detroit Ledger'});
+
     this.render();
   },
 
@@ -34,8 +36,10 @@ var HomeView = Backbone.View.extend({
       stats: this.model.toJSON()
     }));
 
+    $('title').text(this.model.get('title'));
+
     $("#title").html(this.title({
-      title: 'The Detroit Ledger',
+      title: this.model.get('title'),
       options: {
         subtitle: 'A comprehensive dataset of grants made in Detroit',
         page: 'home'
