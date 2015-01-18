@@ -146,7 +146,7 @@ gulp.task('watch', ['integrate', 'test-setup'], function() {
   });
 
   gulp.watch(['src/assets/**', 'src/**/*.html'], function() {
-    return runSequence('assets', 'integrate-test');
+    return runSequence('javascript', 'assets', 'integrate-test');
   });
 
   $.util.log('Initalize BrowserSync on port 8081');
