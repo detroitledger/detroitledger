@@ -16,7 +16,7 @@
         <% } %>
         <% if (o.amount_funded) { %>
             <div class="col-md-6">
-                Given
+                Gave
                 <h2>
                     $<%= o.amount_funded %>
                 </h2>
@@ -27,6 +27,9 @@
     <div class="row">
         <div class="col-md-12">
             <p>Since <%= o.org_grants_datestart %>.</p>
+            <% if (o.body) { %>
+            <%= o.body.und[0].safe_value %>
+            <% } %>
         </div>
     </div>
 </div>
