@@ -141,11 +141,11 @@ gulp.task('watch', ['integrate', 'test-setup'], function() {
     return runSequence('stylesheets', 'integrate-test');
   });
 
-  gulp.watch('src/app/**/*.js', function() {
+  gulp.watch(['src/app/**/*.js', 'src/app/**/*.html'], function() {
     return runSequence('javascript', 'integrate-test');
   });
 
-  gulp.watch(['src/assets/**', 'src/**/*.html'], function() {
+  gulp.watch(['src/assets/**', 'src/index.html'], function() {
     return runSequence('javascript', 'assets', 'integrate-test');
   });
 
@@ -189,14 +189,14 @@ gulp.task('test-setup', function(cb) {
           .then(testServer.stop)
           .then(function() {
             process.exit();
-          })
+          });
       });
       return Promise.resolve();
     });
 });
 
 gulp.task('test-run', function() {
-  var Promise = require('bluebird')
+  var Promise = require('bluebird');
 
   $.util.log('Running protractor');
 
@@ -213,7 +213,7 @@ gulp.task('test-run', function() {
       })
       .on('error', function() {
         resolve();
-      })
+      });
   });
 });
 
