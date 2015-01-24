@@ -1,0 +1,18 @@
+<div class="container page">
+    <div class="row">
+        <div class="col-md-6">
+            <% var total = counts.totals.length %>
+            <% _.each(counts, function(count, title) { %>
+              <h3><%= title %></h3>
+              <% var pct = Math.floor(count.length / total * 100); %>
+              <%= pct %>% (<%= count.length %>)
+
+              <% _.each(count.slice(0,5), function(node) { %>
+                <li>
+                  <a href="https://data.detroitledger.org/node/<%= node.id %>/edit"><%= node.title %></a>
+                </li>
+              <% }); %>
+            <% }) %>
+        </div>
+    </div>
+</div>
