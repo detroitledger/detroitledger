@@ -64,6 +64,39 @@ var GrantListView = Backbone.View.extend({
     
     new Chartist.Bar(this.$el.find('.ct-chart')[0], data, options);
 
+/* 
+** Start tooltips -- not displaying 11/29/14
+** See example http://gionkunz.github.io/chartist-js/examples.html
+
+    var $chart = $('.ct-chart');
+
+    var $toolTip = $chart
+      .append('<div class="tooltip"></div>')
+      .find('.tooltip')
+      .hide();
+
+    $chart.on('mouseenter', '.ct-bar', function() {
+      var $bar = $(this),
+        value = $bar.attr(data.series),
+        seriesName = $bar.attr(data.labels);
+
+      $toolTip.html(seriesName + '<br>' + value).show();
+    });
+
+    $chart.on('mouseleave', '.ct-bar', function() {
+      var $bar = $(this);
+
+      $toolTip.hide();
+    });
+
+    $chart.on('mousemove', function(event) {
+      $toolTip.css({
+        left: (event.offsetX || event.originalEvent.layerX) - $toolTip.width() / 2 - 10,
+        top: (event.offsetY || event.originalEvent.layerY) - $toolTip.height() - 40
+      });
+    });
+    */
+
   },
 
   group: function(grant) {
