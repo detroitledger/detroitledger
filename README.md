@@ -37,16 +37,20 @@ To test that things are working, vist a URL and change the `#!` to
 
 ## Docker
 
-On the live server, check out this repository and situate yourself inside it.
+In your local repo, `git remote add live root@data.detroitledger.org:repos/detroitledger.git`.
 
-Then,
+Later on, `git push live gh-pages` when you want to deploy.
+
+In the background, the following `post-receive` hook happens:
 
 ```
-# if prerender isn't already running
-docker run -d --name=docker-prerender bnchdrff/docker-prerender
-# rebuild & restart
-docker build -t detroitledger/gnl-frontend .
+#!/usr/bin/env sh
+
+export GIT_WORK_TREE="$HOME/repos/detroitledger"
+git checkout -f gh-pages
+docker build -t detroitledger/gnl-frontend:`git log --pretty=format:'%h' -n 1` ../detroitledger
 docker stop gnl-frontend
 docker rm gnl-frontend
 docker run -d --name=gnl-frontend -e PRERENDER_SERVICE_URL=http://`docker inspect --format='{{.NetworkSettings.IPAddress}}' prerender`:3000 detroitledger/gnl-frontend
+
 ```

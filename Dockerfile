@@ -12,7 +12,9 @@ RUN npm install -g gulp
 
 ADD . /opt/gnl-frontend
 
-RUN cd /opt/gnl-frontend && npm install && gulp build
+RUN cd /opt/gnl-frontend && npm install
+RUN cd /opt/gnl-frontend && gulp install
+RUN cd /opt/gnl-frontend && gulp build
 
 EXPOSE 80
 
