@@ -22,6 +22,6 @@
     "jquery": "2.1.0",
     "bootstrap": "~3.2.0",
     "bootstrap-sass-official": "~3.2.0",
-    "chartist": "~0.1.14"
+    "chartist": "~0.6.1"
   }
 }
