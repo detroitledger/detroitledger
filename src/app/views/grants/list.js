@@ -42,6 +42,7 @@ var GrantListView = Backbone.View.extend({
 
   afterRender: function() {
     // chartist here!
+    debugger;
     var data = {
       labels: _.keys(this.preppedData.yearly_sums), //expects array of years
       series: [_.values(this.preppedData.yearly_sums)] //expects an array of array of amounts
