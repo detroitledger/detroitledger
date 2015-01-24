@@ -41,10 +41,11 @@ var HomeView = Backbone.View.extend({
     console.log("Got these orgs", orgs);
     var counts = {
       totals: orgs,
+      no_tags: [],
+      no_description: [],
       no_ntee: [],
       no_ein: [],
-      old: [],
-      no_tags: []
+      old: []
     };
 
     _.each(orgs, function(org) {
@@ -54,6 +55,10 @@ var HomeView = Backbone.View.extend({
 
       if(org.field_ntee === null) {
         counts.no_ntee.push(org);
+      }
+
+      if(org.body === null) {
+        counts.no_description.push(org);
       }
 
       if(org.field_org_tags === null) {
