@@ -157,6 +157,29 @@ gulp.task('watch', ['integrate', 'test-setup'], function() {
   });
 });
 
+gulp.task('watch-sans-test', ['integrate', 'watch-setup'], function() {
+  var browserSync = require('browser-sync');
+
+  gulp.watch('src/css/**/*.scss', function() {
+    return runSequence('stylesheets', 'integrate-test');
+  });
+
+  gulp.watch(['src/app/**/*.js', 'src/app/**/*.html'], function() {
+    return runSequence('javascript', 'integrate-test');
+  });
+
+  gulp.watch(['src/assets/**', 'src/index.html'], function() {
+    return runSequence('javascript', 'assets', 'integrate-test');
+  });
+
+  $.util.log('Initalize BrowserSync on port 8081');
+  browserSync.init({
+    files: 'dist/**/*',
+    proxy: 'localhost:8080',
+    port: 8081
+  });
+});
+
 gulp.task('test-setup', function(cb) {
   var cmdAndArgs = npmPackage.scripts.start.split(/\s/),
       cmdPath = path.dirname(require.resolve('phantomjs')),
@@ -187,6 +210,34 @@ gulp.task('test-setup', function(cb) {
       process.once('SIGINT', function() {
         return ghostDriver.stop()
           .then(testServer.stop)
+          .then(function() {
+            process.exit();
+          });
+      });
+      return Promise.resolve();
+    });
+});
+
+gulp.task('watch-setup', function(cb) {
+  var cmdAndArgs = npmPackage.scripts.start.split(/\s/),
+      cmdPath = path.dirname(require.resolve('phantomjs')),
+      cmd = path.resolve(cmdPath, require(path.join(cmdPath, 'location')).location),
+      exec = require('exec-wait'),
+      Promise = require('bluebird');
+
+  testServer = exec({
+    name: 'Test server',
+    cmd: cmdAndArgs[0] + (process.platform === 'win32' ? '.cmd' : ''),
+    args: cmdAndArgs.slice(1),
+    monitor: { url: 'http://localhost:8080/', checkHTTPResponse: false },
+    log: $.util.log,
+    stopSignal: 'SIGTERM'
+  });
+
+  return testServer.start()
+    .then(function() {
+      process.once('SIGINT', function() {
+        return testServer.stop()
           .then(function() {
             process.exit();
           });

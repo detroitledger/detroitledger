@@ -4,13 +4,15 @@ var Backbone = require('backbone'),
     OrganizationListView = require('./views/organizations/list'),
     OrganizationItemView = require('./views/organizations/item'),
     GrantItemView = require('./views/grants/item'),
-    PageView = require('./views/page');
+    PageView = require('./views/page'),
+    QualityView = require('./views/quality');
 
 Backbone.$ = require('jquery');
 
 var AppRouter = Backbone.Router.extend({
   routes: {
     '': 'home',
+    '!/quality': 'showQuality',
 
     '!/organizations/:id': 'showOrganization',
     '!/organizations(/)': 'showOrganizations',
@@ -52,6 +54,10 @@ module.exports.initialize = function() {
     var pageView = new PageView({
       id: id
     });
+  });
+
+  router.on('route:showQuality', function(id) {
+    var pageView = new QualityView({});
   });
 
   router.on('oute:defaultAction', function(actions) {
