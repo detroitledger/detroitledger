@@ -73,6 +73,10 @@ var HomeView = Backbone.View.extend({
       }
     });
 
+    _.each(counts, function(count, key) {
+      counts[key] = _.shuffle(count)
+    });
+
     this.render(counts);
   },
 
