@@ -134,7 +134,7 @@ gulp.task('integrate-test', function() {
   return runSequence('integrate', 'test-run');
 });
 
-gulp.task('watch', ['integrate'], function() {
+gulp.task('watch', ['integrate', 'test-setup'], function() {
   var browserSync = require('browser-sync');
 
   gulp.watch('src/css/**/*.scss', function() {
