@@ -53,7 +53,12 @@ var HomeView = Backbone.View.extend({
         counts.no_ein.push(org);
       }
 
-      if(org.field_ntee === null) {
+      if( org.field_ntee === null &&
+          org.field_org_tags && (
+            org.field_org_tags.tid === '713' ||
+            org.field_org_tags.tid === '715'
+          )
+        ) {
         counts.no_ntee.push(org);
       }
 
@@ -74,7 +79,7 @@ var HomeView = Backbone.View.extend({
     });
 
     _.each(counts, function(count, key) {
-      counts[key] = _.shuffle(count)
+      counts[key] = _.shuffle(count);
     });
 
     this.render(counts);
