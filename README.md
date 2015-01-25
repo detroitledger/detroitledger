@@ -6,7 +6,9 @@ You'll need npm, bower, and gulp (`npm install -g gulp; npm install -g bower`). 
 
 `gulp build`
 
-`gulp watch` to recompile on change
+`gulp watch` to recompile and run tests on file change
+
+`gulp watch-sans-test` to recompile without tests on file change
 
 `gulp deploy` to copy files to our live container (you need access, obviously!)
 
