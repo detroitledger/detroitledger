@@ -60,9 +60,18 @@ module.exports.initialize = function() {
     var pageView = new QualityView({});
   });
 
-  router.on('oute:defaultAction', function(actions) {
+  router.on('route:defaultAction', function(actions) {
     console.log('No route:', actions);
   });
 
+  Backbone.history.on('route', this.trackPageview);
   Backbone.history.start();
 };
+
+module.exports.trackPageview = function() {
+  var url = Backbone.history.root + Backbone.history.getFragment();
+  if (typeof ga == 'function') {
+    ga('send', 'pageview', url);
+  }
+};
+
