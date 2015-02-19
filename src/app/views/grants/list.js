@@ -42,7 +42,6 @@ var GrantListView = Backbone.View.extend({
 
   afterRender: function() {
     // chartist here!
-    debugger;
     var data = {
       labels: _.keys(this.preppedData.yearly_sums), //expects array of years
       series: [_.values(this.preppedData.yearly_sums)] //expects an array of array of amounts
@@ -55,7 +54,7 @@ var GrantListView = Backbone.View.extend({
         low: 0,
         axisY: {
           labelInterpolationFnc: function(value, index) {
-            return index % _.values(data.series).length === 0 ? "$" + numeral(value).format('0,0[.]00') : null;
+            return index % _.values(data.series).length === 0 ? "$" + numeral(value).format('0.0a') : null;
           }
         },
         axisX: {
@@ -66,13 +65,9 @@ var GrantListView = Backbone.View.extend({
       };
 
       new Chartist.Bar(this.$el.find('.ct-chart')[0], data, options);
-
     }
 
-/*
-** Start tooltips -- not displaying 11/29/14
-** See example http://gionkunz.github.io/chartist-js/examples.html
-
+    //start tooltips - not working 2/19/15
     var $chart = $('.ct-chart');
 
     var $toolTip = $chart
@@ -100,7 +95,6 @@ var GrantListView = Backbone.View.extend({
         top: (event.offsetY || event.originalEvent.layerY) - $toolTip.height() - 40
       });
     });
-    */
 
   },
 

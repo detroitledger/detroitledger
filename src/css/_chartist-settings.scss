@@ -23,8 +23,8 @@ $ct-class-horizontal: ct-horizontal !default;
 $ct-container-ratio: (1/1.618) !default;
 
 // Text styles for labels
-$ct-text-color: rgba(0, 0, 0, 0.4) !default;
-$ct-text-size: .50rem !default;
+$ct-text-color: rgba(0, 0, 0, 1) !default;
+$ct-text-size: 1.0rem !default;
 $ct-text-align: left !default;
 $ct-horizontal-text-align: center !default;
 $ct-vertical-text-align: right !default;
@@ -62,8 +62,8 @@ $ct-include-alternative-responsive-containers: $ct-include-classes !default;
 
 // Series names and colors. This can be extended or customized as desired. Just add more series and colors.
 $ct-series-names: (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) !default;
-$ct-series-colors: (
-  #d70206,
+$ct-series-colors: ( 
+  #04952e,
   #f05b4f,
   #f4c63d,
   #d17905,
