@@ -42,9 +42,15 @@ var GrantListView = Backbone.View.extend({
 
   afterRender: function() {
     // chartist here!
+    var years = [];
+    var sums = _.sortBy(this.preppedData.yearly_sums, function(sum, year) {
+      years.push(year);
+      return year;
+    });
+
     var data = {
-      labels: _.keys(this.preppedData.yearly_sums), //expects array of years
-      series: [_.values(this.preppedData.yearly_sums)] //expects an array of array of amounts
+      labels: years, //expects array of years
+      series: [sums] //expects an array of array of amounts
     };
 
     if (data.labels.length > 0) {
@@ -114,6 +120,7 @@ var GrantListView = Backbone.View.extend({
     readyData = _.sortBy(readyData, function(organization) {
       return organization.sum;
     }).reverse();
+
     console.log("Ready", readyData);
     return {
       organizations: readyData,
