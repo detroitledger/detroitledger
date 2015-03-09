@@ -10,8 +10,6 @@ You'll need npm, bower, and gulp (`npm install -g gulp; npm install -g bower`). 
 
 `gulp watch-sans-test` to recompile without tests on file change
 
-`gulp deploy` to copy files to our live container (you need access, obviously!)
-
 ## Prerender
 
 We use a little proxy server to pre-render pages for SEO.
