@@ -2,6 +2,7 @@
 
 var $ = require('jquery'),
     twbs = require('bootstrap'), // init bootstrap - this is dumb to do this way
+    chartist = require('chartist'),
     app = require('./app');
 
 $(document).ready(function () {

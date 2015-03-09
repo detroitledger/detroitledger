@@ -1,5 +1,6 @@
 var $ = require('jquery'),
     _ = require('lodash'),
+    Chartist = require('chartist'),
     Backbone = require('backbone'),
     Organizations = require('../../models/organizations'),
     GrantListView = require('../grants/list'),

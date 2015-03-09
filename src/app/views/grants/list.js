@@ -1,5 +1,6 @@
 var $ = require('jquery'),
     _ = require('lodash'),
+    Chartist = require('chartist'),
     Backbone = require('backbone'),
     numeral = require('numeral'),
     Grants = require('../../models/grants'),
@@ -16,7 +17,15 @@ var GrantListView = Backbone.View.extend({
    *                  list. Valid values: funded, recieved
    */
   initialize: function(options) {
-    _.bindAll(this, 'prep', 'group', 'render');
+    _.bindAll(this, 'prep', 'group', 'render', 'afterRender');
+
+    var _this = this;
+
+    this.render = _.wrap(this.render, function(render) {
+      render();
+      _this.afterRender();
+      return _this;
+    })
 
     this.direction = options.direction;
 
@@ -27,6 +36,37 @@ var GrantListView = Backbone.View.extend({
       limit: options.limit
     });
     this.grants.on('reset', this.render);
+  },
+
+  preppedData: {},
+
+  afterRender: function() {
+    // chartist here!
+    var data = {
+      labels: _.keys(this.preppedData.yearly_sums), //expects array of years
+      series: [_.values(this.preppedData.yearly_sums)] //expects an array of array of amounts
+    };
+
+    if (data.labels.length > 0) {
+
+      var options = {
+        high: Math.max(_.values(data.series)),
+        low: 0,
+        axisY: {
+          labelInterpolationFnc: function(value, index) {
+            return index % _.values(data.series).length === 0 ? "$" + numeral(value).format('0a') : null;
+          }
+        },
+        axisX: {
+          labelInterpolationFnc: function(value, index) {
+            return index % 1 === 0 ? value : null;
+          }
+        }
+      };
+
+      new Chartist.Bar(this.$el.find('.ct-chart')[0], data, options);
+    }
+
   },
 
   group: function(grant) {
@@ -49,8 +89,16 @@ var GrantListView = Backbone.View.extend({
 
     // Add counts etc.
     var readyData = [];
+    var yearly_sums = {};
     _.each(byOrganizationID, function(grants, organziation_id) {
       var sum = _.reduce(grants, function(memo, grant) {
+        // along the way, build our yearly sums!
+        var this_year = grant.field_year.value.slice(0,4);
+        if (yearly_sums[this_year] > 0) {
+          yearly_sums[this_year] += grant.field_funded_amount;
+        } else {
+          yearly_sums[this_year] = grant.field_funded_amount;
+        }
         return memo + grant.field_funded_amount;
       }, 0);
 
@@ -67,14 +115,21 @@ var GrantListView = Backbone.View.extend({
       return organization.sum;
     }).reverse();
     console.log("Ready", readyData);
-    return readyData;
+    return {
+      organizations: readyData,
+      yearly_sums: yearly_sums
+    };
   },
 
   render: function() {
+    this.preppedData = this.prep();
     this.$el.html(this.template({
-      organizations: this.prep(),
+      organizations: this.preppedData.organizations,
+      yearly_sums: this.preppedData.yearly_sums,
       direction: this.direction
     }));
+
+    return this;
   }
 });
 
