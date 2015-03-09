@@ -54,7 +54,7 @@ var GrantListView = Backbone.View.extend({
         low: 0,
         axisY: {
           labelInterpolationFnc: function(value, index) {
-            return index % _.values(data.series).length === 0 ? "$" + numeral(value).format('0.0a') : null;
+            return index % _.values(data.series).length === 0 ? "$" + numeral(value).format('0a') : null;
           }
         },
         axisX: {
