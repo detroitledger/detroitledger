@@ -42,6 +42,8 @@ var GrantListView = Backbone.View.extend({
 
   afterRender: function() {
     // chartist here!
+    // @todo this is wrong: relies on original object order.
+    // instead, prepare yearly_sums as array to begin with
     var years = [];
     var sums = _.sortBy(this.preppedData.yearly_sums, function(sum, year) {
       years.push(year);
