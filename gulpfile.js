@@ -153,7 +153,8 @@ gulp.task('watch', ['integrate', 'test-setup'], function() {
   browserSync.init({
     files: 'dist/**/*',
     proxy: 'localhost:8080',
-    port: 8081
+    port: 8081,
+    reloadOnRestart: false
   });
 });
 
@@ -176,7 +177,25 @@ gulp.task('watch-sans-test', ['integrate', 'watch-setup'], function() {
   browserSync.init({
     files: 'dist/**/*',
     proxy: 'localhost:8080',
-    port: 8081
+    port: 8081,
+    reloadOnRestart: false
+  });
+});
+
+// Watch, but don't run tests and don't use browsersync
+gulp.task('watch-seat-of-pants', ['integrate', 'watch-setup'], function() {
+  var browserSync = require('browser-sync');
+
+  gulp.watch('src/css/**/*.scss', function() {
+    return runSequence('stylesheets', 'integrate-test');
+  });
+
+  gulp.watch(['src/app/**/*.js', 'src/app/**/*.html'], function() {
+    return runSequence('javascript', 'integrate-test');
+  });
+
+  gulp.watch(['src/assets/**', 'src/index.html'], function() {
+    return runSequence('javascript', 'assets', 'integrate-test');
   });
 });
 
