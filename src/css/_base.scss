@@ -18,7 +18,7 @@ body {
   padding: 0;
   padding-top: 50px;
   background: #f1ecd1;
-  font-family: nobile;
+  // font-family: nobile;
   color: $body-color;
 }
 
@@ -39,8 +39,12 @@ a.active-trail {
 }
 
 p {
-  line-height: 1.9;
+  line-height: 1.6;
   max-width: 600px;
+}
+
+h1, h2, h3 {
+  font-size: 1em;
 }
 
 h2 {

@@ -2,42 +2,55 @@
 <div class="col-md-6">
     <h2>Grants <%= direction %></h2>
 
-<div class="ct-chart"></div>
+    <div class="ct-chart"></div>
 
-    <% _.each(organizations, function(organization) { %>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              <a href="/#!/organizations/<%= organization.id %>">
-                <%- organization.name %>
-              </a> ($<%- organization.prettySum %>)
-            </h3>
-          </div>
-          <div class="panel-body">
+    <table class="grants">
+        <thead>
+            <tr>
+                <th colspan="2" class="name">Organization</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% _.each(organizations, function(organization) { %>
+            <tr class="organization">
+                <td colspan="2" class="name">
+                    <a href="/#!/organizations/<%= organization.id %>">
+                        <strong><%- organization.name %></strong>
+                    </a>
+                </td>
+                <td>
+                    <strong>$<%- organization.prettySum %></strong>
+                </td>
+            </tr>
+
+
             <% _.each(organization.grants, function(grant) { %>
-                <div class="grant">
-                    <h3>
-                        <a href="/#!/grants/<%= grant.id %>">$<%= grant.amount %></a>
-                        <a href="/#!/grants/<%= grant.id %>"><span class="glyphicon glyphicon-link"></span></a></a>
-                    </h3>
-
-                    <!--<% if (direction === 'received') { %>
-                        From
-                        <a href="/#!/organizations/<%= grant.field_funder.target_id %>">
-                            <%= grant.field_funder.name %>
-                        </a>
-                    <% } else { %>
-                        To
-                        <a href="/#!/organizations/<%= grant.field_recipient.target_id %>">
-                            <%= grant.field_recipient.name %>
-                        </a>
-                    <% } %>-->
-                    from <%= grant.start_date %> to <%= grant.end_date %>.
-                </div>
+                <tr class="grant">
+                    <td class="description">
+                        <a href="/#!/grants/<%= grant.id %>" class="permalink">
+                        <% if(grant.body) { %>
+                            <%= grant.body.und[0].value %></a>
+                        <% } else { %>
+                            <span class="glyphicon glyphicon-link"></span>
+                        <% } %>
+                        </td>
+                    </td>
+                    <td>
+                        <%= grant.start_date %>
+                        &mdash;
+                        <%= grant.end_date %>
+                    </td>
+                    <td>
+                        <div class="amount">
+                            $<%= grant.amount %>
+                        </div>
+                    </td>
+                </tr>
             <% }); %>
-          </div>
-        </div>
-    <% }); %>
+        <% }); %>
+        </tbody>
+    </table>
 </div>
 
 <% } %>

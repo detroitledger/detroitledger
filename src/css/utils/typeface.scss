@@ -2,7 +2,7 @@
 @import '_nobile';
 
 body {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   font-weight: 400;
 }
@@ -10,6 +10,6 @@ body {
 .l-header,
 .l-header a,
 h1, h2, h3, h4, h5 {
-  font-family: "Nobile", Helvetica, sans-serif;
+  font-family: Helvetica Neue, sans-serif; //"Nobile",
   font-weight: 400;
 }
