@@ -17,7 +17,7 @@ body {
   margin: 0;
   padding: 0;
   padding-top: 50px;
-  background: #f1ecd1;
+  // background: #f1ecd1;
   // font-family: nobile;
   color: $body-color;
 }
@@ -45,6 +45,10 @@ p {
 
 h1, h2, h3 {
   font-size: 1em;
+}
+
+h1 {
+  font-size: 1.5em;
 }
 
 h2 {

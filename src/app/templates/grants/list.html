@@ -1,5 +1,4 @@
 <% if (organizations.length > 0) { %>
-<div class="col-md-6">
     <h2>Grants <%= direction %></h2>
 
     <div class="ct-chart"></div>
@@ -7,7 +6,8 @@
     <table class="grants">
         <thead>
             <tr>
-                <th colspan="2" class="name">Organization</th>
+                <th class="name">Grants by organization</th>
+                <th>Years</th>
                 <th>Amount</th>
             </tr>
         </thead>
@@ -20,7 +20,7 @@
                     </a>
                 </td>
                 <td>
-                    <strong>$<%- organization.prettySum %></strong>
+                    <strong>$<%- organization.prettySum %> total</strong>
                 </td>
             </tr>
 
@@ -51,7 +51,5 @@
         <% }); %>
         </tbody>
     </table>
-</div>
-
 <% } %>
 

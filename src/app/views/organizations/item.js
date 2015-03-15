@@ -4,6 +4,7 @@ var $ = require('jquery'),
     Backbone = require('backbone'),
     Organizations = require('../../models/organizations'),
     GrantListView = require('../grants/list'),
+    PeopleListView = require('../people/list'),
     FlagView = require('../flag'),
     template = require('../../templates/organizations/item.html'),
     details = require('../../templates/organizations/details.html');
@@ -37,6 +38,12 @@ var OrganizationView = Backbone.View.extend({
       org: options.id,
       direction: 'funded',
       el: '#grants-funded'
+    });
+
+    // Get related people
+    this.peopleView = new PeopleListView({
+      org: options.id,
+      el: '#people'
     });
   },
 

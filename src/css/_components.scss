@@ -63,22 +63,17 @@
 }
 
 header {
-  background: $green;
-  color: #fff;
+  // background: $green;
+  // color: #fff;
   padding: 10px 0 20px;
-  border-bottom: 1px solid #024a17;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
 }
 
 header a,
 header a:link,
 header a:visited,
 header a:active {
-  color: #fff;
-  border-bottom: 1px dotted #fff;
+  // color: #fff;
+  // border-bottom: 1px dotted #fff;
   text-decoration: none;
   line-height: 1.5em;
 }
@@ -349,6 +344,7 @@ td.name {
 
 .grant:hover td.description a {
   color: $blue;
+  border-bottom: 1px dotted $blue;
 }
 
 .grant a {

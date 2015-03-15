@@ -5,12 +5,13 @@
         </div>
     </div>
 
+    <!--
     <div class="row">
         <% if (o.amount_received) { %>
         <div class="col-md-6">
             Recieved
             <h2>
-                $<%= o.amount_received %>
+
             </h2>
         </div>
         <% } %>
@@ -18,18 +19,36 @@
             <div class="col-md-6">
                 Gave
                 <h2>
-                    $<%= o.amount_funded %>
+
                 </h2>
             </div>
         <% } %>
     </div>
+    <p>Since <%= o.org_grants_datestart %>.</p>
+    -->
 
     <div class="row">
         <div class="col-md-12">
-            <p>Since <%= o.org_grants_datestart %>.</p>
             <% if (o.body) { %>
             <%= o.body.und[0].safe_value %>
             <% } %>
         </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+        <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#grants-received" aria-controls="grants-received" role="tab" data-toggle="tab">
+            Received $<%= o.amount_received %>
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#grants-funded" aria-controls="grants-funded" role="tab" data-toggle="tab">
+                Gave $<%= o.amount_funded %>
+            </a>
+        </li>
+        </ul>
     </div>
 </div>
