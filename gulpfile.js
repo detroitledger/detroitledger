@@ -108,10 +108,6 @@ gulp.task('stylesheets', function() {
 });
 
 gulp.task('assets', function() {
-  // Vendor stuff
-  gulp.src('src/components/bootstrap-sass-official/assets/**')
-    .pipe(gulp.dest('dist/assets/vendor/bootstrap'));
-
   // Our stuff
   return gulp.src('src/assets/**')
     .pipe($.cached('assets'))
@@ -159,45 +155,19 @@ gulp.task('watch', ['integrate', 'test-setup'], function() {
 });
 
 gulp.task('watch-sans-test', ['integrate', 'watch-setup'], function() {
-  var browserSync = require('browser-sync');
-
   gulp.watch('src/css/**/*.scss', function() {
-    return runSequence('stylesheets', 'integrate-test');
+    return runSequence('stylesheets', 'integrate');
   });
 
   gulp.watch(['src/app/**/*.js', 'src/app/**/*.html'], function() {
-    return runSequence('javascript', 'integrate-test');
+    return runSequence('javascript', 'integrate');
   });
 
   gulp.watch(['src/assets/**', 'src/index.html'], function() {
-    return runSequence('javascript', 'assets', 'integrate-test');
-  });
-
-  $.util.log('Initalize BrowserSync on port 8081');
-  browserSync.init({
-    files: 'dist/**/*',
-    proxy: 'localhost:8080',
-    port: 8081,
-    reloadOnRestart: false
+    return runSequence('javascript', 'assets', 'integrate');
   });
 });
 
-// Watch, but don't run tests and don't use browsersync
-gulp.task('watch-seat-of-pants', ['integrate', 'watch-setup'], function() {
-  var browserSync = require('browser-sync');
-
-  gulp.watch('src/css/**/*.scss', function() {
-    return runSequence('stylesheets', 'integrate-test');
-  });
-
-  gulp.watch(['src/app/**/*.js', 'src/app/**/*.html'], function() {
-    return runSequence('javascript', 'integrate-test');
-  });
-
-  gulp.watch(['src/assets/**', 'src/index.html'], function() {
-    return runSequence('javascript', 'assets', 'integrate-test');
-  });
-});
 
 gulp.task('test-setup', function(cb) {
   var cmdAndArgs = npmPackage.scripts.start.split(/\s/),
