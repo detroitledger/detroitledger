@@ -27,7 +27,6 @@ var PeopleListView = Backbone.View.extend({
   },
 
   render: function() {
-    console.log("Rendering people", this.people.toJSON());
     this.$el.html(this.template({
       people: this.people.toJSON()
     }));

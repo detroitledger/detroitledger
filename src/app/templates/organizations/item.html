@@ -36,19 +36,24 @@
     </div>
 </div>
 
+<!--
+<% if (o.amount_received || !o.amount_funded) { %>class="active"<% } %>
+<% if (o.amount_funded && !o.amount_received) { %>class="active"<% } %>
+-->
+
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
         <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active">
-            <a href="#grants-received" aria-controls="grants-received" role="tab" data-toggle="tab">
-            Received $<%= o.amount_received %>
-            </a>
-        </li>
-        <li role="presentation">
-            <a href="#grants-funded" aria-controls="grants-funded" role="tab" data-toggle="tab">
-                Gave $<%= o.amount_funded %>
-            </a>
-        </li>
+            <li role="presentation" class="active">
+                <a href="#grants-received" aria-controls="grants-received" role="tab" data-toggle="tab">
+                Received $<% if (o.amount_received) { %><%= o.amount_received %><% } else { %>0<% } %>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#grants-funded" aria-controls="grants-funded" role="tab" data-toggle="tab">
+                    Gave $<% if (o.amount_funded) { %><%= o.amount_funded %><% } else { %>0<% } %>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

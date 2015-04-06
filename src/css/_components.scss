@@ -115,17 +115,17 @@ footer {
 
 /* Content ------------------------------------------------------------------ */
 #content {
-  padding: 30px 0;
+  padding: 0 0 30px;
   background: white;
 }
 
-#content h1 {
-  color: #333;
-  border-top: 1px dotted #666;
-  line-height: 1.5;
-  text-transform: uppercase;
-  font-weight: bold;
+#content h2.related-grants {
+  border-top: 2px solid $body-color;
+  margin-top: 1.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
+
 
 
 /* Home --------------------------------------------------------------------- */
@@ -306,36 +306,37 @@ table.grants {
   table-layout: fixed;
 }
 
-.organization td {
-  padding-top: 0.75em;
-  border-top: 1px solid $body-color;
-}
 
 th.name,
 td.name {
-  width: 75%;
+  width: 70%;
 }
 
 .grant td {
-  width: 75%;
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
+  width: 70%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   vertical-align: top;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+.organization td {
+  padding-top: 0.75em;
+  padding-bottom: 0.25em;
+  border-top: 2px solid $body-color;
+  border-bottom: 1px dotted $body-color;
+}
+
+.grant td.years,
+th.years {
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
 .grant td.description {
   padding-right: 0.75em;
-
-  a:link {
-    color: $body-color;
-  }
-
-  a:hover {
-    color: $blue;
-  }
 
   .glyphicon {
     font-size: 0.9em;
@@ -348,8 +349,8 @@ td.name {
 }
 
 .grant a {
-  color: $body-color;
-  border-bottom: 1px solid #fff;
+  color: $blue;
+  border-bottom: 1px dotted $blue;
 }
 
 .grant a:hover {

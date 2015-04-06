@@ -1,5 +1,4 @@
-var fs = require('fs'),
-    $ = require('jquery'),
+var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     SearchView = require('./search'),
@@ -17,8 +16,7 @@ var HomeView = Backbone.View.extend({
     'click #network': 'showNetwork'
   },
 
-  initialize: function(options) {
-    console.log("Initialize homepage");
+  initialize: function() {
     _.bindAll(this, 'render', 'showNetwork');
 
     this.model = new Stats.Model();
@@ -31,14 +29,13 @@ var HomeView = Backbone.View.extend({
   },
 
   render: function() {
-    console.log("Rendering the homepage view");
     this.$el.html(this.template({
       stats: this.model.toJSON()
     }));
 
     $('title').text(this.model.get('title') + ' - information about grants and nonprofits in Detroit');
 
-    $("#title").html(this.title({
+    $('#title').html(this.title({
       title: this.model.get('title'),
       options: {
         subtitle: 'A comprehensive dataset of grants made in Detroit',
@@ -49,8 +46,7 @@ var HomeView = Backbone.View.extend({
     this.SearchView = new SearchView().render();
   },
 
-  showNetwork: function(event) {
-    console.log(event);
+  showNetwork: function() {
     $('#network').animate({height:'1670px', cursor:'auto'});
   }
 });

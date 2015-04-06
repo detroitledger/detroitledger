@@ -1,26 +1,51 @@
-<div class="container grant-details">
-    <div class="col-md-12">
-        <ul>
-            <li>
-                <strong>Source</strong>
-                <%= grant.field_source %>
-            </li>
-            <li>
-                <strong>Last updated</strong>
-                <%= grant.changed %>
-            </li>
-            <% if (grant.notes) { %>
-            <li>
-                <strong>Notes</strong>
-                <%= grant.notes %>
-            </li>
-            <% } %>
-        </ul>
+<div class="grant-details container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul>
+                <% if (grant.notes) { %>
+                <li>
+                    <%= grant.notes %>
+                </li>
+                <% } %>
+                <li>
+                    <strong>Source</strong>
+                    <%= grant.field_source %>
+                </li>
+                <li>
+                    <strong>Last updated</strong>
+                    <%= grant.changed %>
+                </li>
+            </ul>
+        </div>
     </div>
 
-    <div class="col-md-12">
-        <h1>Related grants</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="related-grants">Related grants</h2>
+        </div>
     </div>
-    <div id="grants-funded"></div>
-    <div id="grants-received"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#grants-received" aria-controls="grants-received" role="tab" data-toggle="tab">
+                        To <%= grant.field_recipient.name %>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#grants-funded" aria-controls="grants-funded" role="tab" data-toggle="tab">
+                        From <%= grant.field_funder.name %>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="grants-received"></div>
+            <div role="tabpanel" class="tab-pane" id="grants-funded"></div>
+        </div>
+    </div>
 </div>
