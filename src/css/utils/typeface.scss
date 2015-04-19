@@ -1,15 +1,18 @@
 @import '_goudystm';
 @import '_nobile';
 
+$font-family: "Soure Sans Pro";
+
 body {
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.85;
   font-weight: 400;
+  font-family: "Source Sans Pro";
 }
 
 .l-header,
 .l-header a,
 h1, h2, h3, h4, h5 {
-  font-family: "Nobile", sans-serif; //Helvetica Neue, sans-serif;
-  font-weight: 400;
+  //font-family: "Source Sans Pro", sans-serif; //Helvetica Neue, sans-serif;
+  font-weight: 300;
 }

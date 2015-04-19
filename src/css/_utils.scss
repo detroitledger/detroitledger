@@ -18,7 +18,7 @@
 
 @import "utils/typeface";
 
-$body-color: #333;
+$body-color: #3d4447;
 $blue: #0088cc;
 $blue-accent: #60aadb;
 
@@ -31,6 +31,7 @@ $light-gray: #ddd;
 $light-tan: #f1ecd1;
 $lighter-tan: #f7f4e5;
 $darker-tan: #e5dcaa;
+$bright-tan: #fff1a5;
 
 @mixin highlight-tan {
   background: $lighter-tan;

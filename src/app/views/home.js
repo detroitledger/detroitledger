@@ -3,6 +3,7 @@ var $ = require('jquery'),
     Backbone = require('backbone'),
     SearchView = require('./search'),
     Stats = require('../models/stats'),
+    Organizaitons = require('../models/organizations'),
     template = require('../templates/home.html'),
     title = require('../templates/title.html');
 
@@ -12,18 +13,24 @@ var HomeView = Backbone.View.extend({
   template: template,
   title: title,
 
-  events: {
-    'click #network': 'showNetwork'
-  },
-
   initialize: function() {
-    _.bindAll(this, 'render', 'showNetwork');
+    _.bindAll(this, 'render');
 
     this.model = new Stats.Model();
     this.model.fetch();
     this.model.on('change', this.render);
 
     this.model.set({'title': 'The Detroit Ledger'});
+
+    this.funders = new Organizaitons.Collection();
+    this.funders.search({
+      limit: 5,
+      sort: {
+        'org_grants_funded': 'DES'
+      }
+    });
+    this.funders.fetch();
+
 
     this.render();
   },
@@ -35,19 +42,15 @@ var HomeView = Backbone.View.extend({
 
     $('title').text(this.model.get('title') + ' - information about grants and nonprofits in Detroit');
 
-    $('#title').html(this.title({
-      title: this.model.get('title'),
-      options: {
-        subtitle: 'A comprehensive dataset of grants made in Detroit',
-        page: 'home'
-      }
-    }));
+    // $('#title').html(this.title({
+    //   title: this.model.get('title'),
+    //   options: {
+    //     subtitle: 'A comprehensive dataset of grants made in Detroit',
+    //     page: 'home'
+    //   }
+    // }));
 
     this.SearchView = new SearchView().render();
-  },
-
-  showNetwork: function() {
-    $('#network').animate({height:'1670px', cursor:'auto'});
   }
 });
 
