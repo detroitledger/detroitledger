@@ -63,9 +63,8 @@ gulp.task('javascript', /*['preprocess'],*/ function() {
     )
     .transform('jstify', {
       engine: 'lodash',
-      minifierOpts: {
-        collapseWhitespace: false
-      }
+      noMinify: true,
+      minifierOpts: false // because the minifier complains about template tags
     })
     .transform('browserify-shim')
     .bundle();
