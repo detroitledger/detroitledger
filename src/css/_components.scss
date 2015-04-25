@@ -42,7 +42,7 @@
 .navbar-inverse {
   background: $blue;
   border: none;
-  border-bottom: 1px solid #006395;
+  border-bottom: 1px solid #fff; // #006395;
   color: #fff;
 
   .navbar-brand {
@@ -65,7 +65,7 @@
 header {
   // background: $green;
   // color: #fff;
-  padding: 10px 0 20px;
+  padding: 0px 0 20px;
 }
 
 header a,
@@ -135,6 +135,9 @@ footer {
 
 header .home {
   text-align: center;
+  color: #fff;
+  width: 100%;
+  background: $blue;
 
   h1 {
     padding: 0;
@@ -236,81 +239,13 @@ h3.callout {
 }
 
 /* Search ------------------------------------------------------------------- */
-#search-container {
-  form {
-    text-align: center;
-  }
+@import "search";
 
-  p {
-    max-width: inherit;
-  }
+/* Grants ------------------------------------------------------------------- */
+@import "grants";
 
-  .eg {
-    color: $gray;
-  }
-
-  input.search {
-    width: 60%;
-    min-width: 300px;
-    font-size: 2em;
-    font-weight: bold;
-  }
-
-
-  #results {
-    margin-top: 1em;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-
-    a,
-    a:visited {
-      color: #fff;
-      border-bottom: 1px dotted #fff;
-      background: $blue;
-      line-height: 1.6em;
-    }
-  }
-
-  #results .org {
-    display: inline-block;
-    width: 21%;
-    margin-right: 4%;
-    vertical-align: top;
-    border-top: 1px solid $blue-accent;
-    padding: 10px 0px 20px 0px;
-
-    &:hover {
-      border-top-color: $bright-tan;
-    }
-
-    &:nth-child(4n+4){
-      margin-right: 0;
-    }
-
-    &.no-results {
-      width: 100%;
-      text-align: center;
-      font-size: 2em;
-      border-top: 0;
-    }
-
-    p {
-      color: #fff;
-    }
-
-    a {
-      line-height: 1.1em;
-      display: inline-block;
-    }
-
-    a:hover {
-      color: $bright-tan;
-      border-bottom-color: $bright-tan;
-    }
-  }
-}
+/* Orgs --------------------------------------------------------------------- */
+@import "orgs";
 
 
 /* Pages  ------------------------------------------------------------------- */
@@ -319,101 +254,6 @@ h3.callout {
   margin-top: 1em;
 }
 
-/* Grants ------------------------------------------------------------------- */
-
-table.grants {
-  width: 100%;
-  table-layout: fixed;
-}
-
-
-th.name,
-td.name {
-  width: 70%;
-}
-
-.grant td {
-  width: 70%;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  vertical-align: top;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.organization td {
-  padding-top: 0.75em;
-  padding-bottom: 0.25em;
-  border-top: 2px solid $body-color;
-  border-bottom: 1px dotted $body-color;
-}
-
-.grant td.years,
-th.years {
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-}
-
-.grant td.description {
-  padding-right: 0.75em;
-
-  .glyphicon {
-    font-size: 0.9em;
-  }
-}
-
-.grant:hover td.description a {
-  color: $blue;
-  border-bottom: 1px dotted $blue;
-}
-
-.grant a {
-  color: $blue;
-  border-bottom: 1px dotted $blue;
-}
-
-.grant a:hover {
-  color: $blue;
-  border-bottom: 1px solid $blue;
-}
-
-.grant h3 .glyphicon {
-  font-size: 12px;
-}
-
-.grant-details ul {
-  list-style: none;
-  padding: 0;
-}
-
-/* Orgs --------------------------------------------------------------------- */
-
-.homepage-org {
-  padding: 1.5em 0;
-  border-bottom: 1px solid $darker-tan;
-
-  .timeframe {
-    color: $body-color;
-    font-size: 16px;
-  }
-
-  a,
-  .received,
-  .granted {
-    @include highlight-tan;
-  }
-}
-
-.grants-received {
-  margin: 0;
-}
-
-.timeframe,
-.submitted {
-  margin: 0;
-  color: #999;
-}
 
 /* Main Menu ---------------------------------------------------------------- */
 #block-system-main-menu {

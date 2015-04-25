@@ -1,0 +1,77 @@
+#search-container {
+  form {
+    text-align: center;
+  }
+
+  p {
+    max-width: inherit;
+  }
+
+  .eg {
+    color: $gray;
+  }
+
+  input.search {
+    width: 60%;
+    min-width: 300px;
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+
+  #results {
+    margin-top: 1em;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    text-align: center;
+
+    a,
+    a:visited {
+      color: #fff;
+      border-bottom: 1px dotted #fff;
+      background: $blue;
+      line-height: 1.6em;
+    }
+  }
+
+  #results .org {
+    display: inline-block;
+    text-align: left;
+    width: 21%;
+    margin-right: 4%;
+    vertical-align: top;
+    border-top: 1px solid $blue-accent;
+    padding: 10px 0px 20px 0px;
+
+    &:hover {
+      border-top-color: $bright-tan;
+    }
+
+    &:nth-child(4n+4){
+      margin-right: 0;
+    }
+
+    &.no-results {
+      width: 100%;
+      text-align: center;
+      font-size: 2em;
+      border-top: 0;
+    }
+
+    p {
+      color: #fff;
+    }
+
+    a {
+      line-height: 1.1em;
+      display: inline-block;
+    }
+
+    a:hover {
+      color: $bright-tan;
+      border-bottom-color: $bright-tan;
+    }
+  }
+}

@@ -1,6 +1,20 @@
 <div class="tab-content">
-<div role="tabpanel" class="tab-pane active" id="grants-received"></div>
-<div role="tabpanel" class="tab-pane" id="grants-funded"></div>
+<div role="tabpanel" class="tab-pane <% if (o.amount_received) { %>active<% } %>" id="grants-received">
+  <div class="loading">
+    <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>
+  </div>
+</div>
+<div role="tabpanel" class="tab-pane <% if (!o.amount_received) { %>active<% } %>" id="grants-funded">
+  <div class="loading">
+    <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>
+  </div>
+</div>
 </div>
 
 <div class="container">
@@ -11,17 +25,3 @@
   </div>
 </div>
 
-
-
-<!--
-<div class="container">
-  <div class="row">
-    <div class="col-md-9 tab-content">
-
-    </div>
-    <div class="col-md-3">
-      <div id="people"></div>
-    </div>
-  </div>
-</div>
--->

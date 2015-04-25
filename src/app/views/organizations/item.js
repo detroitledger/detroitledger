@@ -19,6 +19,8 @@ var OrganizationView = Backbone.View.extend({
     console.log("Initialize organization");
     _.bindAll(this, 'render');
 
+    this.options = options;
+
     // Get the organziations
     this.model = new Organizations.Model({
       id: options.id
@@ -26,25 +28,7 @@ var OrganizationView = Backbone.View.extend({
     this.model.fetch();
     this.model.on('change', this.render);
 
-    this.$el.html(this.details());
 
-    // Get all the grants
-    this.grantsReceivedView = new GrantListView({
-      org: options.id,
-      direction: 'received',
-      el: '#grants-received'
-    });
-    this.grantsFundedView = new GrantListView({
-      org: options.id,
-      direction: 'funded',
-      el: '#grants-funded'
-    });
-
-    // Get related people
-    this.peopleView = new PeopleListView({
-      org: options.id,
-      el: '#people'
-    });
   },
 
   render: function() {
@@ -55,6 +39,28 @@ var OrganizationView = Backbone.View.extend({
     $("#title").html(this.template({
       o: this.model.toJSON()
     }));
+
+    this.$el.html(this.details({
+      o: this.model.toJSON()
+    }));
+
+    // Get all the grants
+    this.grantsReceivedView = new GrantListView({
+      org: this.options.id,
+      direction: 'received',
+      el: '#grants-received'
+    });
+    this.grantsFundedView = new GrantListView({
+      org: this.options.id,
+      direction: 'funded',
+      el: '#grants-funded'
+    });
+
+    // Get related people
+    this.peopleView = new PeopleListView({
+      org: this.options.id,
+      el: '#people'
+    });
 
     this.flagView = new FlagView({
       target_id: this.model.get('id')

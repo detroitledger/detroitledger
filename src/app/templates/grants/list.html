@@ -16,13 +16,16 @@
             <tbody>
             <% _.each(organizations, function(organization) { %>
                 <tr class="organization">
-                    <td colspan="2" class="name">
-                        <a href="/#!/organizations/<%= organization.id %>">
+                    <td class="name">
+                        <a href="#!/organizations/<%= organization.id %>">
                             <strong><%- organization.name %></strong>
                         </a>
                     </td>
+                    <td style="text-align: right">
+                        <!--total-->
+                    </td>
                     <td>
-                        <strong>$<%- organization.prettySum %> total</strong>
+                        <strong>$<%- organization.prettySum %></strong>
                     </td>
                 </tr>
 
@@ -30,7 +33,7 @@
                 <% _.each(organization.grants, function(grant) { %>
                     <tr class="grant">
                         <td class="description">
-                            <a href="/#!/grants/<%= grant.id %>" class="permalink">
+                            <a href="#!/grants/<%= grant.id %>" class="permalink">
                             <% if(grant.body) { %>
                                 <%= grant.body.und[0].value %></a>
                             <% } else { %>
