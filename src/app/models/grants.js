@@ -1,4 +1,5 @@
-var Backbone = require('backbone'),
+var $ = require('jquery'),
+    Backbone = require('backbone'),
     _ = require('lodash'),
     numeral = require('numeral'),
     moment = require('moment'),
@@ -47,21 +48,23 @@ Grants.Collection = Backbone.Collection.extend({
     this.org = options.org;
     this.direction = options.direction;
     this.limit = options.limit ? options.limit : 1000;
-    console.log("LIMIT?", options.limit);
     this.fetch({reset: true});
   },
 
   url: function() {
     var url = settings.api.baseurl + '/orgs/' + this.org + '/';
     if(this.direction === 'funded') {
-      url += "grants_funded.jsonp/?foo=bar";
+      url += "grants_funded.jsonp/?";
     }
     else if (this.direction === 'received') {
-      url += "grants_received.jsonp/?foo=bar";
+      url += "grants_received.jsonp/?";
     }
-    if (this.limit) {
-      url += "&limit=" + this.limit;
-    }
+
+    var opts = {
+      limit: this.limit
+    };
+
+    url += $.param(opts);
     url += '&callback=?';
     return url;
   },

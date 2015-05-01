@@ -3,6 +3,7 @@ var $ = require('jquery'),
     Backbone = require('backbone'),
     Grants = require('../../models/grants'),
     GrantListView = require('./list'),
+    FlagView = require('../flag'),
     template = require('../../templates/grants/item.html'),
     details = require('../../templates/grants/details.html');
 
@@ -52,6 +53,10 @@ var GrantView = Backbone.View.extend({
     this.$el.html(this.details({
       grant: this.model.toJSON()
     }));
+
+    this.flagView = new FlagView({
+      target_id: this.model.get('id')
+    });
   }
 });
 

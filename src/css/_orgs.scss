@@ -1,0 +1,43 @@
+.homepage-org {
+  padding: 1.5em 0;
+  border-bottom: 1px solid $darker-tan;
+
+  .timeframe {
+    color: $body-color;
+    font-size: 16px;
+  }
+
+  a,
+  .received,
+  .granted {
+    @include highlight-tan;
+  }
+}
+
+.grants-received {
+  margin: 0;
+}
+
+.timeframe,
+.submitted {
+  margin: 0;
+  color: #999;
+}
+
+div.description {
+  margin-bottom: 1.5em;
+}
+
+.tags {
+  margin-bottom: 1em;
+
+  .tag {
+    color: $body-color;
+    border: 0px none;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 0px 5px;
+    background: $light-gray;
+    font-size: .75em;
+  }
+}

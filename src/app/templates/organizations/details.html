@@ -1,7 +1,27 @@
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane <% if (o.amount_received) { %>active<% } %>" id="grants-received">
+    <div class="loading">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane <% if (!o.amount_received) { %>active<% } %>" id="grants-funded">
+    <div class="loading">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="row">
-    <div id="grants-received"></div>
-    <div id="grants-funded"></div>
+    <div class="col-md-12">
+      <div id="flag"></div>
+    </div>
   </div>
-  <div id="flag"></div>
 </div>
+

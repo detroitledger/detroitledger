@@ -1,38 +1,30 @@
 <% if (organizations.length > 0) { %>
 <% _.each(organizations, function(o) { %>
 <div class="org">
-    <h2><a href="/#!/organizations/<%= o.id %>"><%= o.title %></a></h2>
+    <h2><a href="#!/organizations/<%= o.id %>"><%= o.title %></a></h2>
 
-    <div class="row">
-        <div class="col-md-12">
-            <p>
-            <% if (o.amount_funded) { %>
-                    Gave <strong>$<%= o.amount_funded %></strong>
-            <% } %>
-            <% if (o.amount_received) { %>
+    <p>
+    <% if (o.amount_funded) { %>
+            Gave <strong>$<%= o.amount_funded %></strong>
+    <% } %>
+    <% if (o.amount_received) { %>
 
-                <% if (o.amount_funded) { %>
-                    &amp; received
-                <% } else { %>
-                    Received
-                <% } %>
+        <% if (o.amount_funded) { %>
+            &amp; received
+        <% } else { %>
+            Received
+        <% } %>
 
-                <strong>$<%= o.amount_received %></strong>
-            <% } %>
-            since <%= o.org_grants_datestart %>.
-            </p>
-        </div>
-    </div>
+        <strong>$<%= o.amount_received %></strong>
+    <% } %>
+    since <%= o.org_grants_datestart %>.
+    </p>
 </div>
 <% }); %>
 <% } else { %>
 <div class="org no-results">
-  <div class="row">
-    <div class="col-md-12">
-        <p>
-          No organizations found
-        </p>
-      </div>
-  </div>
+    <h3>
+      No organizations found.
+    </h3>
 </div>
 <% } %>

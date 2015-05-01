@@ -42,7 +42,7 @@
 .navbar-inverse {
   background: $blue;
   border: none;
-  border-bottom: 1px solid #006395;
+  border-bottom: 1px solid #fff; // #006395;
   color: #fff;
 
   .navbar-brand {
@@ -63,22 +63,17 @@
 }
 
 header {
-  background: $green;
-  color: #fff;
-  padding: 10px 0 20px;
-  border-bottom: 1px solid #024a17;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
+  // background: $green;
+  // color: #fff;
+  padding: 0px 0 20px;
 }
 
 header a,
 header a:link,
 header a:visited,
 header a:active {
-  color: #fff;
-  border-bottom: 1px dotted #fff;
+  // color: #fff;
+  // border-bottom: 1px dotted #fff;
   text-decoration: none;
   line-height: 1.5em;
 }
@@ -90,7 +85,6 @@ nav {
 }
 
 nav {
-  font-size: 12px;
   line-height: 14px;
   a:link, a:active,
   a:visited, a:hover {
@@ -107,7 +101,6 @@ footer {
   bbackground: #ebe4bd;
   border-top: 1px solid #e5dcaa;
   padding: 25px 0 20px 0;
-  font-size: 12px;
 
   form {
     font-weight: bold;
@@ -122,18 +115,17 @@ footer {
 
 /* Content ------------------------------------------------------------------ */
 #content {
-  padding: 30px 0;
+  padding: 0 0 30px;
   background: white;
 }
 
-#content h1 {
-  color: #333;
-  border-top: 1px dotted #666;
-  line-height: 1.5;
-  font-size: 1em;
-  text-transform: uppercase;
-  font-weight: bold;
+#content h2.related-grants {
+  border-top: 2px solid $body-color;
+  margin-top: 1.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
+
 
 
 /* Home --------------------------------------------------------------------- */
@@ -143,10 +135,11 @@ footer {
 
 header .home {
   text-align: center;
+  color: #fff;
+  width: 100%;
+  background: $blue;
 
   h1 {
-    font-size: 80px;
-    font-weight: bold;
     padding: 0;
     line-height: 1.3;
 
@@ -158,13 +151,12 @@ header .home {
 
   h2 {
     border-bottom: 0;
-    font-size: 24px;
     font-weight: 300;
   }
 }
 
 #home .container {
-  width: 650px;
+  //width: 650px;
 
   input[type="text"],
   input[type="email"] {
@@ -201,7 +193,7 @@ header .home {
 }
 
 .wrap {
-  padding: 50px 0;
+  padding: 20px 0;
 
   @media all and (max-width: 768px) {
     padding: 20px 0;
@@ -211,53 +203,35 @@ header .home {
 .wrap.intro {
   background: $blue;
   color: #fff;
+
+  .callout {
+    text-align: center;
+    margin-bottom: 1.5em;
+  }
 }
 
 .wrap.contrast {
   background: $lighter-tan;
 }
 
+
+/* Callouts ----------------------------------------------------------------- */
+
 .callout {
-  font-size: 4em;
-  font-weight: bold;
   letter-spacing: -0.05em;
-  border-bottom: 5px solid $blue-accent;
 
   .num {
-    letter-spacing: -0.1em;
+    font-weight: 600;
   }
-  .dollar {
-    font-size: 50px;
-    letter-spacing: -0.05em;
-  }
+}
+
+h3.callout {
+  font-size: 2em;
+  border-bottom: 1px dotted $gray;
 }
 
 .white .callout {
   border-bottom: 5px solid $gray;
-}
-
-#network {
-  background: #fff url(../assets/img/network.png) no-repeat center 50px;
-  height: 300px;
-  overflow: hidden;
-  cursor: pointer;
-  -moz-transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  -moz-transition:all 0.6s ease-in-out;
-  -webkit-transition:all 0.6s ease-in-out;
-
-  h2 {
-    border-bottom: 0;
-    font-size: 45px;
-  }
-
-  img {
-    padding-top: 1200px;
-  }
-}
-
-#network:hover{
-  height: 350px;
 }
 
 .contrast .callout {
@@ -265,43 +239,14 @@ header .home {
 }
 
 /* Search ------------------------------------------------------------------- */
+@import "search";
 
-input.search {
-  width: 60%;
-  min-width: 300px;
-  font-size: 2em;
-  font-weight: bold;
-}
+/* Grants ------------------------------------------------------------------- */
+@import "grants";
 
-.eg {
-  color: $gray;
-}
+/* Orgs --------------------------------------------------------------------- */
+@import "orgs";
 
-#results {
-  margin-top: 1em;
-  border-bottom: 1px solid $blue-accent;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-
-  a,
-  a:visited {
-    color: #fff;
-    border-bottom: 1px dotted #fff;
-    background: $blue;
-    line-height: 1.6em;
-  }
-}
-
-#results .org {
-  border-top: 1px solid $blue-accent;
-  padding: 15px 5px 10px 0px;
-}
-
-#results .org p {
-  color: #fff;
-}
 
 /* Pages  ------------------------------------------------------------------- */
 
@@ -309,67 +254,6 @@ input.search {
   margin-top: 1em;
 }
 
-/* Grants ------------------------------------------------------------------- */
-.panel .grant {
-  margin-bottom: 1em;
-  border-bottom: 1px dotted $light-gray;
-  padding-bottom: 1em;
-}
-
-.panel .grant:last-child {
-  margin-bottom: 0;
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.grant h3 {
-  margin-top: 0;
-}
-
-.grant h3 .glyphicon {
-  font-size: 12px;
-}
-
-header .grant h2 {
-}
-
-header .grant h2.amount {
-  font-size: 6em;
-}
-
-.grant-details ul {
-  list-style: none;
-  padding: 0;
-}
-
-/* Orgs --------------------------------------------------------------------- */
-
-.homepage-org {
-  padding: 1.5em 0;
-  border-bottom: 1px solid $darker-tan;
-
-  .timeframe {
-    color: $body-color;
-    font-size: 16px;
-  }
-
-  a,
-  .received,
-  .granted {
-    @include highlight-tan;
-  }
-}
-
-.grants-received {
-  margin: 0;
-}
-
-.timeframe,
-.submitted {
-  margin: 0;
-  color: #999;
-  font-size: 14px;
-}
 
 /* Main Menu ---------------------------------------------------------------- */
 #block-system-main-menu {
@@ -383,9 +267,10 @@ header .grant h2.amount {
   }
 }
 
+
 /* Flags -------------------------------------------------------------------- */
 #flag {
-  margin-top: 3em;
+  margin-top: 1em;
 
   .panel-body {
     display:none;

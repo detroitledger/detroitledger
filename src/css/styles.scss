@@ -11,7 +11,7 @@
 
 $icon-font-path: "../assets/vendor/bootstrap/fonts/bootstrap/";
 
-@import "../components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "lib/bootstrap.min.css";
 @import "_chartist-settings.scss";
 @import "../components/chartist/dist/scss/chartist.scss";
 @import "utils";

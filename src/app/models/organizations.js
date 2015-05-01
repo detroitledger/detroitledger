@@ -35,6 +35,15 @@ Organizations.Collection = Backbone.Collection.extend({
     if (options && options.title) {
       this.url += '&filters[title]=' + options.title;
     }
+
+    if (options && options.limit) {
+      this.url += '&limit=' + options.limit;
+    }
+
+    if (options && options.sort) {
+      this.url += '&' + $.param({ sort: options.sort });
+    }
+
     this.fetch({ reset: true });
   },
 

@@ -1,16 +1,17 @@
-<div class="grant">
+<div class="grant container">
     <div class="row">
         <div class="col-md-12">
             <h1><%= o.title %></h1>
         </div>
     </div>
 
+    <!--
     <div class="row">
         <% if (o.amount_received) { %>
         <div class="col-md-6">
             Recieved
             <h2>
-                $<%= o.amount_received %>
+
             </h2>
         </div>
         <% } %>
@@ -18,18 +19,44 @@
             <div class="col-md-6">
                 Gave
                 <h2>
-                    $<%= o.amount_funded %>
+
                 </h2>
             </div>
         <% } %>
     </div>
+    <p>Since <%= o.org_grants_datestart %>.</p>
+    -->
 
     <div class="row">
         <div class="col-md-12">
-            <p>Since <%= o.org_grants_datestart %>.</p>
-            <% if (o.body) { %>
-            <%= o.body.und[0].safe_value %>
+            <% if (o.field_ntee) { %>
+                <div class="tags">
+                    <a href="#/ntee/<%= o.field_ntee.tid %>" class="tag"><%= o.field_ntee.name %></a>
+                </div>
             <% } %>
+
+            <% if (o.body) { %>
+            <div class="description">
+            <%= o.body.und[0].safe_value %>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" <% if (o.amount_received) { %>class="active"<% } %>>
+                    <a href="#grants-received" aria-controls="grants-received" role="tab" data-toggle="tab">
+                    Received $<% if (o.amount_received) { %><%= o.amount_received %><% } else { %>0<% } %>
+                    </a>
+                </li>
+                <li role="presentation" <% if (!o.amount_received) { %>class="active"<% } %>>
+                    <a href="#grants-funded" aria-controls="grants-funded" role="tab" data-toggle="tab">
+                        Gave $<% if (o.amount_funded) { %><%= o.amount_funded %><% } else { %>0<% } %>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

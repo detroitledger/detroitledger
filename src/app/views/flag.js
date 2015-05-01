@@ -15,7 +15,6 @@ var fs = require('fs'),
     template: template,
 
     initialize: function(options) {
-      console.log("Initialize flag");
       _.bindAll(this, 'render', 'show', 'submit', 'error', 'success');
 
       this.flag = new Flags.Model({
@@ -25,7 +24,7 @@ var fs = require('fs'),
     },
 
     render: function() {
-      console.log("Rendering flag", this.model);
+      console.log("Rendering flag view", $('#flag'));
       this.$el.html(this.template({
         nid: this.nid
       }));
@@ -37,15 +36,12 @@ var fs = require('fs'),
     },
 
     success: function(response) {
-      console.log("Hey, it worked!", response);
       this.$el.find('.thanks').fadeIn(400);
     },
 
     submit: function(event) {
-      console.log('Submitting', event);
       event.preventDefault();
       var text = $('#flag textarea').val();
-      console.log(text);
       this.flag.set('note', text);
       this.flag.save();
 
@@ -54,7 +50,6 @@ var fs = require('fs'),
     },
 
     show: function(event) {
-      console.log('Showing flag', event);
       event.preventDefault();
       $('#flag .panel-body').show();
     }

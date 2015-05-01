@@ -123,7 +123,6 @@ var GrantListView = Backbone.View.extend({
       return organization.sum;
     }).reverse();
 
-    console.log("Ready", readyData);
     return {
       organizations: readyData,
       yearly_sums: yearly_sums

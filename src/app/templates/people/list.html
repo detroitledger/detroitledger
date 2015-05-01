@@ -1,0 +1,9 @@
+<strong>Leaders</strong>
+
+<% _.each(people, function(p) { %>
+    <li>
+        <strong><%= p.name %></strong><br>
+        <%= p.position %><br>
+        <%= p.start_date %> &ndash; <%= p.end_date %>
+    </li>
+<% }); %>

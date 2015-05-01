@@ -15,25 +15,16 @@ var SearchView = Backbone.View.extend({
     'click input': 'search'
   },
 
-  foo: 'bar',
-
   initialize: function(options) {
-    console.log("Initialize organization list");
     _.bindAll(this, 'render', 'search', 'error');
 
     this.render();
   },
 
   render: function() {
-    console.log("Rendering the search view");
     this.$el.html(this.template({}));
 
     this.organizations = new Organizations.Collection();
-    this.organizations.on('error', function(error){
-      // TODO:
-      // This should work, but doesn't.
-      console.log("Hey! What's wrong?", error);
-    });
 
     this.listView = new OrganizationListView({
       el: "#results",

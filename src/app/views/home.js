@@ -1,10 +1,11 @@
-var fs = require('fs'),
-    $ = require('jquery'),
+var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     SearchView = require('./search'),
     Stats = require('../models/stats'),
+    Organizaitons = require('../models/organizations'),
     template = require('../templates/home.html'),
+    list = require('../templates/organizations/ol.html'),
     title = require('../templates/title.html');
 
 var HomeView = Backbone.View.extend({
@@ -12,46 +13,63 @@ var HomeView = Backbone.View.extend({
   el: '#content',
   template: template,
   title: title,
+  ol: list,
 
-  events: {
-    'click #network': 'showNetwork'
-  },
-
-  initialize: function(options) {
-    console.log("Initialize homepage");
-    _.bindAll(this, 'render', 'showNetwork');
+  initialize: function() {
+    _.bindAll(this, 'render', 'showFunders', 'showRecipients');
 
     this.model = new Stats.Model();
     this.model.fetch();
     this.model.on('change', this.render);
 
-    this.model.set({'title': 'The Detroit Ledger'});
+  },
 
-    this.render();
+  showFunders: function() {
+    $('#funders').html(this.ol({
+      organizations: this.funders.toJSON(),
+      key: 'org_grants_funded'
+    }));
+  },
+
+  showRecipients: function() {
+    console.log(this.recipients.toJSON());
+    $('#recipients').html(this.ol({
+      organizations: this.recipients.toJSON(),
+      key: 'org_grants_received'
+    }));
   },
 
   render: function() {
-    console.log("Rendering the homepage view");
     this.$el.html(this.template({
       stats: this.model.toJSON()
     }));
 
-    $('title').text(this.model.get('title') + ' - information about grants and nonprofits in Detroit');
-
-    $("#title").html(this.title({
-      title: this.model.get('title'),
+    $('#title').html(this.title({
+      title: 'The Detroit Ledger',
       options: {
-        subtitle: 'A comprehensive dataset of grants made in Detroit',
         page: 'home'
       }
     }));
 
     this.SearchView = new SearchView().render();
-  },
 
-  showNetwork: function(event) {
-    console.log(event);
-    $('#network').animate({height:'1670px', cursor:'auto'});
+    this.funders = new Organizaitons.Collection();
+    this.funders.search({
+      limit: 5,
+      sort: {
+        'funded': 'DESC'
+      }
+    });
+    this.funders.on('reset', this.showFunders);
+
+    this.recipients = new Organizaitons.Collection();
+    this.recipients.search({
+      limit: 5,
+      sort: {
+        'received': 'DESC'
+      }
+    });
+    this.recipients.on('reset', this.showRecipients);
   }
 });
 
