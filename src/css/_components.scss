@@ -170,7 +170,7 @@ header .home {
     marign-right: 20px;
     padding: 10px 20px;
     font-weight: bold;
-    font-family: nobile;
+    font-family: $font-family;
     font-size: 16px;
     color: $body-color;
     border: 5px solid $blue-accent;
@@ -182,7 +182,7 @@ header .home {
     margin-bottom: 1em;
     padding: 10px;
     font-weight: bold;
-    font-family: nobile;
+    font-family: $font-family;
     font-size: 16px;
     color: #fff;
     border: 5px solid $blue-accent;
