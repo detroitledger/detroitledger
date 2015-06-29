@@ -16,6 +16,6 @@ RUN cd /opt/gnl-frontend && npm install
 RUN cd /opt/gnl-frontend && gulp install
 RUN cd /opt/gnl-frontend && NODE_ENV=production gulp build
 
-EXPOSE 80
+EXPOSE 3334
 
 CMD node /opt/gnl-frontend/server.js
