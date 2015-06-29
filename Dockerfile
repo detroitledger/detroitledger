@@ -14,7 +14,7 @@ ADD . /opt/gnl-frontend
 
 RUN cd /opt/gnl-frontend && npm install
 RUN cd /opt/gnl-frontend && gulp install
-RUN cd /opt/gnl-frontend && gulp build
+RUN cd /opt/gnl-frontend && NODE_ENV=production gulp build
 
 EXPOSE 80
 
