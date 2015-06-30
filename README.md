@@ -48,9 +48,10 @@ In the background, the following `post-receive` hook happens:
 
 export GIT_WORK_TREE="$HOME/repos/detroitledger"
 git checkout -f gh-pages
-docker build -t detroitledger/gnl-frontend:`git log --pretty=format:'%h' -n 1` ../detroitledger
+cd ../detroitledger
+docker build -t detroitledger/gnl-frontend:`cd ../detroitledger.git && git log --pretty=format:'%h' -n 1` ../detroitledger
 docker stop gnl-frontend
 docker rm gnl-frontend
-docker run -d --name=gnl-frontend -e PRERENDER_SERVICE_URL=http://`docker inspect --format='{{.NetworkSettings.IPAddress}}' prerender`:3000 detroitledger/gnl-frontend:`git log --pretty=format:'%h' -n 1`
+docker run -d --name=gnl-frontend -e PRERENDER_SERVICE_URL=http://`docker inspect --format='{{.NetworkSettings.IPAddress}}' prerender`:3000 detroitledger/gnl-frontend:`cd ../detroitledger.git && git log --pretty=format:'%h' -n 1`
 
 ```
