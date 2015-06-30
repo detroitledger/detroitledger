@@ -44,14 +44,20 @@ Later on, `git push live gh-pages` when you want to deploy.
 In the background, the following `post-receive` hook happens:
 
 ```
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+. $HOME/.nvm/nvm.sh
 
 export GIT_WORK_TREE="$HOME/repos/detroitledger"
 git checkout -f gh-pages
-cd ../detroitledger
-docker build -t detroitledger/gnl-frontend:`cd ../detroitledger.git && git log --pretty=format:'%h' -n 1` ../detroitledger
+
+cd $GIT_WORK_TREE
+
+npm install
+gulp install
+NODE_ENV=production gulp build
+docker build -t detroitledger/gnl-frontend:`cd ../detroitledger.git && git log --pretty=format:'%h' -n 1` .
 docker stop gnl-frontend
 docker rm gnl-frontend
 docker run -d --name=gnl-frontend -e PRERENDER_SERVICE_URL=http://`docker inspect --format='{{.NetworkSettings.IPAddress}}' prerender`:3000 detroitledger/gnl-frontend:`cd ../detroitledger.git && git log --pretty=format:'%h' -n 1`
-
 ```
