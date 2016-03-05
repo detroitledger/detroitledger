@@ -1,8 +1,11 @@
+/*globals ga: true */
+
 var Backbone = require('backbone'),
     HomeView = require('./views/home'),
     SearchView = require('./views/search'),
     OrganizationListView = require('./views/organizations/list'),
     OrganizationItemView = require('./views/organizations/item'),
+    NteeItemView = require('./views/ntees/item'),
     GrantItemView = require('./views/grants/item'),
     PageView = require('./views/page'),
     QualityView = require('./views/quality');
@@ -18,6 +21,8 @@ var AppRouter = Backbone.Router.extend({
     '!/organizations(/)': 'showOrganizations',
 
     '!/grants/:id': 'showGrant',
+
+    '!/ntees/:ntee': 'showNtee',
 
     '!/:id': 'showPage',
 
@@ -50,6 +55,13 @@ module.exports.initialize = function() {
     });
   });
 
+  router.on('route:showNtee', function(id) {
+    console.log("Show NTEE", id);
+    var itemView = new NteeItemView({
+      id: id
+    });
+  });
+
   router.on('route:showPage', function(id) {
     var pageView = new PageView({
       id: id
@@ -70,7 +82,7 @@ module.exports.initialize = function() {
 
 module.exports.trackPageview = function() {
   var url = Backbone.history.root + Backbone.history.getFragment();
-  if (typeof ga == 'function') {
+  if (typeof ga === 'function') {
     ga('send', 'pageview', url);
   }
 };
