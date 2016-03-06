@@ -110,7 +110,7 @@ gulp.task('assets', function() {
   // Our stuff
   return gulp.src('src/assets/**')
     .pipe($.cached('assets'))
-    .pipe(gulp.dest('dist/assets'));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean', function() {

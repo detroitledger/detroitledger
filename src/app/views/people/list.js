@@ -11,10 +11,8 @@ var PeopleListView = Backbone.View.extend({
   template: template,
 
   /**
-   * Initialize the grant list
+   * Initialize the people list
    * @param  {Object} options
-   *                  options.direction: required. Specifies which grants to
-   *                  list. Valid values: funded, recieved
    */
   initialize: function(options) {
     _.bindAll(this, 'render');

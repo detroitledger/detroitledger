@@ -28,6 +28,25 @@ div.description {
   margin-bottom: 1.5em;
 }
 
+#news {
+  .article { 
+    h3 {
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .date {
+      color: $gray;
+      font-weight: 300;
+    }
+
+    p {
+      font-weight: 300;
+      line-height: 1.4;
+    }
+  }
+}
+
 .tags {
   margin-bottom: 1em;
 

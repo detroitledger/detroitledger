@@ -2,8 +2,10 @@ var $ = require('jquery'),
     _ = require('lodash'),
     Chartist = require('chartist'),
     Backbone = require('backbone'),
+    News = require('../../models/news'),
     Organizations = require('../../models/organizations'),
     GrantListView = require('../grants/list'),
+    NewsListView = require('../news/list'),
     PeopleListView = require('../people/list'),
     FlagView = require('../flag'),
     template = require('../../templates/organizations/item.html'),
@@ -16,7 +18,6 @@ var OrganizationView = Backbone.View.extend({
   details: details,
 
   initialize: function(options) {
-    console.log("Initialize organization");
     _.bindAll(this, 'render');
 
     this.options = options;
@@ -27,8 +28,6 @@ var OrganizationView = Backbone.View.extend({
     });
     this.model.fetch();
     this.model.on('change', this.render);
-
-
   },
 
   render: function() {
@@ -55,6 +54,17 @@ var OrganizationView = Backbone.View.extend({
       direction: 'funded',
       el: '#grants-funded'
     });
+
+    // Get related news
+    if (this.model.has('news')) {
+      var news = new News.Collection(this.model.get('news'), {
+        parse: true
+      });
+      this.newsView = new NewsListView({
+        collection: news,
+        el: '#news'
+      });
+    }
 
     // Get related people
     this.peopleView = new PeopleListView({

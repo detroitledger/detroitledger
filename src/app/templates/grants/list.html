@@ -1,65 +1,58 @@
+<div class="tab-content">
+<% if (organizations.length > 0) { %>
+    <!-- <h2>Grants <%= direction %></h2>-->
+    <div class="ct-chart"></div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-9 tab-content">
-    <% if (organizations.length > 0) { %>
-        <!-- <h2>Grants <%= direction %></h2>-->
+    <table class="grants">
+        <thead>
+            <tr>
+                <th class="name">Grants by organization</th>
+                <th class="years">Years</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% _.each(organizations, function(organization) { %>
+            <tr class="organization">
+                <td class="name">
+                    <a href="#!/organizations/<%= organization.id %>">
+                        <strong><%- organization.name %></strong>
+                    </a>
+                </td>
+                <td style="text-align: right">
+                    <!--total-->
+                </td>
+                <td>
+                    <strong>$<%- organization.prettySum %></strong>
+                </td>
+            </tr>
 
-        <table class="grants">
-            <thead>
-                <tr>
-                    <th class="name">Grants by organization</th>
-                    <th class="years">Years</th>
-                    <th>Amount</th>
+
+            <% _.each(organization.grants, function(grant) { %>
+                <tr class="grant">
+                    <td class="description">
+                        <a href="#!/grants/<%= grant.id %>" class="permalink">
+                        <% if(grant.body) { %>
+                            <%= grant.body.und[0].value %></a>
+                        <% } else { %>
+                            No description available <span class="glyphicon glyphicon-link"></span>
+                        <% } %>
+                        </td>
+                    </td>
+                    <td class="years">
+                        <%= grant.start_date %>
+                        &mdash;
+                        <%= grant.end_date %>
+                    </td>
+                    <td class="amount">
+                        $<%= grant.amount %>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-            <% _.each(organizations, function(organization) { %>
-                <tr class="organization">
-                    <td class="name">
-                        <a href="#!/organizations/<%= organization.id %>">
-                            <strong><%- organization.name %></strong>
-                        </a>
-                    </td>
-                    <td style="text-align: right">
-                        <!--total-->
-                    </td>
-                    <td>
-                        <strong>$<%- organization.prettySum %></strong>
-                    </td>
-                </tr>
-
-
-                <% _.each(organization.grants, function(grant) { %>
-                    <tr class="grant">
-                        <td class="description">
-                            <a href="#!/grants/<%= grant.id %>" class="permalink">
-                            <% if(grant.body) { %>
-                                <%= grant.body.und[0].value %></a>
-                            <% } else { %>
-                                No description available <span class="glyphicon glyphicon-link"></span>
-                            <% } %>
-                            </td>
-                        </td>
-                        <td class="years">
-                            <%= grant.start_date %>
-                            &mdash;
-                            <%= grant.end_date %>
-                        </td>
-                        <td class="amount">
-                            $<%= grant.amount %>
-                        </td>
-                    </tr>
-                <% }); %>
             <% }); %>
-            </tbody>
-        </table>
-    <% } %>
-    </div>
-    <div class="col-md-3">
-      <div class="ct-chart"></div>
-    </div>
-  </div>
+        <% }); %>
+        </tbody>
+    </table>
+<% } %>
 </div>
-
+   
 
