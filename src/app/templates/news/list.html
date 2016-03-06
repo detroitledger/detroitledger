@@ -1,0 +1,9 @@
+<h2>News</h2>
+
+<% _.each(news, function(n) { %>
+  <div class="article">
+    <h3><a href="<%= n.field_news_link %>" target="blank"><%= n.title %></a></h3>
+    <div class="date"><%= n.date %></div>
+    <p><%= n.field_news_desc %></p>
+  </div>
+<% }); %>

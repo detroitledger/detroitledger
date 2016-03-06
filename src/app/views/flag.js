@@ -24,7 +24,6 @@ var fs = require('fs'),
     },
 
     render: function() {
-      console.log("Rendering flag view", $('#flag'));
       this.$el.html(this.template({
         nid: this.nid
       }));
