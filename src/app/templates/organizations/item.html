@@ -1,7 +1,14 @@
 <div class="grant container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1><%= o.title %></h1>
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= o.title %></h1>
+      <% if (o.field_ntee) { %>
+        <div class="tags">
+        <% _.each(o.field_ntee.und, function(ntee) { %>
+            <a href="#!/ntee/<%= ntee.tid %>" class="tag"><%= ntee.name %></a>
+        <% }); %>
         </div>
+      <% } %>
     </div>
+  </div>
 </div>

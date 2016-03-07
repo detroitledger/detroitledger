@@ -64,7 +64,7 @@ var OrganizationView = Backbone.View.extend({
         collection: news,
         el: '#news'
       });
-    }
+    } 
 
     // Get related people
     this.peopleView = new PeopleListView({

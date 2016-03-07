@@ -22,7 +22,7 @@ var AppRouter = Backbone.Router.extend({
 
     '!/grants/:id': 'showGrant',
 
-    '!/ntees/:ntee': 'showNtee',
+    '!/ntee/:id': 'showNtee',
 
     '!/:id': 'showPage',
 
