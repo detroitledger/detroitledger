@@ -26,6 +26,7 @@ Organizations.Model = Backbone.Model.extend({
 Organizations.Collection = Backbone.Collection.extend({
   model: Organizations.Model,
   url: settings.api.baseurl + "/orgs.jsonp/?callback=?",
+  comparator: 'title',
 
   initialize: function(options) {
     _.bindAll(this, 'parse');

@@ -60,3 +60,44 @@ div.description {
     font-size: .75em;
   }
 }
+
+
+#ntee-organizations .org {
+  display: inline-block;
+  text-align: left;
+  width: 21%;
+  margin-right: 4%;
+  vertical-align: top;
+  border-top: 1px solid $blue-accent;
+  padding: 10px 0px 20px 0px;
+
+  &:hover {
+    // border-top-color: $bright-tan;
+  }
+
+  &:nth-child(4n+4){
+    margin-right: 0;
+  }
+
+  &.no-results {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    border-top: 0;
+  }
+
+  p {
+    // color: #fff;
+  }
+
+  a {
+    line-height: 1.1em;
+    display: inline-block;
+    border-bottom: 1px solid #fff;
+  }
+
+  a:hover {
+    // color: $bright-tan;
+    // border-bottom-color: $bright-tan;
+  }
+}
