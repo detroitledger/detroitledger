@@ -30,7 +30,7 @@ var NteeView = Backbone.View.extend({
   },
 
   render: function() {
-    console.log(this.model.toJSON());
+    console.log("Rendering NTEE", this.model.toJSON());
 
     $("#title").html(this.template({
       ntee: this.model.toJSON()
