@@ -47,7 +47,7 @@ Grants.Collection = Backbone.Collection.extend({
     _.bindAll(this, 'parse', 'url', 'toJSON');
     this.org = options.org;
     this.direction = options.direction;
-    this.limit = options.limit ? options.limit : 1000;
+    this.limit = options.limit ? options.limit : 10000;
     this.fetch({reset: true});
   },
 
