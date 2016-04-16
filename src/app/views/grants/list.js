@@ -11,7 +11,14 @@ var GrantListView = Backbone.View.extend({
 
   template: template,
 
-  /**
+  /**console.log('Loading a web page');
+var page = require('webpage').create();
+var url = 'http://phantomjs.org/';
+page.open(url, function (status) {
+  //Page is loaded!
+  phantom.exit();
+});
+
    * Initialize the grant list
    * @param  {Object} options
    *                  options.direction: required. Specifies which grants to
