@@ -41,4 +41,4 @@ app.get('/sitemap.xml', function(req, res){
 });
 
 var port = process.env.PORT || 3334;
-app.listen(3334);
+app.listen(port);
