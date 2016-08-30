@@ -7,7 +7,7 @@ var Stats = {};
 
 Stats.Model = Backbone.Model.extend({
   url: function() {
-    return settings.api.baseurl + '/stats.jsonp&callback=?';
+    return settings.api.baseurl + '/stats.jsonp?callback=?';
   },
 
   parse: function(data) {
