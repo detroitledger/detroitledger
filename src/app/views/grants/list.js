@@ -25,7 +25,7 @@ var GrantListView = Backbone.View.extend({
       render();
       _this.afterRender();
       return _this;
-    })
+    });
 
     this.direction = options.direction;
 
@@ -72,7 +72,8 @@ var GrantListView = Backbone.View.extend({
         }
       };
 
-      new Chartist.Bar(this.$el.find('.ct-chart')[0], data, options);
+      // XXX No chart for now
+      // new Chartist.Bar(this.$el.find('.ct-chart')[0], data, options);
     }
 
   },

@@ -1,0 +1,14 @@
+<h2>Finances</h2>
+
+<div class="row">
+  <% _.each(finances, function(f) { %>
+  <div class="col-md-2">
+    <div class="article">
+      <h3><%= f.tax_period %></h3>
+      <h3>Revenue: $<%= f.total_revenue %></h3>
+      <h3>Expenses: $<%= f.total_expenses %></h3>
+      <h3>Assets: $<%= f.total_assets %></h3>
+    </div>
+  </div>
+  <% }); %>
+</div>

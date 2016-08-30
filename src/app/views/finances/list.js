@@ -3,16 +3,12 @@ var $ = require('jquery'),
     Chartist = require('chartist'),
     Backbone = require('backbone'),
     numeral = require('numeral'),
-    News = require('../../models/news'),
-    template = require('../../templates/news/list.html');
+    Finances = require('../../models/finances'),
+    template = require('../../templates/finances/list.html');
 
-var NewsListView = Backbone.View.extend({
+var FinancesListView = Backbone.View.extend({
 
   template: template,
-
-  events: {
-    'click .read-all': 'expand'
-  },
 
   /**
    * Initialize the news list
@@ -20,24 +16,19 @@ var NewsListView = Backbone.View.extend({
    */
   initialize: function(options) {
     _.bindAll(this, 'render');
-    this.render();
+    this.collection.bind('reset', this.render);
   },
 
   render: function() {
+    console.log("Rendering finances", this.collection.toJSON());
     if (this.collection.length > 0) {
       this.$el.html(this.template({
-        news: this.collection.toJSON()
+        finances: this.collection.toJSON()
       }));
     }
 
     return this;
-  },
-
-  expand: function(event) {
-    event.preventDefault();
-    $('.read-all').slideUp();
-    $('.more-news').slideDown();
   }
 });
 
-module.exports = NewsListView;
+module.exports = FinancesListView;
