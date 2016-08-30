@@ -28,6 +28,10 @@ div.description {
   margin-bottom: 1.5em;
 }
 
+.eins {
+  text-align: right;
+}
+
 #news {
   .article { 
     h3 {
@@ -49,16 +53,17 @@ div.description {
 
 .tags {
   margin-bottom: 1em;
+}
 
-  .tag {
-    color: $body-color;
-    border: 0px none;
-    border-radius: 3px;
-    display: inline-block;
-    padding: 0px 5px;
-    background: $light-gray;
-    font-size: .75em;
-  }
+.ein,
+.tag {
+  color: $body-color;
+  border: 0px none;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 0px 5px;
+  background: $light-gray;
+  font-size: .75em;
 }
 
 
