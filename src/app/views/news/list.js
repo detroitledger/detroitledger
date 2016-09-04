@@ -28,6 +28,8 @@ var NewsListView = Backbone.View.extend({
       this.$el.html(this.template({
         news: this.collection.toJSON()
       }));
+
+      $('#news .article').dotdotdot();
     }
 
     return this;
@@ -37,6 +39,7 @@ var NewsListView = Backbone.View.extend({
     event.preventDefault();
     $('.read-all').slideUp();
     $('.more-news').slideDown();
+    $('#news .article').dotdotdot();
   }
 });
 

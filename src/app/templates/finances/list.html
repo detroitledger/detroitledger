@@ -1,13 +1,41 @@
 <h2>Finances</h2>
+<p>Dates represent the end of the organization's fiscal year, often different
+from the calendar year. Not all figures are available for all organizations. 
+Data is from IRS 990 filings.</p>
 
 <div class="row">
   <% _.each(finances, function(f) { %>
-  <div class="col-md-2">
+  <div class="col-md-3">
     <div class="article">
-      <h3><%= f.tax_period %></h3>
-      <h3>Revenue: $<%= f.total_revenue %></h3>
-      <h3>Expenses: $<%= f.total_expenses %></h3>
-      <h3>Assets: $<%= f.total_assets %></h3>
+      <table>
+        <tr>
+          <th colspan="2">
+            <%= f.month %> <%= f.year %>
+          </th>
+        </tr>
+        <tr>
+          <td>Revenue</td>
+          <td class="amt">$<%= f.total_revenue %></td>
+        </tr>
+        <% if (f.grants_paid) { %>
+        <tr>
+          <td>Grants Paid</td>
+          <td class="amt">$<%= f.grants_paid %></td>
+        </tr>
+        <% } %>
+        <tr>
+          <td>Total Expenses</td>
+          <td class="amt">$<%= f.total_expenses %></td>
+        </tr>
+        <tr>
+          <td>Assets</td>
+          <td class="amt">$<%= f.total_assets %></td>
+        </tr>
+        <tr>
+          <td>Liabilities</td>
+          <td class="amt">$<%= f.total_liabilities %></td>
+        </tr>
+      </table>
     </div>
   </div>
   <% }); %>

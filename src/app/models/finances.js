@@ -5,6 +5,22 @@ var $ = require('jquery'),
     moment = require('moment'),
     settings = require('../settings');
 
+var months = [
+  '',
+  'Jan.',
+  'Feb.',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'Aug.',
+  'Sep.',
+  'Oct.',
+  'Nov.',
+  'Dec.'  
+];
+
 var Finances = {};
 
 Finances.Model = Backbone.Model.extend({
@@ -17,6 +33,16 @@ Finances.Model = Backbone.Model.extend({
     data.total_assets = numeral(data.total_assets).format('0,0[.]00');
     data.total_expenses = numeral(data.total_expenses).format('0,0[.]00');
     data.total_revenue = numeral(data.total_revenue).format('0,0[.]00');
+    data.total_liabilities = numeral(data.total_liabilities).format('0,0[.]00');
+
+    if (data.grants_paid) {
+      data.grants_paid = numeral(data.grants_paid).format('0,0[.]00');
+    }
+
+    data.year = data.tax_period.substring(0, 4);
+    data.month = Number(data.tax_period.substring(4));
+    data.month = months[data.month];
+    console.log("XXX Parsed", data.tax_period.substring(0, 4));
     return data;
   }
 });
