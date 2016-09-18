@@ -5,7 +5,7 @@
       <% if (o.field_ntee) { %>
         <div class="tags">
         <% _.each(o.field_ntee.und, function(ntee) { %>
-            <a href="#!/ntee/<%= ntee.tid %>" class="tag"><%= ntee.name %></a>
+            <a href="#!/ntee/<%= ntee.tid %>/<%= ntee.slug %>" class="tag"><%= ntee.name %></a>
         <% }); %>
         </div>
       <% } %>

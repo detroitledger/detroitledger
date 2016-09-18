@@ -17,12 +17,14 @@ var AppRouter = Backbone.Router.extend({
     '': 'home',
     '!/quality': 'showQuality',
 
-    '!/organizations/:id': 'showOrganization',
+    '!/organizations/:id(/)': 'showOrganization',
+    '!/organizations/:id/:slug(/)': 'showOrganization',
     '!/organizations(/)': 'showOrganizations',
 
     '!/grants/:id': 'showGrant',
 
     '!/ntee/:id': 'showNtee',
+    '!/ntee/:id/:slug': 'showNtee',
 
     '!/:id': 'showPage',
 

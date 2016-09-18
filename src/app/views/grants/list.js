@@ -4,13 +4,21 @@ var $ = require('jquery'),
     Backbone = require('backbone'),
     numeral = require('numeral'),
     Grants = require('../../models/grants'),
-    template = require('../../templates/grants/list.html');
+    template = require('../../templates/grants/list.html'),
+    util = require('../../util');
 
 var GrantListView = Backbone.View.extend({
 
   template: template,
 
-  /**
+  /**console.log('Loading a web page');
+var page = require('webpage').create();
+var url = 'http://phantomjs.org/';
+page.open(url, function (status) {
+  //Page is loaded!
+  phantom.exit();
+});
+
    * Initialize the grant list
    * @param  {Object} options
    *                  options.direction: required. Specifies which grants to
@@ -25,7 +33,7 @@ var GrantListView = Backbone.View.extend({
       render();
       _this.afterRender();
       return _this;
-    })
+    });
 
     this.direction = options.direction;
 
@@ -115,6 +123,7 @@ var GrantListView = Backbone.View.extend({
         prettySum: numeral(sum).format('0,0[.]00'),
         id: organziation_id,
         name: group_names_by_id[organziation_id],
+        slug: util.slugify(group_names_by_id[organziation_id]),
         grants: grants
       });
     });

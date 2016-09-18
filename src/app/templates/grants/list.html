@@ -15,7 +15,7 @@
         <% _.each(organizations, function(organization) { %>
             <tr class="organization">
                 <td class="name">
-                    <a href="#!/organizations/<%= organization.id %>">
+                    <a href="#!/organizations/<%= organization.id %>/<%= organization.slug %>">
                         <strong><%- organization.name %></strong>
                     </a>
                 </td>
@@ -54,5 +54,5 @@
     </table>
 <% } %>
 </div>
-   
+
 
