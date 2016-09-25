@@ -80,7 +80,8 @@ page.open(url, function (status) {
         }
       };
 
-      new Chartist.Bar(this.$el.find('.ct-chart')[0], data, options);
+      // XXX No chart for now
+      // new Chartist.Bar(this.$el.find('.ct-chart')[0], data, options);
     }
 
   },

@@ -3,7 +3,9 @@ var $ = require('jquery'),
     Chartist = require('chartist'),
     Backbone = require('backbone'),
     News = require('../../models/news'),
+    Finances = require('../../models/finances'),
     Organizations = require('../../models/organizations'),
+    FinancesListView = require('../finances/list'),
     GrantListView = require('../grants/list'),
     NewsListView = require('../news/list'),
     PeopleListView = require('../people/list'),
@@ -65,6 +67,17 @@ var OrganizationView = Backbone.View.extend({
         el: '#news'
       });
     } 
+
+    // Get related finances
+    if (this.model.has('field_ein')) {
+      var finances = new Finances.Collection({
+        ein: this.model.get('field_ein')
+      });
+      this.financesView = new FinancesListView({
+        collection: finances,
+        el: '#finances'
+      });
+    }
 
     // Get related people
     this.peopleView = new PeopleListView({

@@ -10,6 +10,10 @@ var NewsListView = Backbone.View.extend({
 
   template: template,
 
+  events: {
+    'click .read-all': 'expand'
+  },
+
   /**
    * Initialize the news list
    * @param  {Object} options
@@ -24,9 +28,18 @@ var NewsListView = Backbone.View.extend({
       this.$el.html(this.template({
         news: this.collection.toJSON()
       }));
+
+      $('#news .article').dotdotdot();
     }
 
     return this;
+  },
+
+  expand: function(event) {
+    event.preventDefault();
+    $('.read-all').slideUp();
+    $('.more-news').slideDown();
+    $('#news .article').dotdotdot();
   }
 });
 
