@@ -1,7 +1,8 @@
 var Backbone = require('backbone'),
     _ = require('lodash'),
     numeral = require('numeral'),
-    settings = require('../settings');
+    settings = require('../settings'),
+    util = require('../util');
 
 var Organizations = {};
 
@@ -17,6 +18,14 @@ Organizations.Model = Backbone.Model.extend({
     }
     if (data && data.org_grants_received) {
       data.amount_received = numeral(data.org_grants_received).format('0,0[.]00');
+    }
+
+    data.slug = util.slugify(data.title);
+
+    if (data.field_ntee) {
+      _.each(data.field_ntee.und, function(ntee) {
+        ntee.slug = util.slugify(ntee.name);
+      });
     }
 
     return data;

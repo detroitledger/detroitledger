@@ -1,5 +1,5 @@
 <ol>
 <% _.each(organizations, function(o) { %>
-  <li><a href="#!/organizations/<%= o.id %>"><%= o.title %></a> ($<%= o[key].toLocaleString() %>)</li>
+  <li><a href="#!/organizations/<%= o.id %>/<%= o.slug %>"><%= o.title %></a> ($<%= o[key].toLocaleString() %>)</li>
 <% }); %>
 </ol>
