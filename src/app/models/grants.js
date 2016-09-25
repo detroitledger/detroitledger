@@ -3,7 +3,8 @@ var $ = require('jquery'),
     _ = require('lodash'),
     numeral = require('numeral'),
     moment = require('moment'),
-    settings = require('../settings');
+    settings = require('../settings'),
+    util = require('../util');
 
 var Grants = {};
 
@@ -28,6 +29,9 @@ Grants.Model = Backbone.Model.extend({
     if (data && data.field_end_date) {
       data.end_date = moment(data.field_end_date, settings.api.dateFormat).format("YYYY");
     }
+
+    data.field_funder.slug = util.slugify(data.field_funder.name);
+    data.field_recipient.slug = util.slugify(data.field_recipient.name);
 
     data.created = moment.unix(data.created).format("YYYY");
     data.changed = moment.unix(data.changed).format("MMMM D YYYY");

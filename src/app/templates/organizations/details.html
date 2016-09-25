@@ -6,6 +6,26 @@
         <%= o.body.und[0].safe_value %>
       </div>
       <% } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="news"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="finances"></div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Grant Data</h2>
+      <p>Describes grants Ledger staff have been able to document. Does not reflect
+      a full, official record of all funding.</p>
 
       <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" <% if (o.amount_received) { %>class="active"<% } %>>
@@ -39,10 +59,6 @@
         </div>
       </div>
     </div> 
-
-    <div class="col-md-3">
-      <div id="news"></div>
-    </div>
   </div>
 
   <div class="row">

@@ -2,12 +2,21 @@
   <div class="row">
     <div class="col-md-12">
       <h1><%= o.title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
       <% if (o.field_ntee) { %>
         <div class="tags">
         <% _.each(o.field_ntee.und, function(ntee) { %>
-            <a href="#!/ntee/<%= ntee.tid %>" class="tag"><%= ntee.name %></a>
+            <a href="#!/ntee/<%= ntee.tid %>/<%= ntee.slug %>" class="tag"><%= ntee.name %></a>
         <% }); %>
         </div>
+      <% } %>
+    </div>
+    <div class="col-md-2 eins">
+      <% if (o.field_ein) { %>
+        <div class="ein">EIN: <%= o.field_ein %></div>
       <% } %>
     </div>
   </div>
