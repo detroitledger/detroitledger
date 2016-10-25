@@ -6,7 +6,7 @@ var Pages = {};
 
 Pages.Model = Backbone.Model.extend({
   url: function() {
-    return settings.api.baseurl + '/pages.jsonp/?filters[path]=/' + this.id + '&callback=?';
+    return settings.api.baseurl + '/pages.jsonp?filters[path]=/' + this.id + '&callback=?';
   },
 
   parse: function(data){

@@ -11,7 +11,7 @@ var Grants = {};
 Grants.Model = Backbone.Model.extend({
 
   url: function() {
-    return settings.api.baseurl + '/grants/' + this.id + '.jsonp/?callback=?';
+    return settings.api.baseurl + '/grants/' + this.id + '.jsonp?callback=?';
   },
 
   parse: function(data) {
@@ -58,10 +58,10 @@ Grants.Collection = Backbone.Collection.extend({
   url: function() {
     var url = settings.api.baseurl + '/orgs/' + this.org + '/';
     if(this.direction === 'funded') {
-      url += "grants_funded.jsonp/?";
+      url += "grants_funded.jsonp?";
     }
     else if (this.direction === 'received') {
-      url += "grants_received.jsonp/?";
+      url += "grants_received.jsonp?";
     }
 
     var opts = {

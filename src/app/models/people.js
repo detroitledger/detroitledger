@@ -33,7 +33,7 @@ People.Collection = Backbone.Collection.extend({
   },
 
   url: function() {
-    var url = settings.api.baseurl + '/orgs/' + this.org + '/board_members.jsonp&callback=?';
+    var url = settings.api.baseurl + '/orgs/' + this.org + '/board_members.jsonp?callback=?';
     return url;
   },
 
