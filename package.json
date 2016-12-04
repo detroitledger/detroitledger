@@ -1,8 +1,8 @@
 {
   "name": "detroitledger.org",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Frontend for detroitledger.org",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "install": "gulp install",
     "build": "gulp build",

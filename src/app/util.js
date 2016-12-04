@@ -1,5 +1,12 @@
 var util = {
   slugify: function(text) {
+    if (!text) {
+      return;
+    }
+
+
+
+    
     return text.toString().toLowerCase()
       .replace(/\s+/g, '-')           // Replace spaces with -
       .replace(/\/+/g, '-')           // Replace slashes with -
