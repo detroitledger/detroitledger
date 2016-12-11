@@ -5,8 +5,8 @@
 //
 {
   "bitwise": true,
-  "camelcase": true,
   "curly": true,
+  "devel": true,
   "eqeqeq": true,
   "es3": true,
   "forin": true,

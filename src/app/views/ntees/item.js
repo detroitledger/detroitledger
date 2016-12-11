@@ -2,6 +2,8 @@ var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     Ntees = require('../../models/ntees'),
+    NTEEChartView = require('./chart'),
+    GroupFinances = require('../../models/group-finances'),
     Organizations = require('../../models/organizations'),
     OrganizationListView = require('../organizations/list'),
     FlagView = require('../flag'),
@@ -47,6 +49,14 @@ var NteeView = Backbone.View.extend({
       el: "#ntee-organizations",
       collection: organizations
     }).render();
+
+
+    var groupFinances = new GroupFinances.Collection({
+      eins: _.pluck(organizations.toJSON(), 'field_ein')
+    });    
+    this.chartView = new NTEEChartView({
+      collection: groupFinances
+    });
 
     this.flagView = new FlagView({
       target_id: 'ntee-' + this.model.get('id')

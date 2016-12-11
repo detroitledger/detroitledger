@@ -1,5 +1,3 @@
-'use strict';
-
 var $ = require('jquery'),
     Backbone = require('backbone'),
     _ = require('lodash'),
@@ -23,15 +21,15 @@ var months = [
   'Dec.'  
 ];
 
-var Finances = {};
+var GroupFinances = {};
 
-Finances.Model = Backbone.Model.extend({
+GroupFinances.Model = Backbone.Model.extend({
 
   // url: function() {
   //   return settings.api.baseurl + '/grants/' + this.id + '.jsonp/?callback=?';
   // },
 
-  parse: function(data) {
+  parseBMF: function(data) {
     data.total_assets_text = numeral(data.total_assets).format('0,0[.]00');
     data.total_expenses_text = numeral(data.total_expenses).format('0,0[.]00');
     data.total_revenue_text = numeral(data.total_revenue).format('0,0[.]00');
@@ -41,34 +39,44 @@ Finances.Model = Backbone.Model.extend({
       data.grants_paid_text = numeral(data.grants_paid).format('0,0[.]00');
     }
 
-    data.year = data.tax_period.substring(0, 4);
+    data.year = Number(data.tax_period.substring(0, 4));
     data.month = Number(data.tax_period.substring(4));
-    data.month = months[data.month];
+    data.monthText = months[data.month];
     return data;
+  },
+
+  parse: function(org) {
+    var i;
+    for (i = 0; i < org.data.length; i++) {
+      org.data[i] = this.parseBMF(org.data[i]);
+    }
+
+    return org;
   }
 });
 
-
-Finances.Collection = Backbone.Collection.extend({
-  model: Finances.Model,
+GroupFinances.Collection = Backbone.Collection.extend({
+  model: GroupFinances.Model,
 
   initialize: function(options) {
     _.bindAll(this, 'parse', 'url', 'toJSON');
-    console.log('Init finances', options);
-    this.ein = options.ein;
-    this.fetch({reset: true});
+    console.log("Init group finances", options);
+    this.eins = options.eins;
+    this.fetch({
+      reset: true
+    });
   },
 
   url: function() {
-    return settings.api.financeAPI + '/ein/' + this.ein;
-  },
-
-  parse: function(response) {
-    if (response.combined) {
-      return response.combined;
-    }
-    return [];
+    return settings.api.financeAPI + '/orgs?eins=' + this.eins.join(',');
   }
+
+  // parse: function(response) {
+  //   if (response.combined) {
+  //     return response.combined;
+  //   }
+  //   return [];
+  // }
 });
 
-module.exports = Finances;
+module.exports = GroupFinances;

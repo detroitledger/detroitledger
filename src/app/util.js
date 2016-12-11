@@ -4,9 +4,6 @@ var util = {
       return;
     }
 
-
-
-    
     return text.toString().toLowerCase()
       .replace(/\s+/g, '-')           // Replace spaces with -
       .replace(/\/+/g, '-')           // Replace slashes with -

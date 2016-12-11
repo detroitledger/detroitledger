@@ -38,6 +38,8 @@
  *       also good candidates for components.
  ******************************************************************************/
 
+$banker-bar: 2px solid $body-color;
+
 /* Header ------------------------------------------------------------------- */
 .navbar-inverse {
   background: $blue;
@@ -120,7 +122,7 @@ footer {
 }
 
 #content h2.related-grants {
-  border-top: 2px solid $body-color;
+  border-top: $banker-bar;
   margin-top: 1.5em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
@@ -247,6 +249,21 @@ h3.callout {
 /* Orgs --------------------------------------------------------------------- */
 @import "orgs";
 
+/* NTEEs  ------------------------------------------------------------------- */
+.ntee {
+  h3 {
+    border-bottom: $banker-bar;
+    padding-bottom: 5px;
+  }
+
+  .chart {
+    height: 400px;
+    margin-bottom: 2em;
+    .highcharts-container { 
+      overflow: visible !important; 
+    }
+  }
+}
 
 /* Pages  ------------------------------------------------------------------- */
 

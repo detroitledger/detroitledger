@@ -20,7 +20,6 @@ var FinancesListView = Backbone.View.extend({
   },
 
   render: function() {
-    console.log("Rendering finances", this.collection.toJSON());
     if (this.collection.length > 0) {
       this.$el.html(this.template({
         finances: this.collection.toJSON()

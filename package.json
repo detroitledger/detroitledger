@@ -19,9 +19,11 @@
     "jquery": "./src/components/jquery/dist/jquery.min.js",
     "dotdotdot": "./src/components/jquery.dotdotdot.min.js",
     "bootstrap": "./src/components/bootstrap/dist/js/bootstrap.min.js",
-    "chartist": "./src/components/chartist/dist/chartist.min.js"
+    "chartist": "./src/components/chartist/dist/chartist.min.js",
+    "tinycolor": "./src/components/tinycolor/dist/tinycolor-min.js"
   },
   "browserify-shim": {
+    "tinycolor2": "tinycolor",
     "jquery": "$",
     "dotdotdot": {
       "depends": [
@@ -34,6 +36,11 @@
       ]
     },
     "chartist": {
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "highcharts": {
       "depends": [
         "jquery:$"
       ]
@@ -65,16 +72,18 @@
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "~1.0.1",
     "gulp-util": "~3.0.1",
+    "highcharts": "~4.2.7",
     "jstify": "~0.4.2",
     "lodash": "~2.4.1",
     "main-bower-files": "~2.0.0",
     "moment": "~2.8.3",
     "numeral": "~1.5.3",
     "prerender-node": "~1.1",
-    "run-sequence": "~0.3.7",
+    "request": "~2.51.0",
+    "run-sequence": "~1.2.2",
     "scp2": "~0.1.4",
-    "vinyl-source-stream": "~1.0.0",
-    "request": "~2.51.0"
+    "tinycolor2": "^1.4.1",
+    "vinyl-source-stream": "~1.0.0"
   },
   "devDependencies": {
     "bluebird": "~2.3.2",

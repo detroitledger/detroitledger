@@ -58,7 +58,6 @@ module.exports.initialize = function() {
   });
 
   router.on('route:showNtee', function(id) {
-    console.log("Show NTEE", id);
     var itemView = new NteeItemView({
       id: id
     });

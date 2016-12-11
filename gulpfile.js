@@ -22,9 +22,17 @@ var config = {
 var ghostDriver;
 var testServer;
 
+
+function handleError(error) {
+  console.error(error.toString());
+  this.emit('end');
+}
+
+
 gulp.task('install', function() {
   $.bower();
 });
+
 
 gulp.task('bump', function() {
   var env = $.util.env,
@@ -35,21 +43,26 @@ gulp.task('bump', function() {
     .pipe(gulp.dest('./'));
 });
 
+
 gulp.task('build', function() {
   return runSequence(['javascript', 'stylesheets', 'assets'], 'integrate');
 });
+
 
 gulp.task('serve', $.serve({
   root: 'dist',
   port: 8080
 }));
 
+
 gulp.task('preprocess', function() {
   return gulp.src('src/app/**/*.js')
     .pipe($.cached('jslint'))
     .pipe($.jshint())
-    .pipe($.jshint.reporter('default'));
+    .pipe($.jshint.reporter('default'))
+    .on('error', handleError);
 });
+
 
 gulp.task('javascript', /*['preprocess'],*/ function() {
   var bundleName = util.format('bundle-%s.js', config.version),
@@ -67,7 +80,8 @@ gulp.task('javascript', /*['preprocess'],*/ function() {
       minifierOpts: false // because the minifier complains about template tags
     })
     .transform('browserify-shim')
-    .bundle();
+    .bundle()
+    .on('error', handleError);
 
   bundleStream
     .pipe(source(bundleName))
@@ -75,8 +89,10 @@ gulp.task('javascript', /*['preprocess'],*/ function() {
     .pipe($.streamify($.concat(bundleName)))
     .pipe($.if(!config.debug, $.streamify($.uglify())))
     .pipe($.streamify($.sourcemaps.write()))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
+    .on('error', handleError);
 });
+
 
 gulp.task('stylesheets', function() {
   var bundleName = util.format('styles-%s.css', config.version);
@@ -106,28 +122,35 @@ gulp.task('stylesheets', function() {
     .pipe($.if(!config.production, $.csslint.reporter()));
 });
 
+
 gulp.task('assets', function() {
   // Our stuff
   return gulp.src('src/assets/**')
     .pipe($.cached('assets'))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
+    .on('error', handleError);
 });
+
 
 gulp.task('clean', function() {
   return gulp.src(['dist', 'temp'], { read: false })
     .pipe($.rimraf());
 });
 
+
 gulp.task('integrate', function() {
   var srcs = gulp.src(['dist/*.js', 'dist/css/*.css'], { read: false });
   return gulp.src('src/index.html')
     .pipe($.inject(srcs, { ignorePath: ['/dist/'], addRootSlash: false }))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist'))
+    .on('error', handleError);
 });
+
 
 gulp.task('integrate-test', function() {
   return runSequence('integrate', 'test-run');
 });
+
 
 gulp.task('watch', ['integrate', 'test-setup'], function() {
   var browserSync = require('browser-sync');
@@ -152,6 +175,7 @@ gulp.task('watch', ['integrate', 'test-setup'], function() {
     reloadOnRestart: false
   });
 });
+
 
 gulp.task('watch-sans-test', ['integrate', 'watch-setup'], function() {
   gulp.watch('src/css/**/*.scss', function() {
@@ -206,6 +230,7 @@ gulp.task('test-setup', function(cb) {
     });
 });
 
+
 gulp.task('watch-setup', function(cb) {
   var cmdAndArgs = npmPackage.scripts.start.split(/\s/),
       cmdPath = path.dirname(require.resolve('phantomjs')),
@@ -234,6 +259,7 @@ gulp.task('watch-setup', function(cb) {
     });
 });
 
+
 gulp.task('test-run', function() {
   var Promise = require('bluebird');
 
@@ -256,13 +282,16 @@ gulp.task('test-run', function() {
   });
 });
 
+
 gulp.task('test-teardown', function() {
   return ghostDriver.stop()
     .then(testServer.stop);
 });
 
+
 gulp.task('test', function() {
   return runSequence('test-setup', 'test-run', 'test-teardown');
 });
+
 
 gulp.task('default', ['build']);

@@ -10,6 +10,14 @@ You'll need npm, bower, and gulp (`npm install -g gulp; npm install -g bower`). 
 
 `gulp watch-sans-test` to recompile without tests on file change
 
+## Installing a new module
+
+Say you need a new third party library: 
+
+1. Add it to `bower.json`
+2. `gulp install`
+3. Add it to `package.json` -- make sure it's under `browser`.
+
 ## Prerender
 
 We use a little proxy server to pre-render pages for SEO.
