@@ -20,6 +20,14 @@ Organizations.Model = Backbone.Model.extend({
       data.amount_received = numeral(data.org_grants_received).format('0,0[.]00');
     }
 
+    if (!data.org_grants_funded || data.org_grants_received > data.org_grants_funded) {
+      data.show_first = 'received';
+    }
+
+    if (!data.org_grants_received || data.org_grants_received < data.org_grants_funded) {
+      data.show_first = 'funded';
+    }
+
     data.slug = util.slugify(data.title);
 
     if (data.field_ntee) {
