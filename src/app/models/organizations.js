@@ -1,3 +1,5 @@
+'use strict'; 
+
 var Backbone = require('backbone'),
     _ = require('lodash'),
     numeral = require('numeral'),
@@ -8,7 +10,7 @@ var Organizations = {};
 
 Organizations.Model = Backbone.Model.extend({
   url: function() {
-    return settings.api.baseurl + '/orgs/' + this.id + ".jsonp/?callback=?";
+    return settings.api.baseurl + '/orgs/' + this.id + '.jsonp/?callback=?';
   },
 
   parse: function(data){

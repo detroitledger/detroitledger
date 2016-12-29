@@ -6,7 +6,7 @@ var $ = require('jquery'),
     Finances = require('../../models/finances'),
     Organizations = require('../../models/organizations'),
     FinancesListView = require('../finances/list'),
-    GrantListView = require('../grants/list'),
+    GrantContainerView = require('../grants/container'),
     NewsListView = require('../news/list'),
     PeopleListView = require('../people/list'),
     FlagView = require('../flag'),
@@ -46,12 +46,12 @@ var OrganizationView = Backbone.View.extend({
     }));
 
     // Get all the grants
-    this.grantsReceivedView = new GrantListView({
+    this.grantsReceivedView = new GrantContainerView({
       org: this.options.id,
       direction: 'received',
       el: '#grants-received'
     });
-    this.grantsFundedView = new GrantListView({
+    this.grantsFundedView = new GrantContainerView({
       org: this.options.id,
       direction: 'funded',
       el: '#grants-funded'

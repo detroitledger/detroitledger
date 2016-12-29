@@ -1,0 +1,39 @@
+<div class="tab-content">
+    <!-- <h2>Grants <%= direction %></h2>-->
+    <div class="ct-chart"></div>
+
+    <table class="grants">
+        <thead>
+            <tr>
+                <th class="name">Grants by organization</th>
+                <th class="years">Years</th>
+                <th>Amount</th>
+            </tr>
+            <tr class="org-search"> 
+                <th>
+                    <% if(direction === 'funded') { %>
+                        <input type="text" name="org_funded_name" value="<%= filters.org_name %>" placeholder="Filter by name" class="org-name-filter" required="required">
+                    <% } else { %>
+                        <input type="text" name="org_funding_name" value="<%= filters.org_name %>" placeholder="Filter by name" class="org-name-filter" required="required">
+                    <% } %>
+                    <input type="text" name="grant_description" class="grant-description-filter" placeholder="Filter by description" required="required">
+                </th>
+                <th>
+                    <!--
+                        <input type="text" name="year_min">
+                        <input type="text" name="year_max">
+                    -->
+                </th>
+                <th>
+                    <!--
+                        <input type="text" name="grant_min">
+                        <input type="text" name="grant_max">
+                    -->
+                </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+

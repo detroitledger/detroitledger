@@ -1,3 +1,5 @@
+'use strict';
+
 var $ = require('jquery'),
     Backbone = require('backbone'),
     _ = require('lodash'),
@@ -21,20 +23,20 @@ Grants.Model = Backbone.Model.extend({
     }
 
     // Format start and end dates
-    // "Sun, 01 Jan 2012 05:00:00 -0500"
-    // "ddd, DD MMM YYYY HH:mm:ss ZZ"
+    // 'Sun, 01 Jan 2012 05:00:00 -0500'
+    // 'ddd, DD MMM YYYY HH:mm:ss ZZ'
     if (data && data.field_start_date) {
-      data.start_date = moment(data.field_start_date, settings.api.dateFormat).format("YYYY");
+      data.start_date = moment(data.field_start_date, settings.api.dateFormat).format('YYYY');
     }
     if (data && data.field_end_date) {
-      data.end_date = moment(data.field_end_date, settings.api.dateFormat).format("YYYY");
+      data.end_date = moment(data.field_end_date, settings.api.dateFormat).format('YYYY');
     }
 
     data.field_funder.slug = util.slugify(data.field_funder.name);
     data.field_recipient.slug = util.slugify(data.field_recipient.name);
 
-    data.created = moment.unix(data.created).format("YYYY");
-    data.changed = moment.unix(data.changed).format("MMMM D YYYY");
+    data.created = moment.unix(data.created).format('YYYY');
+    data.changed = moment.unix(data.changed).format('MMMM D YYYY');
 
     return data;
   }
@@ -44,7 +46,7 @@ Grants.Collection = Backbone.Collection.extend({
   model: Grants.Model,
 
   comparator: function(model) {
-    return -model.get("start_date");
+    return -model.get('start_date');
   },
 
   initialize: function(options) {
@@ -55,13 +57,60 @@ Grants.Collection = Backbone.Collection.extend({
     this.fetch({reset: true});
   },
 
+  filter: function(filters) {
+    if (!this.original) {
+      this.original = _.cloneDeep(this.models);
+    } else {
+      this.models = this.original;
+    }
+
+    var models = this.toJSON();
+    var filtered = models.map(function(grant) {
+      var value;
+      var hasName = true;
+      var hasDescription = true;
+
+      if (filters.org_funded_name) {
+        value = filters.org_funded_name.toLowerCase();
+        hasName = _.includes(grant.field_recipient.name.toLowerCase(), value);
+      }
+
+      if (filters.org_funding_name) {
+        value = filters.org_funding_name.toLowerCase();
+        hasName = _.includes(grant.field_funder.name.toLowerCase(), value);
+      }
+
+      if (filters.grant_description) {
+        hasDescription = false;
+        if (grant.body) {
+          value = filters.grant_description.toLowerCase();
+          hasDescription = _.includes(grant.body.und[0].value.toLowerCase(), value);
+        }
+      }
+
+      if (hasName && hasDescription) {
+        return grant;
+      }
+    });
+
+    filtered = _.remove(filtered, undefined);
+
+    this.reset(filtered);
+  },
+
+  clear: function() {
+    if (this.original) {
+      this.reset(this.original);
+    }
+  },
+
   url: function() {
     var url = settings.api.baseurl + '/orgs/' + this.org + '/';
     if(this.direction === 'funded') {
-      url += "grants_funded.jsonp/?";
+      url += 'grants_funded.jsonp/?';
     }
     else if (this.direction === 'received') {
-      url += "grants_received.jsonp/?";
+      url += 'grants_received.jsonp/?';
     }
 
     var opts = {
