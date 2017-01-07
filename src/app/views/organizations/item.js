@@ -1,9 +1,12 @@
+'use strict';
+
 var $ = require('jquery'),
     _ = require('lodash'),
     Chartist = require('chartist'),
     Backbone = require('backbone'),
     News = require('../../models/news'),
     Finances = require('../../models/finances'),
+    Grants = require('../../models/grants'),
     Organizations = require('../../models/organizations'),
     FinancesListView = require('../finances/list'),
     GrantContainerView = require('../grants/container'),
@@ -33,11 +36,11 @@ var OrganizationView = Backbone.View.extend({
   },
 
   render: function() {
-    console.log("Rendering organization", this.model.toJSON());
+    console.log('Rendering organization', this.model.toJSON());
 
     $('title').text(this.model.get('title') + ' grant data' + ' - The Detroit Ledger');
 
-    $("#title").html(this.template({
+    $('#title').html(this.template({
       o: this.model.toJSON()
     }));
 
@@ -46,13 +49,22 @@ var OrganizationView = Backbone.View.extend({
     }));
 
     // Get all the grants
-    this.grantsReceivedView = new GrantContainerView({
+    var grantsReceived = new Grants.Collection({
       org: this.options.id,
+      direction: 'received'
+    });
+    var grantsFunded = new Grants.Collection({
+      org: this.options.id,
+      direction: 'funded'
+    });
+
+    this.grantsReceivedView = new GrantContainerView({
+      collection: grantsReceived,
       direction: 'received',
       el: '#grants-received'
     });
     this.grantsFundedView = new GrantContainerView({
-      org: this.options.id,
+      collection: grantsFunded,
       direction: 'funded',
       el: '#grants-funded'
     });

@@ -35,12 +35,12 @@
         <div class="col-md-12">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active">
-                    <a href="#grants-received" aria-controls="grants-received" role="tab" data-toggle="tab">
+                    <a href="#grants-received-tab" aria-controls="grants-received" role="tab" data-toggle="tab">
                         To <%= grant.field_recipient.name %>
                     </a>
                 </li>
                 <li role="presentation">
-                    <a href="#grants-funded" aria-controls="grants-funded" role="tab" data-toggle="tab">
+                    <a href="#grants-funded-tab" aria-controls="grants-funded" role="tab" data-toggle="tab">
                         From <%= grant.field_funder.name %>
                     </a>
                 </li>
@@ -49,9 +49,15 @@
     </div>
 
     <div class="row">
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="grants-received"></div>
-            <div role="tabpanel" class="tab-pane" id="grants-funded"></div>
+        <div class="col-md-12">
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="grants-received-tab">
+                    <table id="grants-received" class="grants"></table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="grants-funded-tab">
+                    <table id="grants-funded" class="grants"></table>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -3,13 +3,10 @@
 var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
-    numeral = require('numeral'),
-    Grants = require('../../models/grants'),
     GrantListView = require('./list'),
-    template = require('../../templates/grants/header.html'),
-    util = require('../../util');
+    template = require('../../templates/grants/header.html');
 
-var GrantDetailsView = Backbone.View.extend({
+var GrantContainerView = Backbone.View.extend({
 
   template: template,
 
@@ -24,12 +21,6 @@ var GrantDetailsView = Backbone.View.extend({
 
     this.direction = options.direction;
 
-    // Get the organziations
-    this.collection = new Grants.Collection({
-      org: options.org,
-      direction: options.direction,
-      limit: options.limit
-    });
     this.collection.on('reset', this.render);
   },
 
@@ -63,8 +54,7 @@ var GrantDetailsView = Backbone.View.extend({
       $parent: this.$el.find('tbody'),
       collection: this.collection,
       direction: this.direction
-    });
-
+    }).render();
   },
   
   render: function() {
@@ -84,4 +74,4 @@ var GrantDetailsView = Backbone.View.extend({
   }
 });
 
-module.exports = GrantDetailsView;
+module.exports = GrantContainerView;

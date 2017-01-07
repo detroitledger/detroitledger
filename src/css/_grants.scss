@@ -4,6 +4,10 @@ table.grants {
   table-layout: fixed;
   margin-top: 1em;
 
+  h2 {
+    margin-top: 0.5em;
+  }
+
   .org-search {
     input {
       display: inline-block;

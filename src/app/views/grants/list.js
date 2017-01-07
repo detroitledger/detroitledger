@@ -15,12 +15,9 @@ var GrantListView = Backbone.View.extend({
     _.bindAll(this, 'prep', 'group', 'render');
 
     this.direction = options.direction;
-    this.$el = options.$parent;
+    this.$el = options.$parent || $(options.el);
 
     this.collection.on('reset', this.render);
-
-    // At this point we will already have grant data.
-    this.render();
   },
 
   preppedData: {},
