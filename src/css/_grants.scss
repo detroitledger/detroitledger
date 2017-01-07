@@ -2,6 +2,53 @@
 table.grants {
   width: 100%;
   table-layout: fixed;
+  margin-top: 1em;
+
+  h2 {
+    margin-top: 0.5em;
+  }
+
+  .org-search {
+    input {
+      display: inline-block;
+      height: 1.75em;
+      border: 0px none;
+      border-bottom: 2px solid $body-color; 
+      color: $green;
+
+      $placeholder: $gray;
+      &::placeholder {
+        color: $placeholder;
+      }
+      &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $placeholder;
+      }
+      &::-moz-placeholder { /* Firefox 19+ */
+        color: $placeholder;
+      }
+      &:-ms-input-placeholder { /* IE 10+ */
+        color: $placeholder;
+      }
+      &:-moz-placeholder { /* Firefox 18- */
+        color: $placeholder;
+      }
+    }
+
+    input:active,
+    input:valid {
+      border-bottom-color: $green;
+    }
+
+    .org-name-filter {
+      width: 25%;
+      margin-right: 10px;
+    }
+
+    .grant-description-filter {
+      width: calc(75% - 15px);
+    }
+
+  }
 }
 
 .row.related {

@@ -1,9 +1,9 @@
+'use strict';
+
 var $ = require('jquery'),
     _ = require('lodash'),
-    Chartist = require('chartist'),
     Backbone = require('backbone'),
     numeral = require('numeral'),
-    Grants = require('../../models/grants'),
     template = require('../../templates/grants/list.html'),
     util = require('../../util');
 
@@ -11,79 +11,22 @@ var GrantListView = Backbone.View.extend({
 
   template: template,
 
-  /**console.log('Loading a web page');
-var page = require('webpage').create();
-var url = 'http://phantomjs.org/';
-page.open(url, function (status) {
-  //Page is loaded!
-  phantom.exit();
-});
-
-   * Initialize the grant list
-   * @param  {Object} options
-   *                  options.direction: required. Specifies which grants to
-   *                  list. Valid values: funded, recieved
-   */
   initialize: function(options) {
-    _.bindAll(this, 'prep', 'group', 'render', 'afterRender');
-
-    var _this = this;
-
-    this.render = _.wrap(this.render, function(render) {
-      render();
-      _this.afterRender();
-      return _this;
-    });
+    _.bindAll(this, 'prep', 'group', 'render');
 
     this.direction = options.direction;
+    this.$el = options.$parent || $(options.el);
 
-    // Get the organziations
-    this.grants = new Grants.Collection({
-      org: options.org,
-      direction: options.direction,
-      limit: options.limit
-    });
-    this.grants.on('reset', this.render);
+    this.collection.on('reset', this.render);
   },
 
   preppedData: {},
 
-  afterRender: function() {
-    // chartist here!
-    // @todo this is wrong: relies on original object order.
-    // instead, prepare yearly_sums as array to begin with
-    var years = [];
-    var sums = _.sortBy(this.preppedData.yearly_sums, function(sum, year) {
-      years.push(year);
-      return year;
-    });
-
-    var data = {
-      labels: years, //expects array of years
-      series: [sums] //expects an array of array of amounts
+  getData: function() {
+    return {
+      name: $(this).attr('name'),
+      value: $(this).val()
     };
-
-    if (data.labels.length > 0) {
-
-      var options = {
-        high: Math.max(_.values(data.series)),
-        low: 0,
-        axisY: {
-          labelInterpolationFnc: function(value, index) {
-            return index % _.values(data.series).length === 0 ? "$" + numeral(value).format('0a') : null;
-          }
-        },
-        axisX: {
-          labelInterpolationFnc: function(value, index) {
-            return index % 1 === 0 ? value : null;
-          }
-        }
-      };
-
-      // XXX No chart for now
-      // new Chartist.Bar(this.$el.find('.ct-chart')[0], data, options);
-    }
-
   },
 
   group: function(grant) {
@@ -93,16 +36,16 @@ page.open(url, function (status) {
     return grant.field_recipient.target_id;
   },
 
-//group_names[grant.field_recipient.target_id] = grant.field_recipient.name;
+  //group_names[grant.field_recipient.target_id] = grant.field_recipient.name;
   // Group each of the grants by granter or grantee
   prep: function() {
-    var grantsJSON = this.grants.toJSON();
+    var grantsJSON = this.collection.toJSON();
     var byOrganizationID = _.groupBy(grantsJSON, this.group);
-    var group_names_by_id = [];
-    _.map(grantsJSON, function(g) {
-      this[g.field_funder.target_id] = g.field_funder.name;
-      this[g.field_recipient.target_id] = g.field_recipient.name;
-    }, group_names_by_id);
+    var group_names_by_id = {};
+    _.each(grantsJSON, function(g) {
+      group_names_by_id[g.field_funder.target_id] = g.field_funder.name;
+      group_names_by_id[g.field_recipient.target_id] = g.field_recipient.name;
+    });
 
     // Add counts etc.
     var readyData = [];
@@ -142,9 +85,7 @@ page.open(url, function (status) {
   render: function() {
     this.preppedData = this.prep();
     this.$el.html(this.template({
-      organizations: this.preppedData.organizations,
-      yearly_sums: this.preppedData.yearly_sums,
-      direction: this.direction
+      organizations: this.preppedData.organizations
     }));
 
     return this;

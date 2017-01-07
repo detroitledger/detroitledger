@@ -28,12 +28,12 @@
       a full, official record of all funding.</p>
 
       <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" <% if (o.amount_received) { %>class="active"<% } %>>
+          <li role="presentation" <% if (o.show_first === 'received') { %>class="active"<% } %>>
               <a href="#grants-received" aria-controls="grants-received" role="tab" data-toggle="tab">
               Received $<% if (o.amount_received) { %><%= o.amount_received %><% } else { %>0<% } %>
               </a>
           </li>
-          <li role="presentation" <% if (!o.amount_received) { %>class="active"<% } %>>
+          <li role="presentation" <% if (o.show_first === 'funded') { %>class="active"<% } %>>
               <a href="#grants-funded" aria-controls="grants-funded" role="tab" data-toggle="tab">
                   Gave $<% if (o.amount_funded) { %><%= o.amount_funded %><% } else { %>0<% } %>
               </a>
@@ -41,7 +41,7 @@
       </ul>
 
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane <% if (o.amount_received) { %>active<% } %>" id="grants-received">
+        <div role="tabpanel" class="tab-pane <% if (o.show_first === 'received') { %>active<% } %>" id="grants-received">
           <div class="loading">
             <div class="spinner">
               <div class="double-bounce1"></div>
@@ -49,7 +49,7 @@
             </div>
           </div>
         </div>
-        <div role="tabpanel" class="tab-pane <% if (!o.amount_received) { %>active<% } %>" id="grants-funded">
+        <div role="tabpanel" class="tab-pane <% if (o.show_first === 'funded') { %>active<% } %>" id="grants-funded">
           <div class="loading">
             <div class="spinner">
               <div class="double-bounce1"></div>

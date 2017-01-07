@@ -1,3 +1,5 @@
+'use strict';
+
 var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
@@ -14,7 +16,7 @@ var GrantView = Backbone.View.extend({
   details: details,
 
   initialize: function(options) {
-    console.log("Initialize grant");
+    console.log('Initialize grant');
     _.bindAll(this, 'render', 'showRelated');
 
     // Get the organziations
@@ -27,24 +29,33 @@ var GrantView = Backbone.View.extend({
   },
 
   showRelated: function() {
+    var relatedReceived = new Grants.Collection({    
+      org: this.model.get('field_recipient').target_id,    
+      direction: 'received',   
+      limit: 10    
+    });
+    var relatedFunded = new Grants.Collection({    
+      org: this.model.get('field_funder').target_id,    
+      direction: 'funded',   
+      limit: 10    
+    });
+
     this.grantsReceivedView = new GrantListView({
-      org: this.model.get('field_recipient').target_id,
-      direction: 'received',
+      collection: relatedReceived,
       el: '#grants-received',
-      limit: 10
+      direction: 'received'
     });
     this.grantsFundedView = new GrantListView({
-      org: this.model.get('field_funder').target_id,
-      direction: 'funded',
+      collection: relatedFunded,
       el: '#grants-funded',
-      limit: 10
+      direction: 'funded'
     });
   },
 
   render: function() {
     console.log(this.model.toJSON());
 
-    $("#title").html(this.template({
+    $('#title').html(this.template({
       grant: this.model.toJSON()
     }));
 

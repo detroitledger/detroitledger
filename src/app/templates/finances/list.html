@@ -15,25 +15,25 @@ Data is from IRS 990 filings.</p>
         </tr>
         <tr>
           <td>Revenue</td>
-          <td class="amt">$<%= f.total_revenue %></td>
+          <td class="amt">$<%= f.total_revenue_text %></td>
         </tr>
         <% if (f.grants_paid) { %>
         <tr>
           <td>Grants Paid</td>
-          <td class="amt">$<%= f.grants_paid %></td>
+          <td class="amt">$<%= f.grants_paid_text %></td>
         </tr>
         <% } %>
         <tr>
           <td>Total Expenses</td>
-          <td class="amt">$<%= f.total_expenses %></td>
+          <td class="amt">$<%= f.total_expenses_text %></td>
         </tr>
         <tr>
           <td>Assets</td>
-          <td class="amt">$<%= f.total_assets %></td>
+          <td class="amt">$<%= f.total_assets_text %></td>
         </tr>
         <tr>
           <td>Liabilities</td>
-          <td class="amt">$<%= f.total_liabilities %></td>
+          <td class="amt">$<%= f.total_liabilities_text %></td>
         </tr>
       </table>
     </div>
