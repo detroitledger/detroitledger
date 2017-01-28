@@ -1,0 +1,13 @@
+<% if(direction === 'funded') { %>
+  <input type="text" name="org_funded_name" value="<%= filters.org_name %>" placeholder="Filter by name" class="org-name-filter" required="required">
+<% } else { %>
+  <input type="text" name="org_funding_name" value="<%= filters.org_name %>" placeholder="Filter by name" class="org-name-filter" required="required">
+<% } %>
+<input type="text" name="grant_description" class="grant-description-filter" placeholder="Filter by description" required="required">
+<select class="filterbytag" name="filterbytag">
+  <option value="" selected>Filter by grant tag</option>
+  <% _.each(grant_tags, function(tag) { %>
+  <option value="<%= tag.id %>"><%= tag.name.substring(0, 70) %> (<%= tag.count %>)</option>
+  <% }); %>
+</select>
+

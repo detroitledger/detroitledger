@@ -10,13 +10,7 @@
                 <th>Amount</th>
             </tr>
             <tr class="org-search"> 
-                <th>
-                    <% if(direction === 'funded') { %>
-                        <input type="text" name="org_funded_name" value="<%= filters.org_name %>" placeholder="Filter by name" class="org-name-filter" required="required">
-                    <% } else { %>
-                        <input type="text" name="org_funding_name" value="<%= filters.org_name %>" placeholder="Filter by name" class="org-name-filter" required="required">
-                    <% } %>
-                    <input type="text" name="grant_description" class="grant-description-filter" placeholder="Filter by description" required="required">
+                <th class="filters">
                 </th>
                 <th>
                     <!--

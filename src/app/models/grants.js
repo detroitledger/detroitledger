@@ -50,7 +50,7 @@ Grants.Collection = Backbone.Collection.extend({
   },
 
   initialize: function(options) {
-    _.bindAll(this, 'parse', 'url', 'toJSON');
+    _.bindAll(this, 'parse', 'url', 'toJSON', 'group', 'prepForGrantList');
     this.org = options.org;
     this.direction = options.direction;
     this.limit = options.limit ? options.limit : 10000;
@@ -69,6 +69,7 @@ Grants.Collection = Backbone.Collection.extend({
       var value;
       var hasName = true;
       var hasDescription = true;
+      var hasTag = true;
 
       if (filters.org_funded_name) {
         value = filters.org_funded_name.toLowerCase();
@@ -88,7 +89,14 @@ Grants.Collection = Backbone.Collection.extend({
         }
       }
 
-      if (hasName && hasDescription) {
+      if (filters.tag) {
+        hasTag = false;
+        if (grant.field_grant_tags && grant.field_grant_tags.hasOwnProperty('und')) {
+          hasTag = typeof grant.field_grant_tags.und[filters.tag] !== 'undefined';
+        }
+      }
+
+      if (hasName && hasDescription && hasTag) {
         return grant;
       }
     });
@@ -96,6 +104,68 @@ Grants.Collection = Backbone.Collection.extend({
     filtered = _.remove(filtered, undefined);
 
     this.reset(filtered);
+  },
+
+  group: function(grant) {
+    if (this.direction === 'received') {
+      return grant.field_funder.target_id;
+    }
+    return grant.field_recipient.target_id;
+  },
+
+  prepForGrantList: function(direction) {
+    var grantsJSON = this.toJSON();
+    var byOrganizationID = _.groupBy(grantsJSON, this.group.bind({ direction: direction }));
+    var group_names_by_id = {};
+    _.each(grantsJSON, function(g) {
+      group_names_by_id[g.field_funder.target_id] = g.field_funder.name;
+      group_names_by_id[g.field_recipient.target_id] = g.field_recipient.name;
+    });
+
+    // Add counts etc.
+    var readyData = [];
+    var yearly_sums = {};
+    var grant_tags = {};
+    _.each(byOrganizationID, function(grants, organziation_id) {
+      var sum = _.reduce(grants, function(memo, grant) {
+        // along the way, build our yearly sums & grant tags.
+        var this_year = grant.field_year.value.slice(0,4);
+        if (yearly_sums[this_year] > 0) {
+          yearly_sums[this_year] += grant.field_funded_amount;
+        } else {
+          yearly_sums[this_year] = grant.field_funded_amount;
+        }
+        if (grant.field_grant_tags && grant.field_grant_tags.hasOwnProperty('und')) {
+          _.forEach(grant.field_grant_tags.und, function(grant_tag) {
+            grant_tags[grant_tag.tid] = {
+              name: grant_tag.name,
+              id: grant_tag.tid,
+              count: grant_tags[grant_tag.tid] ? grant_tags[grant_tag.tid].count + 1 : 1,
+            };
+          });
+        }
+        return memo + grant.field_funded_amount;
+      }, 0);
+
+      readyData.push({
+        sum: sum,
+        prettySum: numeral(sum).format('0,0[.]00'),
+        id: organziation_id,
+        name: group_names_by_id[organziation_id],
+        slug: util.slugify(group_names_by_id[organziation_id]),
+        grants: grants
+      });
+    });
+
+    readyData = _.sortBy(readyData, function(organization) {
+      return organization.sum;
+    }).reverse();
+
+    return {
+      organizations: readyData,
+      yearly_sums: yearly_sums,
+      grant_tags: _.reverse(_.sortBy(_.values(grant_tags), 'count'))
+    };
   },
 
   clear: function() {

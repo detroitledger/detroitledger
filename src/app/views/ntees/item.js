@@ -52,8 +52,8 @@ var NteeView = Backbone.View.extend({
 
 
     var groupFinances = new GroupFinances.Collection({
-      eins: _.pluck(organizations.toJSON(), 'field_ein')
-    });    
+      eins: _.map(organizations.toJSON(), 'field_ein')
+    });
     this.chartView = new NTEEChartView({
       collection: groupFinances
     });
