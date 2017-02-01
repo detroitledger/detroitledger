@@ -39,15 +39,24 @@ table.grants {
       border-bottom-color: $green;
     }
 
-    .org-name-filter {
-      width: 25%;
-      margin-right: 10px;
-    }
+    .filter-container {
+      display: -webkit-flex;
+      display: flex;
 
-    .grant-description-filter {
-      width: calc(75% - 15px);
-    }
+      input.org-name-filter {
+        width: 25%;
+        margin-right: 10px;
+      }
 
+      input.grant-description-filter {
+        flex: 1; 
+      }
+
+      .filterbytag {
+        max-width: 35%;
+        margin-left: 10px;
+      }
+    }
   }
 }
 
