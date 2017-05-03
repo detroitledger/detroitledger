@@ -32,7 +32,6 @@ var HomeView = Backbone.View.extend({
   },
 
   showRecipients: function() {
-    console.log(this.recipients.toJSON());
     $('#recipients').html(this.ol({
       organizations: this.recipients.toJSON(),
       key: 'org_grants_received'
@@ -54,6 +53,7 @@ var HomeView = Backbone.View.extend({
     this.SearchView = new SearchView().render();
 
     this.funders = new Organizaitons.Collection();
+    this.funders.comparator = undefined;
     this.funders.search({
       limit: 5,
       sort: {
@@ -61,8 +61,8 @@ var HomeView = Backbone.View.extend({
       }
     });
     this.funders.on('reset', this.showFunders);
-
     this.recipients = new Organizaitons.Collection();
+    this.recipients.comparator = undefined;
     this.recipients.search({
       limit: 5,
       sort: {
