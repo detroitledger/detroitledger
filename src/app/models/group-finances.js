@@ -1,9 +1,9 @@
 var $ = require('jquery'),
-    Backbone = require('backbone'),
-    _ = require('lodash'),
-    numeral = require('numeral'),
-    moment = require('moment'),
-    settings = require('../settings');
+  Backbone = require('backbone'),
+  _ = require('lodash'),
+  numeral = require('numeral'),
+  moment = require('moment'),
+  settings = require('../settings');
 
 var months = [
   '',
@@ -18,13 +18,12 @@ var months = [
   'Sep.',
   'Oct.',
   'Nov.',
-  'Dec.'  
+  'Dec.',
 ];
 
 var GroupFinances = {};
 
 GroupFinances.Model = Backbone.Model.extend({
-
   // url: function() {
   //   return settings.api.baseurl + '/grants/' + this.id + '.jsonp/?callback=?';
   // },
@@ -33,7 +32,9 @@ GroupFinances.Model = Backbone.Model.extend({
     data.total_assets_text = numeral(data.total_assets).format('0,0[.]00');
     data.total_expenses_text = numeral(data.total_expenses).format('0,0[.]00');
     data.total_revenue_text = numeral(data.total_revenue).format('0,0[.]00');
-    data.total_liabilities_text = numeral(data.total_liabilities).format('0,0[.]00');
+    data.total_liabilities_text = numeral(data.total_liabilities).format(
+      '0,0[.]00'
+    );
 
     if (data.grants_paid) {
       data.grants_paid_text = numeral(data.grants_paid).format('0,0[.]00');
@@ -52,7 +53,7 @@ GroupFinances.Model = Backbone.Model.extend({
     }
 
     return org;
-  }
+  },
 });
 
 GroupFinances.Collection = Backbone.Collection.extend({
@@ -60,16 +61,16 @@ GroupFinances.Collection = Backbone.Collection.extend({
 
   initialize: function(options) {
     _.bindAll(this, 'parse', 'url', 'toJSON');
-    console.log("Init group finances", options);
+    console.log('Init group finances', options);
     this.eins = options.eins;
     this.fetch({
-      reset: true
+      reset: true,
     });
   },
 
   url: function() {
     return settings.api.financeAPI + '/orgs?eins=' + this.eins.join(',');
-  }
+  },
 
   // parse: function(response) {
   //   if (response.combined) {

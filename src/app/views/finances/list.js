@@ -1,13 +1,12 @@
 var $ = require('jquery'),
-    _ = require('lodash'),
-    Chartist = require('chartist'),
-    Backbone = require('backbone'),
-    numeral = require('numeral'),
-    Finances = require('../../models/finances'),
-    template = require('../../templates/finances/list.html');
+  _ = require('lodash'),
+  Chartist = require('chartist'),
+  Backbone = require('backbone'),
+  numeral = require('numeral'),
+  Finances = require('../../models/finances'),
+  template = require('../../templates/finances/list.html');
 
 var FinancesListView = Backbone.View.extend({
-
   template: template,
 
   /**
@@ -21,13 +20,15 @@ var FinancesListView = Backbone.View.extend({
 
   render: function() {
     if (this.collection.length > 0) {
-      this.$el.html(this.template({
-        finances: this.collection.toJSON()
-      }));
+      this.$el.html(
+        this.template({
+          finances: this.collection.toJSON(),
+        })
+      );
     }
 
     return this;
-  }
+  },
 });
 
 module.exports = FinancesListView;

@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "description": "Frontend for detroitledger.org",
   "main": "server.js",
+  "engines": {
+    "node": ">=0.10.3 <0.13"
+  },
   "scripts": {
     "install": "gulp install",
     "build": "gulp build",
@@ -26,24 +29,16 @@
     "tinycolor2": "tinycolor",
     "jquery": "$",
     "dotdotdot": {
-      "depends": [
-        "jquery:$"
-      ]
+      "depends": ["jquery:$"]
     },
     "bootstrap": {
-      "depends": [
-        "jquery:$"
-      ]
+      "depends": ["jquery:$"]
     },
     "chartist": {
-      "depends": [
-        "jquery:$"
-      ]
+      "depends": ["jquery:$"]
     },
     "highcharts": {
-      "depends": [
-        "jquery:$"
-      ]
+      "depends": ["jquery:$"]
     }
   },
   "dependencies": {
@@ -80,7 +75,7 @@
     "numeral": "~1.5.3",
     "prerender-node": "~1.1",
     "request": "~2.51.0",
-    "run-sequence": "~1.2.2",
+    "run-sequence": "2",
     "scp2": "~0.1.4",
     "tinycolor2": "^1.4.1",
     "vinyl-source-stream": "~1.0.0"
@@ -89,6 +84,7 @@
     "bluebird": "~2.3.2",
     "bower": "^1.3.9",
     "browser-sync": "^1.3.2",
+    "eslint": "^4.15.0",
     "exec-wait": "^0.0.3",
     "gulp-bump": "~0.1.11",
     "gulp-protractor": "0.0.11",

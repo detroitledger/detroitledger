@@ -1,18 +1,31 @@
-## Installation & development
+# Detroit Ledger Frontend
 
-You'll need npm, bower, and gulp (`npm install -g gulp; npm install -g bower`). Also, you need compass (see .travis.yml for an example of how to fulfil the compass and sass dependencies).
+This code produces the site you see on the [Detroit Ledger](https://detroitledger.org)
 
-`npm install`
+## Installation
 
-`gulp build`
+```
+npm install -g gulp
+npm install -g bower
+npm install
+gem install sass
+gem install compass
+```
+
+See `.travis.yml` for an example of how to fulfill the compass and sass
+dependencies if they give you trouble.
+
+## Development
 
 `gulp watch` to recompile and run tests on file change
 
 `gulp watch-sans-test` to recompile without tests on file change
 
+`gulp build` to build the site for deployment
+
 ## Installing a new module
 
-Say you need a new third party library: 
+Say you need a new third party library like jquery or bootstrap:
 
 1. Add it to `bower.json`
 2. `gulp install`
@@ -69,3 +82,18 @@ docker stop gnl-frontend
 docker rm gnl-frontend
 docker run -d --name=gnl-frontend -e PRERENDER_SERVICE_URL=http://`docker inspect --format='{{.NetworkSettings.IPAddress}}' prerender`:3000 detroitledger/gnl-frontend:`cd ../detroitledger.git && git log --pretty=format:'%h' -n 1`
 ```
+
+## Troubleshooting
+
+Get an error like this when running `gulp watch`?
+
+```
+[10:39:02] Error: Test server exited prematurely.
+    at ChildProcess.handlePrematureExit (/Users/matth/projects/detroit/detroitledger/node_modules/exec-wait/index.js:49:25)
+    at ChildProcess.g (events.js:199:16)
+    at ChildProcess.emit (events.js:110:17)
+    at Process.ChildProcess._handle.onexit (child_process.js:1078:12)
+```
+
+You probably already have something running on port 8080. Run
+`sudo lsof -i :8080` to find it.

@@ -1,14 +1,14 @@
 /*globals ga: true */
 
 var Backbone = require('backbone'),
-    HomeView = require('./views/home'),
-    SearchView = require('./views/search'),
-    OrganizationListView = require('./views/organizations/list'),
-    OrganizationItemView = require('./views/organizations/item'),
-    NteeItemView = require('./views/ntees/item'),
-    GrantItemView = require('./views/grants/item'),
-    PageView = require('./views/page'),
-    QualityView = require('./views/quality');
+  HomeView = require('./views/home'),
+  SearchView = require('./views/search'),
+  OrganizationListView = require('./views/organizations/list'),
+  OrganizationItemView = require('./views/organizations/item'),
+  NteeItemView = require('./views/ntees/item'),
+  GrantItemView = require('./views/grants/item'),
+  PageView = require('./views/page'),
+  QualityView = require('./views/quality');
 
 Backbone.$ = require('jquery');
 
@@ -29,8 +29,8 @@ var AppRouter = Backbone.Router.extend({
     '!/:id': 'showPage',
 
     // Default
-    '!/*actions': 'defaultAction'
-  }
+    '!/*actions': 'defaultAction',
+  },
 });
 
 module.exports.initialize = function() {
@@ -41,9 +41,9 @@ module.exports.initialize = function() {
   });
 
   router.on('route:showOrganization', function(id) {
-    console.log("Show organzation", id);
+    console.log('Show organzation', id);
     var itemView = new OrganizationItemView({
-      id: id
+      id: id,
     });
   });
 
@@ -53,19 +53,19 @@ module.exports.initialize = function() {
 
   router.on('route:showGrant', function(id) {
     var itemView = new GrantItemView({
-      id: id
+      id: id,
     });
   });
 
   router.on('route:showNtee', function(id) {
     var itemView = new NteeItemView({
-      id: id
+      id: id,
     });
   });
 
   router.on('route:showPage', function(id) {
     var pageView = new PageView({
-      id: id
+      id: id,
     });
   });
 
@@ -87,4 +87,3 @@ module.exports.trackPageview = function() {
     ga('send', 'pageview', url);
   }
 };
-

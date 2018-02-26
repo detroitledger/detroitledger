@@ -1,7 +1,7 @@
 var Backbone = require('backbone'),
-    _ = require('lodash'),
-    numeral = require('numeral'),
-    settings = require('../settings');
+  _ = require('lodash'),
+  numeral = require('numeral'),
+  settings = require('../settings');
 
 var Stats = {};
 
@@ -16,7 +16,7 @@ Stats.Model = Backbone.Model.extend({
     data.num_orgs = numeral(data.total_num_orgs).format('0,0[.]00');
     data.dollars = numeral(data.total_grants_dollars).format('0,0[.]00');
     return data;
-  }
+  },
 });
 
 module.exports = Stats;

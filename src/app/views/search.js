@@ -1,18 +1,17 @@
 var $ = require('jquery'),
-    _ = require('lodash'),
-    Backbone = require('backbone'),
-    Organizations = require('../models/organizations'),
-    OrganizationListView = require('./organizations/list'),
-    template = require('../templates/search.html');
+  _ = require('lodash'),
+  Backbone = require('backbone'),
+  Organizations = require('../models/organizations'),
+  OrganizationListView = require('./organizations/list'),
+  template = require('../templates/search.html');
 
 var SearchView = Backbone.View.extend({
-
   el: '#search-container',
   template: template,
 
   events: {
     'keyup .search': 'search',
-    'click input': 'search'
+    'click input': 'search',
   },
 
   initialize: function(options) {
@@ -27,8 +26,8 @@ var SearchView = Backbone.View.extend({
     this.organizations = new Organizations.Collection();
 
     this.listView = new OrganizationListView({
-      el: "#results",
-      collection: this.organizations
+      el: '#results',
+      collection: this.organizations,
     });
   },
 
@@ -41,9 +40,9 @@ var SearchView = Backbone.View.extend({
     var val = $(event.target).val();
     window.ga('send', 'event', 'data', 'search', val);
     this.organizations.search({
-      title: val
+      title: val,
     });
-  }
+  },
 });
 
 module.exports = SearchView;

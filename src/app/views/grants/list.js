@@ -1,14 +1,13 @@
 'use strict';
 
 var $ = require('jquery'),
-    _ = require('lodash'),
-    Backbone = require('backbone'),
-    numeral = require('numeral'),
-    template = require('../../templates/grants/list.html'),
-    util = require('../../util');
+  _ = require('lodash'),
+  Backbone = require('backbone'),
+  numeral = require('numeral'),
+  template = require('../../templates/grants/list.html'),
+  util = require('../../util');
 
 var GrantListView = Backbone.View.extend({
-
   template: template,
 
   initialize: function(options) {
@@ -27,7 +26,7 @@ var GrantListView = Backbone.View.extend({
   getData: function() {
     return {
       name: $(this).attr('name'),
-      value: $(this).val()
+      value: $(this).val(),
     };
   },
 
@@ -37,14 +36,16 @@ var GrantListView = Backbone.View.extend({
 
   render: function() {
     this.preppedData = this.prep();
-    this.$el.html(this.template({
-      organizations: this.preppedData.organizations
-    }));
+    this.$el.html(
+      this.template({
+        organizations: this.preppedData.organizations,
+      })
+    );
 
     this.reportGrantTags(this.preppedData.grant_tags);
 
     return this;
-  }
+  },
 });
 
 module.exports = GrantListView;

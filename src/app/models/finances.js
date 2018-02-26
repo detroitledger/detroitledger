@@ -1,11 +1,11 @@
 'use strict';
 
 var $ = require('jquery'),
-    Backbone = require('backbone'),
-    _ = require('lodash'),
-    numeral = require('numeral'),
-    moment = require('moment'),
-    settings = require('../settings');
+  Backbone = require('backbone'),
+  _ = require('lodash'),
+  numeral = require('numeral'),
+  moment = require('moment'),
+  settings = require('../settings');
 
 var months = [
   '',
@@ -20,13 +20,12 @@ var months = [
   'Sep.',
   'Oct.',
   'Nov.',
-  'Dec.'  
+  'Dec.',
 ];
 
 var Finances = {};
 
 Finances.Model = Backbone.Model.extend({
-
   // url: function() {
   //   return settings.api.baseurl + '/grants/' + this.id + '.jsonp/?callback=?';
   // },
@@ -35,7 +34,9 @@ Finances.Model = Backbone.Model.extend({
     data.total_assets_text = numeral(data.total_assets).format('0,0[.]00');
     data.total_expenses_text = numeral(data.total_expenses).format('0,0[.]00');
     data.total_revenue_text = numeral(data.total_revenue).format('0,0[.]00');
-    data.total_liabilities_text = numeral(data.total_liabilities).format('0,0[.]00');
+    data.total_liabilities_text = numeral(data.total_liabilities).format(
+      '0,0[.]00'
+    );
 
     if (data.grants_paid) {
       data.grants_paid_text = numeral(data.grants_paid).format('0,0[.]00');
@@ -45,9 +46,8 @@ Finances.Model = Backbone.Model.extend({
     data.month = Number(data.tax_period.substring(4));
     data.month = months[data.month];
     return data;
-  }
+  },
 });
-
 
 Finances.Collection = Backbone.Collection.extend({
   model: Finances.Model,
@@ -56,7 +56,7 @@ Finances.Collection = Backbone.Collection.extend({
     _.bindAll(this, 'parse', 'url', 'toJSON');
     console.log('Init finances', options);
     this.ein = options.ein;
-    this.fetch({reset: true});
+    this.fetch({ reset: true });
   },
 
   url: function() {
@@ -68,7 +68,7 @@ Finances.Collection = Backbone.Collection.extend({
       return response.combined;
     }
     return [];
-  }
+  },
 });
 
 module.exports = Finances;
