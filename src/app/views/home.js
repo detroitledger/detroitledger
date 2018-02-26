@@ -20,6 +20,7 @@ var HomeView = Backbone.View.extend({
     this.model = new Stats.Model();
     this.model.fetch();
     this.model.on('change', this.render);
+    this.render();
   },
 
   showFunders: function() {
