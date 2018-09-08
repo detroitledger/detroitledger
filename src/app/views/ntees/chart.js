@@ -1,21 +1,19 @@
-'use strict';
+"use strict";
 
-var $ = require('jquery'),
-  _ = require('lodash'),
-  Backbone = require('backbone'),
-  Highcharts = require('highcharts'),
-  moment = require('moment'),
-  numeral = require('numeral'),
-  tinycolor = require('tinycolor'),
-  Organizations = require('../../models/organizations');
+var $ = require("jquery"),
+  _ = require("lodash"),
+  Backbone = require("backbone"),
+  numeral = require("numeral"),
+  tinycolor = require("tinycolor"),
+  Organizations = require("text-loader!../../models/organizations");
 // template = require('../../templates/organizations/list.html');
 
 var NTEEChartView = Backbone.View.extend({
   //template: template,
 
   initialize: function() {
-    _.bindAll(this, 'render');
-    this.collection.bind('reset', this.render);
+    _.bindAll(this, "render");
+    this.collection.bind("reset", this.render);
   },
 
   get: function(org, field) {
@@ -43,28 +41,28 @@ var NTEEChartView = Backbone.View.extend({
   },
 
   getRevenues: function(org) {
-    return this.get(org, 'total_revenue');
+    return this.get(org, "total_revenue");
   },
 
   getExpenses: function(org) {
-    return this.get(org, 'total_expenses');
+    return this.get(org, "total_expenses");
   },
 
   getAssets: function(org) {
-    return this.get(org, 'total_assets');
+    return this.get(org, "total_assets");
   },
 
   makeChart: function(slug, series) {
-    var colors = tinycolor('#27a9ff', series.length).analogous();
+    var colors = tinycolor("#27a9ff", series.length).analogous();
     colors = colors.map(function(t) {
       return t.toHexString();
     });
 
     series = _.filter(series, undefined);
 
-    $('.chart-' + slug).highcharts({
+    $(".chart-" + slug).highcharts({
       chart: {
-        type: 'spline',
+        type: "spline",
       },
       title: {
         text: null,
@@ -74,14 +72,14 @@ var NTEEChartView = Backbone.View.extend({
       },
       tooltip: {
         dateTimeLabelFormats: {
-          month: '%b %Y',
-          year: '%b %Y',
-          day: '%b %Y',
+          month: "%b %Y",
+          year: "%b %Y",
+          day: "%b %Y",
         },
         headerFormat:
           '<span style="font-size: 10px">Year ending {point.key}</span><br/>',
         pointFormatter: function() {
-          return this.series.name + ': $' + numeral(this.y).format('0,0[.]00');
+          return this.series.name + ": $" + numeral(this.y).format("0,0[.]00");
         },
         // shared: true,
         split: true,
@@ -89,12 +87,12 @@ var NTEEChartView = Backbone.View.extend({
         padding: 5,
       },
       xAxis: {
-        type: 'datetime',
+        type: "datetime",
         dateTimeLabelFormats: {
           // don't display the dummy year
-          month: '%b %Y',
-          year: '%b %Y',
-          day: '%b %Y',
+          month: "%b %Y",
+          year: "%b %Y",
+          day: "%b %Y",
         },
         title: {
           text: null,
@@ -105,25 +103,25 @@ var NTEEChartView = Backbone.View.extend({
           formatter: function() {
             var value = this.value;
             if (value >= 1000000000) {
-              value = value / 1000000000 + 'B';
+              value = value / 1000000000 + "B";
             }
 
             if (value >= 1000000) {
-              value = value / 1000000 + 'M';
+              value = value / 1000000 + "M";
             }
 
             if (value >= 1000) {
-              value = value / 1000 + 'k';
+              value = value / 1000 + "k";
             }
-            return '$' + value;
+            return "$" + value;
           },
         },
         minorTickInterval: 0.1,
-        minorGridLineColor: '#f2f2f2',
+        minorGridLineColor: "#f2f2f2",
         title: {
           text: null,
         },
-        type: 'logarithmic',
+        type: "logarithmic",
       },
       plotOptions: {
         spline: {
@@ -131,7 +129,7 @@ var NTEEChartView = Backbone.View.extend({
           marker: {
             enabled: true,
             radius: 4,
-            lineColor: '#fff',
+            lineColor: "#fff",
             lineWidth: 1,
           },
         },
@@ -150,9 +148,9 @@ var NTEEChartView = Backbone.View.extend({
     var expenses = data.map(this.getExpenses.bind(this));
     var assets = data.map(this.getAssets.bind(this));
 
-    this.makeChart('revenues', revenues);
-    this.makeChart('expenses', expenses);
-    this.makeChart('assets', assets);
+    this.makeChart("revenues", revenues);
+    this.makeChart("expenses", expenses);
+    this.makeChart("assets", assets);
   },
 });
 

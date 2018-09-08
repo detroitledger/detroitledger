@@ -1,10 +1,7 @@
-var $ = require('jquery'),
-  _ = require('lodash'),
-  Chartist = require('chartist'),
-  Backbone = require('backbone'),
-  numeral = require('numeral'),
-  Finances = require('../../models/finances'),
-  template = require('../../templates/finances/list.html');
+var $ = require("jquery"),
+  _ = require("lodash"),
+  Backbone = require("backbone"),
+  template = require("text-loader!../../templates/finances/list.html");
 
 var FinancesListView = Backbone.View.extend({
   template: template,
@@ -13,9 +10,9 @@ var FinancesListView = Backbone.View.extend({
    * Initialize the news list
    * @param  {Object} options
    */
-  initialize: function(options) {
-    _.bindAll(this, 'render');
-    this.collection.bind('reset', this.render);
+  initialize: function() {
+    _.bindAll(this, "render");
+    this.collection.bind("reset", this.render);
   },
 
   render: function() {

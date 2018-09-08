@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
-var $ = require('jquery'),
-  _ = require('lodash'),
-  Backbone = require('backbone'),
-  GrantListView = require('./list'),
-  template = require('../../templates/grants/header.html'),
-  filter_template = require('../../templates/grants/filters.html');
+var $ = require("jquery"),
+  _ = require("lodash"),
+  Backbone = require("backbone"),
+  GrantListView = require("./list"),
+  template = require("text-loader!../../templates/grants/header.html"),
+  filter_template = require("text-loader!../../templates/grants/filters.html");
 
 var GrantContainerView = Backbone.View.extend({
   template: template,
@@ -18,11 +18,11 @@ var GrantContainerView = Backbone.View.extend({
    *                  list. Valid values: funded, recieved
    */
   initialize: function(options) {
-    _.bindAll(this, 'render', 'setGrantTagsAndRenderFilters');
+    _.bindAll(this, "render", "setGrantTagsAndRenderFilters");
 
     this.direction = options.direction;
 
-    this.collection.on('reset', this.render);
+    this.collection.on("reset", this.render);
   },
 
   filters: {},
@@ -30,30 +30,30 @@ var GrantContainerView = Backbone.View.extend({
 
   getData: function() {
     return {
-      name: $(this).attr('name'),
+      name: $(this).attr("name"),
       value: $(this).val(),
     };
   },
 
   handleFilter: function() {
-    var filter = this.$el.find('.org-search input').map(this.getData);
+    var filter = this.$el.find(".org-search input").map(this.getData);
     _.each(
       filter,
       function(f) {
         this.filters[f.name] = f.value;
       }.bind(this)
     );
-    this.filters['tag'] = this.$el.find('select.filterbytag').val();
+    this.filters["tag"] = this.$el.find("select.filterbytag").val();
     this.collection.filter(this.filters);
   },
 
   setUpFilter: function() {
     this.$el
-      .find('.org-search input')
-      .on('keyup', _.throttle(this.handleFilter.bind(this), 0));
+      .find(".org-search input")
+      .on("keyup", _.throttle(this.handleFilter.bind(this), 0));
     this.$el
-      .find('.org-search select.filterbytag')
-      .on('change', this.handleFilter.bind(this));
+      .find(".org-search select.filterbytag")
+      .on("change", this.handleFilter.bind(this));
   },
 
   setGrantTagsAndRenderFilters: function(grant_tags) {
@@ -88,11 +88,11 @@ var GrantContainerView = Backbone.View.extend({
     );
 
     // Our filters are rendered when the grant tags are reported.
-    this.$filterContainer = this.$el.find('.org-search th.filters');
+    this.$filterContainer = this.$el.find(".org-search th.filters");
 
     // Set up the actual list
     this.grantsFundedView = new GrantListView({
-      $parent: this.$el.find('tbody'),
+      $parent: this.$el.find("tbody"),
       collection: this.collection,
       direction: this.direction,
       reportGrantTags: this.setGrantTagsAndRenderFilters,

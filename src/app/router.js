@@ -1,89 +1,88 @@
 /*globals ga: true */
 
-var Backbone = require('backbone'),
-  HomeView = require('./views/home'),
-  SearchView = require('./views/search'),
-  OrganizationListView = require('./views/organizations/list'),
-  OrganizationItemView = require('./views/organizations/item'),
-  NteeItemView = require('./views/ntees/item'),
-  GrantItemView = require('./views/grants/item'),
-  PageView = require('./views/page'),
-  QualityView = require('./views/quality');
+var Backbone = require("backbone"),
+  HomeView = require("./views/home"),
+  OrganizationListView = require("./views/organizations/list"),
+  OrganizationItemView = require("./views/organizations/item"),
+  NteeItemView = require("./views/ntees/item"),
+  GrantItemView = require("./views/grants/item"),
+  PageView = require("./views/page"),
+  QualityView = require("./views/quality");
 
-Backbone.$ = require('jquery');
+Backbone.$ = require("jquery");
 
 var AppRouter = Backbone.Router.extend({
   routes: {
-    '': 'home',
-    '!/quality': 'showQuality',
+    "": "home",
+    "!/quality": "showQuality",
 
-    '!/organizations/:id(/)': 'showOrganization',
-    '!/organizations/:id/:slug(/)': 'showOrganization',
-    '!/organizations(/)': 'showOrganizations',
+    "!/organizations/:id(/)": "showOrganization",
+    "!/organizations/:id/:slug(/)": "showOrganization",
+    "!/organizations(/)": "showOrganizations",
 
-    '!/grants/:id': 'showGrant',
+    "!/grants/:id": "showGrant",
 
-    '!/ntee/:id': 'showNtee',
-    '!/ntee/:id/:slug': 'showNtee',
+    "!/ntee/:id": "showNtee",
+    "!/ntee/:id/:slug": "showNtee",
 
-    '!/:id': 'showPage',
+    "!/:id": "showPage",
 
     // Default
-    '!/*actions': 'defaultAction',
+    "!/*actions": "defaultAction",
   },
 });
 
 module.exports.initialize = function() {
   var router = new AppRouter();
 
-  router.on('route:home', function() {
+  router.on("route:home", function() {
     var homeView = new HomeView({});
   });
 
-  router.on('route:showOrganization', function(id) {
-    console.log('Show organzation', id);
+  router.on("route:showOrganization", function(id) {
+    console.log("Show organzation", id);
     var itemView = new OrganizationItemView({
       id: id,
     });
   });
 
-  router.on('route:showOrganizations', function() {
+  router.on("route:showOrganizations", function() {
     var listView = new OrganizationListView();
   });
 
-  router.on('route:showGrant', function(id) {
+  router.on("route:showGrant", function(id) {
     var itemView = new GrantItemView({
       id: id,
     });
   });
 
-  router.on('route:showNtee', function(id) {
+  router.on("route:showNtee", function(id) {
     var itemView = new NteeItemView({
       id: id,
     });
   });
 
-  router.on('route:showPage', function(id) {
+  router.on("route:showPage", function(id) {
     var pageView = new PageView({
       id: id,
     });
   });
 
-  router.on('route:showQuality', function(id) {
+  router.on("route:showQuality", function(id) {
     var pageView = new QualityView({});
   });
 
-  router.on('route:defaultAction', function(actions) {
-    console.log('No route:', actions);
+  router.on("route:defaultAction", function(actions) {
+    console.log("No route:", actions);
   });
 
-  Backbone.history.on('route', this.trackPageview);
+  Backbone.history.on("route", this.trackPageview);
   Backbone.history.start();
 };
 
 module.exports.trackPageview = function() {
   var url = Backbone.history.root + Backbone.history.getFragment();
-  if (typeof ga === 'function') {
-    ga('send', 'pageview', url);
+  if (typeof ga === "function") {
+    ga("send", "pageview", url);
   }
 };

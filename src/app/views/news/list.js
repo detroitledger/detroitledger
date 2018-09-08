@@ -1,24 +1,21 @@
-var $ = require('jquery'),
-  _ = require('lodash'),
-  Chartist = require('chartist'),
-  Backbone = require('backbone'),
-  numeral = require('numeral'),
-  News = require('../../models/news'),
-  template = require('../../templates/news/list.html');
+var $ = require("jquery"),
+  _ = require("lodash"),
+  Backbone = require("backbone"),
+  template = require("text-loader!../../templates/news/list.html");
 
 var NewsListView = Backbone.View.extend({
   template: template,
 
   events: {
-    'click .read-all': 'expand',
+    "click .read-all": "expand",
   },
 
   /**
    * Initialize the news list
    * @param  {Object} options
    */
-  initialize: function(options) {
-    _.bindAll(this, 'render');
+  initialize: function() {
+    _.bindAll(this, "render");
     this.render();
   },
 
@@ -30,7 +27,7 @@ var NewsListView = Backbone.View.extend({
         })
       );
 
-      $('#news .article').dotdotdot();
+      $("#news .article").dotdotdot();
     }
 
     return this;
@@ -38,9 +35,9 @@ var NewsListView = Backbone.View.extend({
 
   expand: function(event) {
     event.preventDefault();
-    $('.read-all').slideUp();
-    $('.more-news').slideDown();
-    $('#news .article').dotdotdot();
+    $(".read-all").slideUp();
+    $(".more-news").slideDown();
+    $("#news .article").dotdotdot();
   },
 });
 

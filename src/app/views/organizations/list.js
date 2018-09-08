@@ -1,16 +1,15 @@
-var $ = require('jquery'),
-  _ = require('lodash'),
-  Backbone = require('backbone'),
-  Organizations = require('../../models/organizations'),
-  template = require('../../templates/organizations/list.html');
+var $ = require("jquery"),
+  _ = require("lodash"),
+  Backbone = require("backbone"),
+  template = require("text-loader!../../templates/organizations/list.html");
 
 var OrganizationListView = Backbone.View.extend({
-  el: '#content',
+  el: "#content",
   template: template,
 
-  initialize: function(options) {
-    _.bindAll(this, 'render');
-    this.collection.bind('reset', this.render);
+  initialize: function() {
+    _.bindAll(this, "render");
+    this.collection.bind("reset", this.render);
   },
 
   render: function() {

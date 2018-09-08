@@ -1,42 +1,42 @@
-var $ = require('jquery'),
-  _ = require('lodash'),
-  Backbone = require('backbone'),
-  SearchView = require('./search'),
-  Stats = require('../models/stats'),
-  Organizaitons = require('../models/organizations'),
-  template = require('../templates/home.html'),
-  list = require('../templates/organizations/ol.html'),
-  title = require('../templates/title.html');
+var $ = require("jquery"),
+  _ = require("lodash"),
+  Backbone = require("backbone"),
+  SearchView = require("./search"),
+  Stats = require("../models/stats"),
+  Organizaitons = require("../models/organizations"),
+  template = require("text-loader!../templates/home.html"),
+  list = require("text-loader!../templates/organizations/ol.html"),
+  title = require("text-loader!../templates/title.html");
 
 var HomeView = Backbone.View.extend({
-  el: '#content',
+  el: "#content",
   template: template,
   title: title,
   ol: list,
 
   initialize: function() {
-    _.bindAll(this, 'render', 'showFunders', 'showRecipients');
+    _.bindAll(this, "render", "showFunders", "showRecipients");
 
     this.model = new Stats.Model();
     this.model.fetch();
-    this.model.on('change', this.render);
+    this.model.on("change", this.render);
     this.render();
   },
 
   showFunders: function() {
-    $('#funders').html(
+    $("#funders").html(
       this.ol({
         organizations: this.funders.toJSON(),
-        key: 'org_grants_funded',
+        key: "org_grants_funded",
       })
     );
   },
 
   showRecipients: function() {
-    $('#recipients').html(
+    $("#recipients").html(
       this.ol({
         organizations: this.recipients.toJSON(),
-        key: 'org_grants_received',
+        key: "org_grants_received",
       })
     );
   },
@@ -48,11 +48,11 @@ var HomeView = Backbone.View.extend({
       })
     );
 
-    $('#title').html(
+    $("#title").html(
       this.title({
-        title: 'The Detroit Ledger',
+        title: "The Detroit Ledger",
         options: {
-          page: 'home',
+          page: "home",
         },
       })
     );
@@ -64,19 +64,19 @@ var HomeView = Backbone.View.extend({
     this.funders.search({
       limit: 5,
       sort: {
-        funded: 'DESC',
+        funded: "DESC",
       },
     });
-    this.funders.on('reset', this.showFunders);
+    this.funders.on("reset", this.showFunders);
     this.recipients = new Organizaitons.Collection();
     this.recipients.comparator = undefined;
     this.recipients.search({
       limit: 5,
       sort: {
-        received: 'DESC',
+        received: "DESC",
       },
     });
-    this.recipients.on('reset', this.showRecipients);
+    this.recipients.on("reset", this.showRecipients);
   },
 });
 

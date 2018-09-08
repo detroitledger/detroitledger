@@ -1,31 +1,29 @@
-'use strict';
+"use strict";
 
-var $ = require('jquery'),
-  _ = require('lodash'),
-  Backbone = require('backbone'),
-  numeral = require('numeral'),
-  template = require('../../templates/grants/list.html'),
-  util = require('../../util');
+var $ = require("jquery"),
+  _ = require("lodash"),
+  Backbone = require("backbone"),
+  template = require("text-loader!../../templates/grants/list.html");
 
 var GrantListView = Backbone.View.extend({
   template: template,
 
   initialize: function(options) {
-    _.bindAll(this, 'prep', 'render');
+    _.bindAll(this, "prep", "render");
 
     this.direction = options.direction;
     this.$el = options.$parent || $(options.el);
 
     this.reportGrantTags = options.reportGrantTags || function() {};
 
-    this.collection.on('reset', this.render);
+    this.collection.on("reset", this.render);
   },
 
   preppedData: {},
 
   getData: function() {
     return {
-      name: $(this).attr('name'),
+      name: $(this).attr("name"),
       value: $(this).val(),
     };
   },

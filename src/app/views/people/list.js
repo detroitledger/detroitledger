@@ -1,10 +1,8 @@
-var $ = require('jquery'),
-  _ = require('lodash'),
-  Chartist = require('chartist'),
-  Backbone = require('backbone'),
-  numeral = require('numeral'),
-  People = require('../../models/people'),
-  template = require('../../templates/people/list.html');
+var $ = require("jquery"),
+  _ = require("lodash"),
+  Backbone = require("backbone"),
+  People = require("../../models/people"),
+  template = require("text-loader!../../templates/people/list.html");
 
 var PeopleListView = Backbone.View.extend({
   template: template,
@@ -14,13 +12,13 @@ var PeopleListView = Backbone.View.extend({
    * @param  {Object} options
    */
   initialize: function(options) {
-    _.bindAll(this, 'render');
+    _.bindAll(this, "render");
 
     // Get the organziations
     this.people = new People.Collection({
       org: options.org,
     });
-    this.people.on('reset', this.render);
+    this.people.on("reset", this.render);
   },
 
   render: function() {

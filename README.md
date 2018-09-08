@@ -5,11 +5,7 @@ This code produces the site you see on the [Detroit Ledger](https://detroitledge
 ## Installation
 
 ```
-npm install -g gulp
-npm install -g bower
 npm install
-gem install sass
-gem install compass
 ```
 
 See `.travis.yml` for an example of how to fulfill the compass and sass
@@ -17,19 +13,7 @@ dependencies if they give you trouble.
 
 ## Development
 
-`gulp watch` to recompile and run tests on file change
-
-`gulp watch-sans-test` to recompile without tests on file change
-
-`gulp build` to build the site for deployment
-
-## Installing a new module
-
-Say you need a new third party library like jquery or bootstrap:
-
-1. Add it to `bower.json`
-2. `gulp install`
-3. Add it to `package.json` -- make sure it's under `browser`.
+`npx webpack` to get started
 
 ## Prerender
 
